@@ -22,6 +22,8 @@ public class ApoioPoeContext {
 
     public ApoioPoeState getState(){
         if( state == null )
+            return null;
+            
         return state.getState(); 
     }
 
