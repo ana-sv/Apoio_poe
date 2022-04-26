@@ -9,7 +9,4 @@ public class Aluno {
     protected Ramo siglaRamo;
     protected boolean estagioAcesso;
 
-
-    
-
 }
