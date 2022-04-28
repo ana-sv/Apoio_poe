@@ -1,7 +1,6 @@
 @startuml
 left to right direction
 
-' info é o método das listas 
 [*] --> AguardaConfiguracao 
 
 ' AguardaConfiguracao --> FASE1
