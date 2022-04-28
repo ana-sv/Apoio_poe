@@ -1,0 +1,78 @@
+@startuml
+left to right direction
+
+' info é o método das listas 
+[*] --> AguardaConfiguracao 
+
+' AguardaConfiguracao --> FASE1
+AguardaConfiguracao --> AguardaConfiguracao : filtraLista()
+AguardaConfiguracao --> ModoAlunos : editaAlunos() & Fase1=true 
+AguardaConfiguracao --> ModoDocentes : editaDocentes() & Fase1=true 
+AguardaConfiguracao --> ModoPropostas : editaPropostas() & Fase1=true 
+AguardaConfiguracao --> OrganizaCandidaturas : classificaAlunos() & Fase1=false & nAlunos<=nPropostas
+AguardaConfiguracao --> OrganizaCandidaturas : classificaAlunos() & Fase1=true  
+
+
+' ModoAlunos - FASE1 
+ModoAlunos --> ModoAlunos : importaDados() & Fase1=true 
+ModoAlunos --> ModoAlunos : exportaDados()
+ModoAlunos --> ModoAlunos : filtraLista()
+ModoAlunos -> ModoAlunos : atualiza() & Fase1=true
+ModoAlunos --> AguardaConfiguracao : continua()
+
+' ModoDocentes - FASE1 
+ModoDocentes --> ModoDocentes : importDados() & Fase1=true
+ModoDocentes --> ModoDocentes : exportaDados() 
+ModoDocentes --> ModoDocentes : filtraLista() 
+ModoDocentes --> ModoDocentes : atualiza() & Fase1=true 
+ModoDocentes --> AguardaConfiguracao: continua() 
+
+' ModoPropostas - FASE1
+ModoPropostas --> ModoPropostas : importDados() & Fase1=true 
+ModoPropostas --> ModoPropostas : exportaDados() 
+ModoPropostas --> ModoPropostas : filtraLista() 
+ModoPropostas --> ModoPropostas : atualiza() & Fase1=true 
+ModoPropostas --> AguardaConfiguracao: continua() 
+
+
+' OrganizaCandidatura - FASE2
+OrganizaCandidaturas --> AguardaConfiguracao : return & Fase2=true 
+OrganizaCandidaturas --> OrganizaCandidaturas : importaDados() && Fase2 =true 
+OrganizaCandidaturas --> OrganizaCandidaturas : exportaDados() 
+OrganizaCandidaturas --> OrganizaCandidaturas : filtraListas() 
+OrganizaCandidaturas --> OrganizaCandidaturas : atualizaCandidaturas() && Fase2=true 
+OrganizaCandidaturas --> AtribuicaoPropostas : Fase2=true 
+OrganizaCandidaturas --> AtribuicaoPropostas : Fase2=false 
+
+' AtribuicaoPropostas -FASE3
+AtribuicaoPropostas --> OrganizaCandidaturas : return & Fase3=true 
+AtribuicaoPropostas --> AtribuicaoPropostas : filtraListas() 
+AtribuicaoPropostas --> AtribuicaoPropostas : exportaDados() 
+AtribuicaoPropostas --> AtribuicaoPropostas : atualizaPropostas8() && Fase3=true 
+AtribuicaoPropostas --> ConsultaEmpates : atribuicaoAutomatica() & Fase4=true 
+AtribuicaoPropostas --> AtribuicaoOrientadores : Fase3=true 
+AtribuicaoPropostas --> AtribuicaoOrientadores : Fase3=false & nCandidaturas>=nPropostas & FasesAnteriores=false 
+
+' ConsultaEmpates - FASE4
+ConsultaEmpates --> ConsultaEmpates : desempate() & nEmpates>0
+ConsultaEmpates --> AtribuicaoPropostas : desempate() & nEmpates=0
+
+' AtribuicaoOrientadores - FASE4
+AtribuicaoOrientadores --> AtribuicaoPropostas : return & Fase4=true 
+AtribuicaoOrientadores -> AtribuicaoOrientadores : filtraListas() 
+AtribuicaoOrientadores --> AtribuicaoOrientadores : exportaDados()
+AtribuicaoOrientadores --> AtribuicaoOrientadores : atribuicaoAuto() & Fase4=true 
+AtribuicaoOrientadores --> AtribuicaoOrientadores : atualizaOrientadores() & Fase4=true 
+AtribuicaoOrientadores --> Consulta : Fase4 = false 
+
+' Consulta - FASE5
+Consulta --> Consulta : exportaDados() 
+Consulta -> Consulta : filtraListas() 
+Consulta --> [*]
+
+
+
+
+
+
+@enduml
