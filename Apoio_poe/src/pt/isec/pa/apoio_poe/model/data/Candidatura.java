@@ -5,5 +5,17 @@ public class Candidatura {
     protected Aluno a;
     protected Proposta p; 
 
+    public enum EstadoCandidatura{
+        LACRADA,
+        ABERTA,
+        // FALTA ESTADO DE AUTOPROPOSTA- Á TEM ALUNO E PROPOSTA AS NAO ESTA LACRADA
+        IMCOMPLETA,
+    }
+
     
+    
+
+
+
+
 }

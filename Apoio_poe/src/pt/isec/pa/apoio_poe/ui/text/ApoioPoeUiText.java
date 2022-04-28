@@ -13,9 +13,9 @@ public class ApoioPoeUiText {
 
     private boolean finish = false;
 
-    private void ficheirosUI(){
 
-    }
+
+
 
     private void consultaUI(){
 
@@ -62,6 +62,7 @@ public class ApoioPoeUiText {
 
     private void modoAlunosUI(){
 
+
     }
 
 
@@ -78,7 +79,6 @@ public class ApoioPoeUiText {
                 case ATRIBUICAO_PROPOSTAS -> atribuicaoPorpostasUI();
                 case ATRIBUICAO_ORIENTADORES -> atribuicaoOrientadoresUI();
                 case CONSULTA -> consultaUI();
-                case FICHEIROSCVS -> ficheirosUI(); 
 
             }
 
