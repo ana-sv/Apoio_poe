@@ -13,8 +13,7 @@ public class ModoDocentes extends ApoioPoeStateAdapter {
 
     @Override
     public ApoioPoeState getState() {
-        // TODO Auto-generated method stub
-        return null;
+        return ApoioPoeState.MODO_DOCENTES;
     }
     
 }

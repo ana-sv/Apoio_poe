@@ -13,8 +13,7 @@ public class OrganizaCandidaturas extends ApoioPoeStateAdapter {
 
     @Override
     public ApoioPoeState getState() {
-        // TODO Auto-generated method stub
-        return null;
+        return ApoioPoeState.ORGANIZA_CANDIDATURAS;
     }
     
 }

@@ -13,8 +13,7 @@ public class AguardaConfiguracao extends ApoioPoeStateAdapter {
 
     @Override
     public ApoioPoeState getState() {
-        // TODO Auto-generated method stub
-        return null;
+        return ApoioPoeState.AGUARDA_CONFIGURACAO;
     }
 
 

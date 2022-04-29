@@ -13,8 +13,7 @@ public class AtribuicaoProppostas extends ApoioPoeStateAdapter{
 
     @Override
     public ApoioPoeState getState() {
-        // TODO Auto-generated method stub
-        return null;
+        return ApoioPoeState.ATRIBUICAO_PROPOSTAS;
     }
 
 
