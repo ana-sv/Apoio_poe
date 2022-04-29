@@ -51,6 +51,11 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
         return false;
     }
 
+    public Fase getFase(){
+        return fase; 
+
+    }
+
 
     public void classificaAlunos(){
         // TODO 

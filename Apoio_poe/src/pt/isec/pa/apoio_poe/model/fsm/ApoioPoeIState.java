@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 public interface ApoioPoeIState {
@@ -17,6 +18,7 @@ public interface ApoioPoeIState {
     public void avanca(); 
 
     ApoioPoeState getState();
+    Fase getFase();
 
   
 

@@ -9,10 +9,8 @@
 
 
 package pt.isec.pa.apoio_poe.model.fsm;
-
-import javax.swing.text.AbstractDocument.Content;
-
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 public class ApoioPoeContext {
@@ -33,10 +31,6 @@ public class ApoioPoeContext {
 
 
 
-
-
-
-
     // Método público que permita obter o estado atual
     public ApoioPoeState getState(){
         if( state == null )
@@ -45,13 +39,19 @@ public class ApoioPoeContext {
         return state.getState(); 
     }
 
+    public Fase getFase(){
+        return state.getFase();
+    }
+
+
+
 
 
     // Métodos que reencaminhem as ações/eventos para o estado ativo
 
 
 
-
+    // TO DO 
 
 
     // Conjunto de métodos que permita obter os dados necessários à 
@@ -60,7 +60,7 @@ public class ApoioPoeContext {
 
 
 
-
+            // TO DO 
 
 
 }
