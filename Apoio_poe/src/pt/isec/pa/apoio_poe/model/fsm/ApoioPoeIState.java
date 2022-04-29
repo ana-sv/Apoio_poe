@@ -2,9 +2,23 @@ package pt.isec.pa.apoio_poe.model.fsm;
 
 public interface ApoioPoeIState {
 
-    void start();
-    void end();
+
+    // interface deve ter poucos metodos 
+    // REVER tipo de retorno dos metodos 
+/*
+    boolean start();
+
+    boolean classificaAlunos();
+
+    boolean continua();
+
+    boolean voltaAtras(); 
+
+    boolean desempate(); 
+
+    boolean end(); 
+    */
 
 
-    ApoioPoeState getState(); 
+    ApoioPoeState getState();
 }

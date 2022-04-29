@@ -1,20 +1,48 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.fsm.states.AguardaConfiguracao;
+import pt.isec.pa.apoio_poe.model.fsm.states.AtribuicaoOrientadores;
+import pt.isec.pa.apoio_poe.model.fsm.states.AtribuicaoProppostas;
+import pt.isec.pa.apoio_poe.model.fsm.states.Consulta;
+import pt.isec.pa.apoio_poe.model.fsm.states.ModoAlunos;
+import pt.isec.pa.apoio_poe.model.fsm.states.ModoDocentes;
+import pt.isec.pa.apoio_poe.model.fsm.states.ModoPropostas;
+import pt.isec.pa.apoio_poe.model.fsm.states.OrganizaCandidaturas;
+import pt.isec.pa.apoio_poe.model.fsm.states.ResolveEmpates;
+
 public enum ApoioPoeState {
+    
+    AGUARDA_CONFIGURACAO,
     MODO_ALUNOS,
     MODO_DOCENTES,
     MODO_PROPOSTAS,
-    AGUARDA_CONFIGURACAO,
+
     ORGANIZA_CANDIDATURAS,
-    ORGANIZA_EMPATE,
     ATRIBUICAO_PROPOSTAS,
+    RESOLVE_EMPATES,
+
     ATRIBUICAO_ORIENTADORES,
     CONSULTA;
 
 
 
-    public ApoioPoeIState createState( ApoioPoeContext context){
+    public ApoioPoeIState createState( ApoioPoeContext context, ApoioPoeData data ){
+
          return switch (this){
+
+             case AGUARDA_CONFIGURACAO -> new AguardaConfiguracao(context, data);
+             case MODO_ALUNOS -> new ModoAlunos(context,data);
+             case MODO_DOCENTES -> new ModoDocentes(context,data);
+             case MODO_PROPOSTAS -> new ModoPropostas(context,data);
+
+             case ORGANIZA_CANDIDATURAS -> new OrganizaCandidaturas(context,data);
+             case ATRIBUICAO_PROPOSTAS -> new AtribuicaoProppostas(context,data);
+             case RESOLVE_EMPATES -> new ResolveEmpates(context,data);
+
+             case ATRIBUICAO_ORIENTADORES -> new AtribuicaoOrientadores(context,data);
+             case CONSULTA -> new Consulta(context,data);
+
              default -> null; 
          };
     }

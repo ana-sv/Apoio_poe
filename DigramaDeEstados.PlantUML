@@ -3,6 +3,7 @@ left to right direction
 
 [*] --> AguardaConfiguracao 
 
+
 ' AguardaConfiguracao --> FASE1
 AguardaConfiguracao --> AguardaConfiguracao : filtraLista()
 AguardaConfiguracao --> ModoAlunos : editaAlunos() & Fase1=true 
@@ -48,19 +49,19 @@ AtribuicaoPropostas --> OrganizaCandidaturas : return & Fase3=true
 AtribuicaoPropostas --> AtribuicaoPropostas : filtraListas() 
 AtribuicaoPropostas --> AtribuicaoPropostas : exportaDados() 
 AtribuicaoPropostas --> AtribuicaoPropostas : atualizaPropostas8() && Fase3=true 
-AtribuicaoPropostas --> ConsultaEmpates : atribuicaoAutomatica() & Fase4=true 
+AtribuicaoPropostas --> ResolveEmpates : atribuicaoAutoPropostas() & Fase4=true 
 AtribuicaoPropostas --> AtribuicaoOrientadores : Fase3=true 
 AtribuicaoPropostas --> AtribuicaoOrientadores : Fase3=false & nCandidaturas>=nPropostas & FasesAnteriores=false 
 
 ' ConsultaEmpates - FASE4
-ConsultaEmpates --> ConsultaEmpates : desempate() & nEmpates>0
-ConsultaEmpates --> AtribuicaoPropostas : desempate() & nEmpates=0
+ResolveEmpates --> ResolveEmpates : desempate() & nEmpates>0
+ResolveEmpates --> AtribuicaoPropostas : desempate() & nEmpates=0
 
 ' AtribuicaoOrientadores - FASE4
 AtribuicaoOrientadores --> AtribuicaoPropostas : return & Fase4=true 
 AtribuicaoOrientadores -> AtribuicaoOrientadores : filtraListas() 
 AtribuicaoOrientadores --> AtribuicaoOrientadores : exportaDados()
-AtribuicaoOrientadores --> AtribuicaoOrientadores : atribuicaoAuto() & Fase4=true 
+AtribuicaoOrientadores --> AtribuicaoOrientadores : atribuicaoAutoOrientadore() & Fase4=true 
 AtribuicaoOrientadores --> AtribuicaoOrientadores : atualizaOrientadores() & Fase4=true 
 AtribuicaoOrientadores --> Consulta : Fase4 = false 
 

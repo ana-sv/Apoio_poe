@@ -31,7 +31,7 @@ public class ApoioPoeUiText {
     }
 
 
-    private void organizaEmpateUI(){
+    private void resolveEmpateUI(){
 
     }
 
@@ -75,7 +75,7 @@ public class ApoioPoeUiText {
                 case MODO_PROPOSTAS -> modoPropostasUI(); 
                 case AGUARDA_CONFIGURACAO -> aguardaConfiguracaoUI();
                 case ORGANIZA_CANDIDATURAS -> organizaCandidaturasUI();
-                case ORGANIZA_EMPATE -> organizaEmpateUI();
+                case RESOLVE_EMPATE -> resolveEmpateUI();
                 case ATRIBUICAO_PROPOSTAS -> atribuicaoPorpostasUI();
                 case ATRIBUICAO_ORIENTADORES -> atribuicaoOrientadoresUI();
                 case CONSULTA -> consultaUI();
