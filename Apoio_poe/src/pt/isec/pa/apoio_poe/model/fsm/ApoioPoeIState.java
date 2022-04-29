@@ -4,23 +4,20 @@ import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 public interface ApoioPoeIState {
 
+    // interface deve ter poucos metodos e apenas aqueles que representam mudança de estado
 
-    // interface deve ter poucos metodos 
-    // REVER tipo de retorno dos metodos 
-/*
-    boolean start();
+    public String filtrarListas(); 
 
-    boolean classificaAlunos();
+    public boolean alteraModoConfiguracao(int op);
 
-    boolean continua();
+    public boolean voltar();
 
-    boolean voltaAtras(); 
+    public boolean fechaFase();
 
-    boolean desempate(); 
-
-    boolean end(); 
-    */
-
+    public void avanca(); 
 
     ApoioPoeState getState();
+
+  
+
 }

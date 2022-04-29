@@ -14,5 +14,27 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     public ApoioPoeState getState() {
         return ApoioPoeState.MODO_DOCENTES;
     }
+
+
+    // TO DO 
+    // importar
+    // exportar 
+
+    // APENAS NA META 2 
+    // inserir 
+    // remover 
+    // editar 
+
+    @Override
+    public String filtrarListas() {
+        // TODO
+        return super.filtrarListas();
+    }
+
+    @Override
+    public void avanca() {
+        changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
+    }
+
     
 }

@@ -30,7 +30,7 @@ public enum ApoioPoeState {
              case MODO_PROPOSTAS -> new ModoPropostas(context,data);
 
              case ORGANIZA_CANDIDATURAS -> new OrganizaCandidaturas(context,data);
-             case ATRIBUICAO_PROPOSTAS -> new AtribuicaoProppostas(context,data);
+             case ATRIBUICAO_PROPOSTAS -> new AtribuicaoPropostas(context,data);
              case RESOLVE_EMPATES -> new ResolveEmpates(context,data);
 
              case ATRIBUICAO_ORIENTADORES -> new AtribuicaoOrientadores(context,data);

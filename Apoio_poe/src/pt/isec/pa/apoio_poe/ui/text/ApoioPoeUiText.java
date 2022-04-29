@@ -64,6 +64,8 @@ public class ApoioPoeUiText {
 
 
     private void modoAlunosUI(){
+        System.out.println(" --- MODO ALUNOS --- ");
+       
         
 
 

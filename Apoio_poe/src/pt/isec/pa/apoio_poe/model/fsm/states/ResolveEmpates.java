@@ -10,9 +10,24 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
         super(context, data);
     }
 
+
+
+    //TO DO 
+    // desempate() 
+
     @Override
     public ApoioPoeState getState() {
         return ApoioPoeState.RESOLVE_EMPATES;
     }
+
+    @Override
+    public void avanca() {
+        // TODO if nEmpates==0
+        changeState(ApoioPoeState.ATRIBUICAO_PROPOSTAS);
+        //else
+        // desempate()  ???? 
+
+    }
+    
     
 }
