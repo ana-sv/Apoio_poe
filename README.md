@@ -12,6 +12,8 @@
 
 - [x] " esqueleto do FSM "
 
+- [ ] Terminar construtores do package data 
+
 - [ ] user interface 
 
 - [ ] importação dos ficheiros 
