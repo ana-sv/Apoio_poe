@@ -1,5 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+
 public interface ApoioPoeIState {
 
 

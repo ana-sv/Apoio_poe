@@ -1,15 +1,8 @@
-package pt.isec.pa.apoio_poe.model.fsm;
+package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.fsm.states.AguardaConfiguracao;
-import pt.isec.pa.apoio_poe.model.fsm.states.AtribuicaoOrientadores;
-import pt.isec.pa.apoio_poe.model.fsm.states.AtribuicaoProppostas;
-import pt.isec.pa.apoio_poe.model.fsm.states.Consulta;
-import pt.isec.pa.apoio_poe.model.fsm.states.ModoAlunos;
-import pt.isec.pa.apoio_poe.model.fsm.states.ModoDocentes;
-import pt.isec.pa.apoio_poe.model.fsm.states.ModoPropostas;
-import pt.isec.pa.apoio_poe.model.fsm.states.OrganizaCandidaturas;
-import pt.isec.pa.apoio_poe.model.fsm.states.ResolveEmpates;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeIState;
 
 public enum ApoioPoeState {
     

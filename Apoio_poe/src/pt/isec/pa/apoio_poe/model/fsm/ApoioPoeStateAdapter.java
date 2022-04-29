@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 // talvez nao devesse ser public aqui 
 

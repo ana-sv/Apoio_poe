@@ -16,12 +16,15 @@ public class ApoioPoeUiText {
 
 
 
+    // Mostra opcoes do utilizardor em cada fase 
 
     private void consultaUI(){
+
 
     }
 
     private void atribuicaoOrientadoresUI(){
+
 
     }
 
@@ -61,6 +64,7 @@ public class ApoioPoeUiText {
 
 
     private void modoAlunosUI(){
+        
 
 
     }
@@ -75,7 +79,7 @@ public class ApoioPoeUiText {
                 case MODO_PROPOSTAS -> modoPropostasUI(); 
                 case AGUARDA_CONFIGURACAO -> aguardaConfiguracaoUI();
                 case ORGANIZA_CANDIDATURAS -> organizaCandidaturasUI();
-                case RESOLVE_EMPATE -> resolveEmpateUI();
+                case RESOLVE_EMPATES -> resolveEmpateUI();
                 case ATRIBUICAO_PROPOSTAS -> atribuicaoPorpostasUI();
                 case ATRIBUICAO_ORIENTADORES -> atribuicaoOrientadoresUI();
                 case CONSULTA -> consultaUI();
