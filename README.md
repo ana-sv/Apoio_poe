@@ -1,6 +1,11 @@
 ## Trabalho Prático - Apoio à Gestao de Projetos e Estágios 
 #### Programação Avançada - 2021/2022
 
+
+---
+### TO DO : 
+
+
 - [x] Diagram de Estados
 
 - [ ] Diagrama de Classes 
