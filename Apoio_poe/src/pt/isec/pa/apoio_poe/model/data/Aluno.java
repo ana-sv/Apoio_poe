@@ -5,8 +5,13 @@ public class Aluno {
     protected Long numEstudante;
     protected String nome;
     protected String mail;
-    protected Curso siglaCurso;
-    protected Ramo siglaRamo;
+    protected Enum.Curso siglaCurso;
+    protected Enum.Ramo siglaRamo;
+    protected Float classificacao; 
     protected boolean estagioAcesso;
+
+    // metodo que insira o acesso ao estagio automaticamente ?
+
+    
 
 }
