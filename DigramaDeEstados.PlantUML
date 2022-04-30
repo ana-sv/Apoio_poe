@@ -7,6 +7,7 @@ left to right direction
 ' AguardaConfiguracao --> FASE1
 AguardaConfiguracao --> AguardaConfiguracao : filtraLista()
 AguardaConfiguracao --> ModoAlunos : alteraModoConfiguracao() c/ Fase1=ABERTA 
+' Se a FASE1==FECHADA , já nao há acesso aos estados ModoAluno ModoDocente ModoPropostas que são os que permitem a edicao de informacoes 
 AguardaConfiguracao --> ModoDocentes : alteraModoConfiguracao() c/ Fase1=ABERTA 
 AguardaConfiguracao --> ModoPropostas : alteraModoConfiguracao() c/ Fase1=ABERTA 
 AguardaConfiguracao --> OrganizaCandidaturas : fechaFase c/ Fase1=FECHADA 
