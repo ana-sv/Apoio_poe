@@ -30,7 +30,7 @@
 
 *** Ui pode precisar de ajustes ** 
 
-- [ ] importação dos ficheiros 
+- [ ] importação dos ficheiros --> Tiago
 
 - [ ] exportacao dos ficheiros 
 
