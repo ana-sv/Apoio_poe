@@ -30,19 +30,23 @@
 
 *** Ui pode precisar de ajustes ** 
 
-- [ ] importação dos ficheiros --> Tiago
+- [x] importação dos ficheiros alunos
+- [ ]  importação dos ficheiros docentes
+- [ ]  importação dos ficheiros propostas
 
 - [ ] exportacao dos ficheiros 
 
 - [ ] listas & filtros das listas  --> ON IT
 
-- [ ] classificaccao dos alunos 
+- [ ] classificaccao dos alunos  --> META 2
 
-- [ ] atribuição automatica das propostas
+- [ ] atribuição automatica das propostas 
 
 - [ ] empates por causa da atribuição das propostas 
 
 - [ ] atribuicao de orientadoes 
+
+______ Provavelmente nao vai ficar feito 
 
 - [ ] Gravavao do estado da aplicacao
 
