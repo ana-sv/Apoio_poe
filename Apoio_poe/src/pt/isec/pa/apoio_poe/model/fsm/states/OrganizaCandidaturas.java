@@ -14,17 +14,25 @@ import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
         fase = Fase.ABERTA;
     }
 
-    // TODO
 
-    // impportarInfoCandidaturas se fase aberta 
-    // exportarInfoCandidaturas
+    @Override
+    public String exportaCVS() {
+        // TODO
+        return " nao implementado ainda";
+    }
 
     @Override
     public String filtrarListas() {
-        // TODO LISTAS CANDIDATURAS
-        return super.filtrarListas();
+        // TO DO
+        return " nao implementado ainda";
     }
 
+    @Override
+    public String importaCVS(String nomeFicheiro) {
+
+        
+        return " nao implementado ainda";
+    }
     @Override
     public ApoioPoeState getState() {
         return ApoioPoeState.ORGANIZA_CANDIDATURAS;
@@ -54,14 +62,6 @@ import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
         fase = Fase.FECHADA;
         return true;    
     }
-
-    
-    @Override
-    public String importaCVS(String nomeFicheiro) {
-        // TODO Auto-generated method stub
-        return super.importaCVS(nomeFicheiro);
-    }
-
 
 
 

@@ -24,83 +24,74 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     AguardaConfiguracao(ApoioPoeContext context, ApoioPoeData data) {
         super(context, data);
         fase = Fase.ABERTA;
-        
+
     }
-
-
-
 
     @Override
     public String exportaCVS() {
-        // TODO 
+        // TODO
         return " nao implementado ainda";
     }
-
 
     @Override
     public String filtrarListas() {
-        // TODO 
+        // TO DO
         return " nao implementado ainda";
     }
-
 
     @Override
     public String importaCVS(String nomeFicheiro) {
-        // TODO 
+        // FAZER ESTE PRIMEIRO 
+
+        
         return " nao implementado ainda";
     }
 
-        
-    public void classificaAlunos(){
-        // TODO 
+    public void classificaAlunos() {
+        // TO DO
 
     }
 
+    @Override
+    public void avanca() { // avanca sem fechar fase
+
+        // classificaAlunos()
+        changeState(ApoioPoeState.ORGANIZA_CANDIDATURAS);
+    }
 
     @Override
-    public void avanca(){ // avanca sem fechar fase 
+    public boolean fechaFase() { // avança e fecha fase
 
         // classificaAlunos()
 
-        changeState( ApoioPoeState.ORGANIZA_CANDIDATURAS);
+        if (data.contaPropostas() >= data.contaAlunos()) {
+            fase = Fase.FECHADA;
+            return true;
+        }
+
+        return false;
     }
-
-    @Override
-    public boolean fechaFase() { // avança e fecha fase 
-
-            // classificaAlunos() 
-
-               //if( nPropostas >= nAlunos ){
-               //  fase = FECHADA;
-               // return true ; }
-
-               return false; 
-    }
-
-
-
 
     @Override
     public boolean alteraModoConfiguracao(int op) {
-        switch(op){
+        switch (op) {
             case 1 -> changeState(ApoioPoeState.MODO_ALUNOS);
             case 2 -> changeState(ApoioPoeState.MODO_DOCENTES);
             case 3 -> changeState(ApoioPoeState.MODO_PROPOSTAS);
-            default -> { return false; }
+            default -> {
+                return false;
+            }
         }
         return false;
     }
 
-
-    
     @Override
     public ApoioPoeState getState() {
         return ApoioPoeState.AGUARDA_CONFIGURACAO;
     }
 
-    public Fase getFase(){
-        return fase; 
+    public Fase getFase() {
+        return fase;
     }
 
-    
 }

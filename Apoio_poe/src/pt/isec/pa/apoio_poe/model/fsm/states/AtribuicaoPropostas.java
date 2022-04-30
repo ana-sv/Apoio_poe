@@ -22,6 +22,17 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
 
     }
 
+    @Override
+    public String exportaCVS() {
+        // TODO
+        return " nao implementado ainda";
+    }
+
+    @Override
+    public String filtrarListas() {
+        // TO DO
+        return " nao implementado ainda";
+    }
 
 
     @Override
@@ -43,12 +54,6 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
       //      return true;   }
 
         return false;
-    }
-
-    @Override
-    public String filtrarListas() {
-        // TODO 
-        return super.filtrarListas();
     }
 
     @Override

@@ -18,8 +18,19 @@ import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
     // TO DO
     // Atribuicao automatica se fase=Fase.ABERTA
     // AtualizarOrientadores se fase=Fase.ABERTA
-    // exportar Info
-    // filtra Listas
+
+    @Override
+    public String exportaCVS() {
+        // TO DO
+        return " nao implementado ainda";
+    }
+
+    @Override
+    public String filtrarListas() {
+        // TO DO
+        return " nao implementado ainda";
+    }
+
 
 
     @Override

@@ -12,8 +12,14 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
         fase = true;
     }
 
-    // TO DO 
-    // exportarInformacao 
+
+
+    @Override
+    public String exportaCVS() {
+        // TO DO
+        return " nao implementado ainda";
+    }
+
 
     @Override
     public ApoioPoeState getState() {

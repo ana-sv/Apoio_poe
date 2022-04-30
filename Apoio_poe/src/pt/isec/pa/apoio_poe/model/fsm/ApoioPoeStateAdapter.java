@@ -9,8 +9,8 @@ import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 
 public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
-    ApoioPoeContext context;
-    ApoioPoeData data; 
+    protected ApoioPoeContext context;
+    protected ApoioPoeData data; 
 
     protected ApoioPoeStateAdapter(ApoioPoeContext context, ApoioPoeData data) {
         this.context = context;
