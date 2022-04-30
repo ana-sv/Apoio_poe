@@ -30,11 +30,11 @@
 
 *** Ui pode precisar de ajustes ** 
 
-- [ ] importação dos ficheiros 
+- [ ] importação dos ficheiros --> Tiago
 
 - [ ] exportacao dos ficheiros 
 
-- [ ] listas & filtros das listas 
+- [ ] listas & filtros das listas  --> ON IT
 
 - [ ] classificaccao dos alunos 
 
