@@ -12,7 +12,7 @@
 
 - [x] " esqueleto do FSM "
 
-- [ ] Terminar construtores do package data 
+- [x] Terminar construtores do package data 
 
 - [ ] user interface 
 
