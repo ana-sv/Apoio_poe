@@ -35,6 +35,10 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
 
     @Override
     public String filtrarListas() {
+
+
+
+        
         // TO DO
         return " nao implementado ainda";
     }

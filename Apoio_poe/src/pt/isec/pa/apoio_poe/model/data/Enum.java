@@ -5,12 +5,12 @@ public class Enum {
     public enum EstadoCandidatura{
         LACRADA,
         ABERTA,
-        // FALTA ESTADO DE AUTOPROPOSTA- Á TEM ALUNO E PROPOSTA AS NAO ESTA LACRADA
-        IMCOMPLETA,
+        FECHADA, 
+        IMCOMPLETA
     }
 
     public enum Curso {
-        LEI, LEIP, LEICE  // REVER não aceita o -
+        LEI, LEI_PL  // REVER não aceita o - EM VEZ DO _
     }
 
 
@@ -20,6 +20,10 @@ public class Enum {
 
     public enum Fase {
         ABERTA, FECHADA
+    }
+
+    public enum TipoProposta{
+        T1, T2, T3
     }
 
 }
