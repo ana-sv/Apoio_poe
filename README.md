@@ -34,7 +34,7 @@
 
 - [ ] exportacao dos ficheiros 
 
-- [ ] listas & filtros das listas 
+- [ ] listas & filtros das listas  --> ON IT
 
 - [ ] classificaccao dos alunos 
 
