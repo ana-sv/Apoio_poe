@@ -9,6 +9,9 @@ public interface ApoioPoeIState {
 
     public String filtrarListas(); 
 
+    public String importaCVS( String nomeFicheiro );
+    public String exportaCVS( /*pode ter que levar aqui algo  */);
+
     public boolean alteraModoConfiguracao(int op);
 
     public boolean voltar();
@@ -18,6 +21,7 @@ public interface ApoioPoeIState {
     public void avanca(); 
 
     ApoioPoeState getState();
+
     Fase getFase();
 
   

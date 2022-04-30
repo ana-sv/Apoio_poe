@@ -1,5 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import javax.swing.text.html.HTMLDocument.RunElement;
+
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
@@ -23,8 +25,18 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
 
     @Override
     public String filtrarListas() {
-        // TODO 
-        return null;
+        return " ";
+    }
+
+    @Override
+    public String exportaCVS() {
+        return " ";
+    }
+    
+
+    @Override
+    public String importaCVS( String nomeFicheiro ){
+        return " ";
     }
 
 
@@ -56,8 +68,6 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     public Fase getFase() {
         return null;
     }
-
-
 
 
 

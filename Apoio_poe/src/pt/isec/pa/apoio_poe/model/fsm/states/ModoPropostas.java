@@ -16,15 +16,6 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     }
 
 
-    // TO DO 
-    // importar
-    // exportar 
-
-    // APENAS NA META 2 
-    // inserir 
-    // remover 
-    // editar 
-
     @Override
     public String filtrarListas() {
         // TODO
@@ -36,4 +27,14 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
         changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
     }
     
+
+    
+    @Override
+    public String importaCVS(String nomeFicheiro) {
+        // TODO Auto-generated method stub
+        return super.importaCVS(nomeFicheiro);
+    }
+
+
+
 }

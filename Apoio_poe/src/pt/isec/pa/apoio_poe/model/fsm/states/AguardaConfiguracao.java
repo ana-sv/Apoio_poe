@@ -28,40 +28,33 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     }
 
 
+
+
+    @Override
+    public String exportaCVS() {
+        // TODO 
+        return " nao implementado ainda";
+    }
+
+
     @Override
     public String filtrarListas() {
         // TODO 
-        return super.filtrarListas();
+        return " nao implementado ainda";
     }
 
 
     @Override
-    public ApoioPoeState getState() {
-        return ApoioPoeState.AGUARDA_CONFIGURACAO;
+    public String importaCVS(String nomeFicheiro) {
+        // TODO 
+        return " nao implementado ainda";
     }
 
-    @Override
-    public boolean alteraModoConfiguracao(int op) {
-        switch(op){
-            case 1 -> changeState(ApoioPoeState.MODO_ALUNOS);
-            case 2 -> changeState(ApoioPoeState.MODO_DOCENTES);
-            case 3 -> changeState(ApoioPoeState.MODO_PROPOSTAS);
-            default -> { return false; }
-        }
-        return false;
-    }
-
-    public Fase getFase(){
-        return fase; 
-
-    }
-
-
+        
     public void classificaAlunos(){
         // TODO 
 
     }
-
 
 
     @Override
@@ -86,6 +79,28 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
 
 
 
+
+    @Override
+    public boolean alteraModoConfiguracao(int op) {
+        switch(op){
+            case 1 -> changeState(ApoioPoeState.MODO_ALUNOS);
+            case 2 -> changeState(ApoioPoeState.MODO_DOCENTES);
+            case 3 -> changeState(ApoioPoeState.MODO_PROPOSTAS);
+            default -> { return false; }
+        }
+        return false;
+    }
+
+
+    
+    @Override
+    public ApoioPoeState getState() {
+        return ApoioPoeState.AGUARDA_CONFIGURACAO;
+    }
+
+    public Fase getFase(){
+        return fase; 
+    }
 
     
 }

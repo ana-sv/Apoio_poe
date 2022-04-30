@@ -15,14 +15,12 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
         return ApoioPoeState.MODO_ALUNOS;
     }
 
-    // TO DO 
-    // importar
-    // exportar 
 
-    // APENAS NA META 2 
-    // inserir 
-    // remover 
-    // editar 
+    @Override
+    public void avanca() {
+        changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
+    }
+
 
     @Override
     public String filtrarListas() {
@@ -31,9 +29,14 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     }
 
     @Override
-    public void avanca() {
-        changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
+    public String importaCVS(String nomeFicheiro) {
+        // TODO Auto-generated method stub
+        return super.importaCVS(nomeFicheiro);
     }
+
+
+
+
 
 
 
