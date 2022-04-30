@@ -36,7 +36,6 @@ class ModoAlunos extends ApoioPoeStateAdapter{
         StringBuilder sb = new StringBuilder();
         long numeroAluno;
         double classificacao;
-        boolean internshipAccess;
         String nome, mail, linha;
         String curso;
         String ramo;
@@ -52,75 +51,75 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                 sc = new Scanner(linha);
                 sc.useDelimiter(",");
 
-                //Student Number
+                //Numero Aluno
                 if (sc.hasNext()) {
                     String snString = sc.next();
                     if(snString.length()!=10){
-                        sb.append("Student Number is not valid");
+                        sb.append("Numero de aluno nao e valido");
                         break;
                     }
 
                     numeroAluno = Long.parseLong(snString);
 
                     if (data.alunoExiste(numeroAluno)) {
-                        sb.append("Student with number " + numeroAluno + " already exists\n");
+                        sb.append("Aluno com numero " + numeroAluno + " ja existe\n");
                         break;
                     }
                 } else {
-                    sb.append("Student Number not found");
+                    sb.append("Numero de aluno nao encontrado");
                     break;
                 }
 
-                //Name
+                //Nome
                 if (sc.hasNext()) {
                     nome = sc.next();
                 } else {
-                    sb.append("Name not found");
+                    sb.append("Nome nao encontrado");
                     break;
                 }
 
-                //Email
+                //Mail
                 if (sc.hasNext()) {
                     mail = sc.next();
                     if(!context.emailIsValid(mail)) {
-                        sb.append("Email is not valid");
+                        sb.append("Mail nao é valido");
                         break;
                     }
 
                     if (data.alunoExiste(mail)) {
-                        sb.append("Student with email " + mail + " already exists\n");
+                        sb.append("Mail  " + mail + " ja existe\n");
                         break;
                     }
                 } else {
-                    sb.append("Email not found\n");
+                    sb.append("Mail nao encontrado\n");
                     break;
                 }
 
-                //Course
+                //Curso
                 if (sc.hasNext()) {
                     curso = sc.next();
                     if(!(curso.equalsIgnoreCase("LEI") || curso.equalsIgnoreCase("LEI-PL"))){
-                        sb.append("Course is not valid");
+                        sb.append("Curso não é valido ");
                         break;
                     }
                 } else {
-                    sb.append("Course not found");
+                    sb.append("Curso nao encontrado");
                     break;
                 }
 
-                //Branch
+                //Ramo
                 if (sc.hasNext()) {
                     ramo = sc.next();
                     if(!(ramo.equalsIgnoreCase("DA") || ramo.equalsIgnoreCase("RAS") || ramo.equalsIgnoreCase("SI"))){
-                        sb.append("Branch is not valid");
+                        sb.append("Ramo nao é valido");
                         break;
                     }
                 } else {
-                    sb.append("Branch not found");
+                    sb.append("Ramo nao encontrado");
                     break;
                 }
 
-                //Classification
+                //Classificação
                 if (sc.hasNext()) {
                     String cString = sc.next();
                     classificacao = Double.parseDouble(cString);
@@ -133,20 +132,8 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                     break;
                 }
 
-                //Internship Access
-                if (sc.hasNext()) {
-                    String iaString = sc.next();
-                    if(!(iaString.equalsIgnoreCase("TRUE") || iaString.equalsIgnoreCase("FALSE"))){
-                        sb.append("Internship Access Value is not valid");
-                        break;
-                    }
-                    internshipAccess = Boolean.parseBoolean(iaString);
-                } else {
-                    sb.append("Student Number not found");
-                    break;
-                }
 
-                //Add Student
+                //Adicionar Aluno
                 if(!sc.hasNext())
                     data.adicionaAluno(numeroAluno, nome, mail, curso, ramo);
                 else
@@ -158,11 +145,11 @@ class ModoAlunos extends ApoioPoeStateAdapter{
             br.close();
             fr.close();
         }catch (FileNotFoundException e){
-            sb.append("The specified file was not found\n");
+            sb.append("O ficheiro nao foi encontrado\n");
         }catch (NumberFormatException e){
-            sb.append("Argument should be a number but it was not\n");
+            sb.append("Argumento deverá ser um numero\n");
         }catch (IOException e){
-            sb.append("There was an error (IOException)\n");
+            sb.append("Houve um erro (IOException)\n");
         }
 
         return sb.toString();
