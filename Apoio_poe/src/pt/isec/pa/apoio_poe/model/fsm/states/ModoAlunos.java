@@ -36,6 +36,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
         StringBuilder sb = new StringBuilder();
         long numeroAluno;
         double classificacao;
+        boolean estagioAcesso;
         String nome, mail, linha;
         String curso;
         String ramo;
@@ -131,11 +132,23 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                     sb.append("Student Number not found");
                     break;
                 }
+                //Acesso Estagio
+                if (sc.hasNext()) {
+                    String cString = sc.next();
+                    estagioAcesso = Boolean.parseBoolean(cString);
+                    if(classificacao>1 || classificacao<0){
+                        sb.append("Classification is not valid");
+                        break;
+                    }
+                } else {
+                    sb.append("Student Number not found");
+                    break;
+                }
 
 
                 //Adicionar Aluno
                 if(!sc.hasNext())
-                    data.adicionaAluno(numeroAluno, nome, mail, curso, ramo);
+                    data.adicionaAluno(numeroAluno, nome, mail, curso, ramo, classificacao, estagioAcesso);
                 else
                     sb.append("More fields than expected\n");
 

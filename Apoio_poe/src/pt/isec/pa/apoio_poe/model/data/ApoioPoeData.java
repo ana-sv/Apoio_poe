@@ -5,21 +5,16 @@ public class ApoioPoeData {
     HashMap < Long, Aluno > listaAlunos; 
     HashMap < Long, Docente > listaDocentes;
     HashMap < Long , Proposta > listaPropostas; 
-    HashMap<String, Wrapper> listaCandidaturas;
+    HashMap<String, Candidatura> listaCandidaturas;
 
 
     public ApoioPoeData() {
         this.listaAlunos = new HashMap<>();
         this.listaDocentes = new HashMap<>();
         this.listaPropostas = new HashMap<>();
-        this.listaCandidaturas = new HashMap<String, Wrapper>();
-        setup();
+        this.listaCandidaturas = new HashMap<String, Candidatura>();
     }
-    private void setup(){
-        this.listaCandidaturas.put("DA", new Wrapper(0, 0));   // each branch starts with 0 students and 0 proposals -> to be incremented as they're created
-        this.listaCandidaturas.put("RAS", new Wrapper(0, 0));   // each branch starts with 0 students and 0 proposals -> to be incremented as they're created
-        this.listaCandidaturas.put("SI", new Wrapper(0, 0));   // each branch starts with 0 students and 0 proposals -> to be incremented as they're created
-    }
+
     public boolean alunoExiste(long numeroAluno){
         return listaAlunos.containsKey(numeroAluno);
     }
@@ -32,9 +27,8 @@ public class ApoioPoeData {
         return false;
     }
 
-    public void adicionaAluno(long numeroAluno, String nome, String mail, String curso, String ramo){
-        listaAlunos.put(numeroAluno, new Aluno(numeroAluno, nome, mail, curso, ramo));
-        listaCandidaturas.get(ramo).incrementNumeroAlunos();
+    public void adicionaAluno(long numeroAluno, String nome, String mail, String curso, String ramo, double classificacao, Boolean estagioAcesso){
+        listaAlunos.put(numeroAluno, new Aluno(numeroAluno, nome, mail, curso, ramo, classificacao, estagioAcesso));
     }
 
 
@@ -63,31 +57,7 @@ public class ApoioPoeData {
         return this.listaCandidaturas.size();
     }
     
-    private class Wrapper{    // to be used on 'numberStudents' hashmap
-        int numeroAlunos;    // number of students in that branch
-        int numeroPropostas;   // number of proposals destined for that branch
 
-        public Wrapper(int numeroAlunos, int numeroPropostas) {
-            this.numeroAlunos = numeroAlunos;
-            this.numeroPropostas = numeroPropostas;
-        }
-
-        public int getNumeroAlunos() { return numeroAlunos; }
-        public int getNumeroPropostas() { return numeroPropostas; }
-        public void setNumeroPropostas(int nmrProposals) { this.numeroPropostas = nmrProposals; }
-        public void setNumeroAlunos(int nmrStudents) { this.numeroAlunos = nmrStudents; }
-        public void incrementNumeroPropostas() { numeroPropostas++; }
-        public void incrementNumeroAlunos() { numeroAlunos++; }
-
-    }
-
-
-
-
-
-
-
-    
 
 
     

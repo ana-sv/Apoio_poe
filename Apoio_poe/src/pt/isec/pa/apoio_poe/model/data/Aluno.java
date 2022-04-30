@@ -10,7 +10,7 @@ public class Aluno {
     protected String mail;
     protected String siglaCurso;
     protected String siglaRamo;
-    protected Float classificacao; 
+    protected double classificacao;
     protected boolean estagioAcesso;
 
     
@@ -20,6 +20,15 @@ public class Aluno {
         this.mail = mail;
         this.siglaCurso = siglaCurso;
         this.siglaRamo = siglaRamo;
+    }
+    public Aluno(Long numEstudante, String nome, String mail, String siglaCurso, String siglaRamo, double classificacao, boolean estagioAcesso ) {
+        this.numEstudante = numEstudante;
+        this.nome = nome;
+        this.mail = mail;
+        this.siglaCurso = siglaCurso;
+        this.siglaRamo = siglaRamo;
+        this.classificacao =classificacao;
+        this.estagioAcesso = estagioAcesso;
     }
 
     public long getStudentNumber() {
