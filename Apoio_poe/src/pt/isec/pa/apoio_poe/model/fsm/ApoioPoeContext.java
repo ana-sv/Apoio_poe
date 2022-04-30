@@ -63,7 +63,7 @@ public class ApoioPoeContext {
     public boolean avancaFechandoFase(){
         return avancaFechandoFase();
     }
-    public boolean emailIsValid(String email) {
+    public boolean mailValido(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +

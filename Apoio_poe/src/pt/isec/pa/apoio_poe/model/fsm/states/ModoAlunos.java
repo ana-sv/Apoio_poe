@@ -81,7 +81,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                 //Mail
                 if (sc.hasNext()) {
                     mail = sc.next();
-                    if(!context.emailIsValid(mail)) {
+                    if(!context.mailValido(mail)) {
                         sb.append("Mail nao é valido");
                         break;
                     }
