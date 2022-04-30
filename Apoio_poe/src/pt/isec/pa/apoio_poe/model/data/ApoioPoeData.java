@@ -62,6 +62,7 @@ public class ApoioPoeData {
     public Integer contaCandidaturas(){
         return this.listaCandidaturas.size();
     }
+    
     private class Wrapper{    // to be used on 'numberStudents' hashmap
         int numeroAlunos;    // number of students in that branch
         int numeroPropostas;   // number of proposals destined for that branch

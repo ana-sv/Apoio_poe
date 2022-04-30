@@ -63,6 +63,24 @@ public class ApoioPoeContext {
     public boolean avancaFechandoFase(){
         return avancaFechandoFase();
     }
+
+
+    public String importaCVS( String nomeFicheiro ){
+        return state.importaCVS(nomeFicheiro);
+    }
+
+
+
+
+
+
+
+
+
+    // Conjunto de métodos que permita obter os dados necessários à 
+    // interação com o utilizador ou com os restantes módulos do programa
+
+
     public boolean mailValido(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +
@@ -76,21 +94,8 @@ public class ApoioPoeContext {
     }
  
 
-// TO DO 
 
 
-
-
-    
-
-
-    // Conjunto de métodos que permita obter os dados necessários à 
-    // interação com o utilizador ou com os restantes módulos do programa
-
-
-
-
-            // TO DO 
 
 
 }

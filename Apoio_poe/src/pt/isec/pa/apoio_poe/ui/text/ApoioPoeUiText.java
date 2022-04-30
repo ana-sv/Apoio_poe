@@ -173,7 +173,7 @@ public class ApoioPoeUiText {
                 "Apresenta lista de Informacoes", "Importar info Alunos", " Exportar info Alunos", "avancar",
                 "Gravar Estado Aplicacao ", "Sair")) {
             // case 1 -> lista com filtros
-            // case 2 -> importar
+             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("Insira nome do ficheiro", true )));
             // case 3 -> exportar
             case 4 -> poe.avanca();
             // case 5-> TO DO gravar estado a aplicacao
