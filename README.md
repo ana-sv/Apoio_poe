@@ -18,7 +18,7 @@
 
 - [x] Terminar construtores do package data 
 
-- [ ] user interface fase 1 --> ON IN 
+- [ ] user interface fase 1 --> ON IT
 
 - [ ] user interface fase 2
 
