@@ -18,15 +18,17 @@
 
 - [x] Terminar construtores do package data 
 
-- [ ] user interface fase 1 --> ON IT
+- [x] user interface fase 1 
 
-- [ ] user interface fase 2
+- [x] user interface fase 2
 
-- [ ] user interface fase 3
+- [x] user interface fase 3
 
-- [ ] user interface fase 4
+- [x] user interface fase 4
 
-- [ ] user interface fase 5
+- [x] user interface fase 5
+
+*** Ui pode precisar de ajustes ** 
 
 - [ ] importação dos ficheiros 
 
