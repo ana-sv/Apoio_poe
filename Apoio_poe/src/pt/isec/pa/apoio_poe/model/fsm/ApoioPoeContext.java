@@ -13,6 +13,8 @@ import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
+import java.util.regex.Pattern;
+
 public class ApoioPoeContext {
     private ApoioPoeIState state; 
     private ApoioPoeData data; 
@@ -61,7 +63,17 @@ public class ApoioPoeContext {
     public boolean avancaFechandoFase(){
         return avancaFechandoFase();
     }
+    public boolean emailIsValid(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
 
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
  
 
 // TO DO 
