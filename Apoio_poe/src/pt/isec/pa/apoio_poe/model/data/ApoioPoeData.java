@@ -3,7 +3,7 @@ import java.util.*;
 
 public class ApoioPoeData {
     HashMap < Long, Aluno > listaAlunos; 
-    HashMap < Long, Docente > listaDocentes;
+    HashMap < String, Docente > listaDocentes;
     HashMap < Long , Proposta > listaPropostas; 
     HashMap<String, Candidatura> listaCandidaturas;
 
@@ -30,7 +30,17 @@ public class ApoioPoeData {
     public void adicionaAluno(long numeroAluno, String nome, String mail, String curso, String ramo, double classificacao, Boolean estagioAcesso){
         listaAlunos.put(numeroAluno, new Aluno(numeroAluno, nome, mail, curso, ramo, classificacao, estagioAcesso));
     }
+    public boolean docenteExiste(String email){
+        for(Aluno s : listaAlunos.values()) {
+            if(email.equals(s.getEmail()))
+                return true;
+        }
+        return false;
+    }
 
+    public void adicionaDocente(String nome, String mail){
+        listaDocentes.put(mail , new Docente(nome, mail));
+    }
 
     // TODO
         // ADICIONAR ALUNOS 
