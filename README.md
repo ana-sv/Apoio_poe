@@ -31,20 +31,29 @@
 *** Ui pode precisar de ajustes ** 
 
 - [x] importação dos ficheiros alunos
-- [ ]  importação dos ficheiros docentes
-- [ ]  importação dos ficheiros propostas
 
-- [ ] exportacao dos ficheiros 
+- [x]  importação dos ficheiros docentes
 
-- [ ] listas & filtros das listas  --> ON IT
+- [x]  importação dos ficheiros propostas
+  
+- [ ] mostrar listas de propostas projeto/estagio com filtros - Estado Organiza Candidaturas 
+- [ ] mostrar listas de propostas alunos com filtros - Estado Organiza Candidaturas   
 
-- [ ] classificaccao dos alunos  --> META 2
+- [ ] exportacao da info - Estado Modo Alunos/Modo Docentes / Modo Propostas
+
+- [ ] exportacao da info - OrganizaCadidaturas   
+- [ ] exportacao da info - Atribuicao de Propostas 
+- [ ] exportacao da info - Atribuicao de Orientadores 
+- [ ] exportacao da info - consulta
 
 - [ ] atribuição automatica das propostas 
 
 - [ ] empates por causa da atribuição das propostas 
 
 - [ ] atribuicao de orientadoes 
+
+
+- [ ] classificaccao dos alunos  --> META 2
 
 ______ Provavelmente nao vai ficar feito 
 
