@@ -25,8 +25,7 @@ class ModoDocentes extends ApoioPoeStateAdapter {
 
     @Override
     public String filtrarListas() {
-        // TO DO
-        return " nao implementado ainda";
+        return data.getListaDocentes().toString();
     }
 
     @Override

@@ -15,7 +15,15 @@ public class ApoioPoeData {
         this.listaPropostas = new HashMap<>();
         this.listaCandidaturas = new HashMap<String, Candidatura>();
     }
-
+    public HashMap < Long, Aluno > getListaAlunos(){
+        return listaAlunos;
+    }
+    public HashMap < String, Docente > getListaDocentes(){
+        return listaDocentes;
+    }
+    public HashMap < String , Proposta  > getListaProposta(){
+        return listaPropostas;
+    }
     public boolean alunoExiste(long numeroAluno){
         return listaAlunos.containsKey(numeroAluno);
     }

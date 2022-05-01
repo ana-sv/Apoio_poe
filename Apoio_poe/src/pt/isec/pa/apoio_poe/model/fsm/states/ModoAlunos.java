@@ -1,7 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.data.Enum;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
@@ -27,8 +26,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
 
     @Override
     public String filtrarListas() {
-        // TO DO
-        return " nao implementado ainda";
+        return data.getListaAlunos().toString();
     }
 
     @Override

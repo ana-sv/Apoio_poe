@@ -31,7 +31,9 @@ public class ApoioPoeContext {
         state = newState; 
     }
 
-
+    public String mostraListas(){
+        return state.filtrarListas();
+    }
 
     // Método público que permita obter o estado atual
     public ApoioPoeState getState(){
