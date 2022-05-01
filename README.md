@@ -35,23 +35,24 @@
 - [x]  importação dos ficheiros docentes
 
 - [x]  importação dos ficheiros propostas
+
+- [ ]  importação dos ficheiros candidaduras
   
 - [ ] mostrar listas de propostas projeto/estagio com filtros - Estado Organiza Candidaturas 
 - [ ] mostrar listas de propostas alunos com filtros - Estado Organiza Candidaturas   
 
 - [x] exportacao da info - Estado Modo Alunos/Modo Docentes / Modo Propostas
 
-- [ ] exportacao da info - OrganizaCadidaturas   
-- [ ] exportacao da info - Atribuicao de Propostas 
-- [ ] exportacao da info - Atribuicao de Orientadores 
-- [ ] exportacao da info - consulta
+- [x] exportacao da info - OrganizaCadidaturas   
+- [x] exportacao da info - Atribuicao de Propostas 
+- [x] exportacao da info - Atribuicao de Orientadores 
+- [x] exportacao da info - consulta
 
 - [ ] atribuição automatica das propostas 
 
 - [ ] empates por causa da atribuição das propostas 
 
 - [ ] atribuicao de orientadoes 
-
 
 - [ ] classificaccao dos alunos  --> META 2
 
