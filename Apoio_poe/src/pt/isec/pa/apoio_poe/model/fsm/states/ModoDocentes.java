@@ -24,9 +24,10 @@ class ModoDocentes extends ApoioPoeStateAdapter {
     }
 
     @Override
-    public String filtrarListas() {
+    public String mostraListas() {
         return data.getListaDocentes().toString();
     }
+
 
     @Override
     public String importaCVS(String nomeFicheiro) {

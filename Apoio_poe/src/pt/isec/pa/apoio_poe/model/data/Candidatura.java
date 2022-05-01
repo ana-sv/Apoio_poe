@@ -1,14 +1,21 @@
 package pt.isec.pa.apoio_poe.model.data;
 
 import java.util.ArrayList;
-
-import pt.isec.pa.apoio_poe.model.data.Enum.*;
+import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 
 public class Candidatura {
     protected Long numEstudante; 
     protected ArrayList<Proposta> listaProp; 
     protected EstadoCandidatura estadoCand;
     protected Docente orientador;
+
+    
+    public enum EstadoCandidatura{
+        LACRADA,
+        ABERTA,
+        FECHADA, 
+        IMCOMPLETA
+    }
 
 
 

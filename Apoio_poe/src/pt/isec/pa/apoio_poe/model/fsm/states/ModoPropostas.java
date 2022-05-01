@@ -1,7 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.data.Enum;
+import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
@@ -25,14 +25,14 @@ class ModoPropostas extends ApoioPoeStateAdapter{
     }
 
     @Override
-    public String filtrarListas() {
+    public String mostraListas() {
         return data.getListaProposta().toString();
     }
 
     @Override
     public String importaCVS(String nomeFicheiro) {
         StringBuilder sb = new StringBuilder();
-        Enum.TipoProposta tipoProp = null;
+        TipoProposta tipoProp = null;
         String codigoProp, titulo, linha;
         FileReader fr = null;
         BufferedReader br = null;

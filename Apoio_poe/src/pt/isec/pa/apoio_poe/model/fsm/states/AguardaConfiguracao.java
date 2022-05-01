@@ -3,7 +3,6 @@ package pt.isec.pa.apoio_poe.model.fsm.states;
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
-import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
 
 /*
 
@@ -28,38 +27,34 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     }
 
     @Override
+    public String mostraListas() {
+        // TO DO
+        return " nao implementado ainda";
+    }
+
+
+    @Override
     public String exportaCVS() {
         // TODO
         return " nao implementado ainda";
     }
 
     @Override
-    public String filtrarListas() {
-
-
-
-        
+    public String filtraListas() {
         // TO DO
         return " nao implementado ainda";
     }
 
-    @Override
-    public String importaCVS(String nomeFicheiro) {
-        // FAZER ESTE PRIMEIRO 
-
-        
-        return " nao implementado ainda";
-    }
 
     public void classificaAlunos() {
-        // TO DO
-
+        // TO DO - META 2
     }
+
 
     @Override
     public void avanca() { // avanca sem fechar fase
 
-        // classificaAlunos()
+        // classificaAlunos() 
         changeState(ApoioPoeState.ORGANIZA_CANDIDATURAS);
     }
 

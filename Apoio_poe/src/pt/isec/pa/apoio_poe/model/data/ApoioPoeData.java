@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.model.data;
-import javax.print.Doc;
+
+import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 import java.util.*;
 
 public class ApoioPoeData {
@@ -24,6 +25,7 @@ public class ApoioPoeData {
     public HashMap < String , Proposta  > getListaProposta(){
         return listaPropostas;
     }
+
     public boolean alunoExiste(long numeroAluno){
         return listaAlunos.containsKey(numeroAluno);
     }
@@ -47,6 +49,7 @@ public class ApoioPoeData {
         }
         return false;
     }
+    
     public void adicionaDocente(String nome, String mail){
         listaDocentes.put(mail , new Docente(nome, mail));
     }
@@ -58,17 +61,9 @@ public class ApoioPoeData {
         }
         return false;
     }
-    public void adicionaProposta(Enum.TipoProposta tipoProp, String codigoProp, String titulo){
+    public void adicionaProposta(TipoProposta tipoProp, String codigoProp, String titulo){
         listaPropostas.put(codigoProp , new Proposta(tipoProp,codigoProp,titulo ));
     }
-
-    // TODO
-        // ADICIONAR ALUNOS 
-        // ADDICIONAR DOCENTES 
-        // ADICIONAR PROPOSTAS 
-        // .....
-
-
 
 
     public Integer contaAlunos(){

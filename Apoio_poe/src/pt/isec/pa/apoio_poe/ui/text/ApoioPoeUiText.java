@@ -1,7 +1,7 @@
 package pt.isec.pa.apoio_poe.ui.text;
 
-import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeIState;
 import pt.isec.pa.apoio_poe.ui.utils.PAInput;
 
 public class ApoioPoeUiText {
@@ -28,7 +28,7 @@ public class ApoioPoeUiText {
     }
 
     private void atribuicaoOrientadoresUI() {
-        if (poe.getFase() == Fase.ABERTA) {
+        if (poe.getFase() == ApoioPoeIState.Fase.ABERTA) {  ///Mudar??? porque não está a ir bucar ao Context 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Exporta Informacoes  ", "Atribuicao Automatica de Orientadores",
                     "Avanca", "Avança [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
@@ -60,7 +60,7 @@ public class ApoioPoeUiText {
     }
 
     private void atribuicaoPorpostasUI() {
-        if (poe.getFase() == Fase.ABERTA) {
+        if (poe.getFase() == ApoioPoeIState.Fase.ABERTA) {  ///Mudar??? porque não está a ir bucar ao Context 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Exporta Informacoes ", "Atribuicao Automatica de Propostas",
                     "Avanca", "Avança [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
@@ -104,7 +104,7 @@ public class ApoioPoeUiText {
     }
 
     private void organizaCandidaturasUI() {
-        if (poe.getFase() == Fase.ABERTA) {
+        if (poe.getFase() == ApoioPoeIState.Fase.ABERTA) {  ///Mudar??? porque não está a ir bucar ao Context 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Importa Informacoes Candidaturas",
                     "Exporta Informacoes Candidaturas ", "Avanca", "Avança [Fechando Fase]", "Gravar Estado Aplicacao ",
@@ -184,7 +184,7 @@ public class ApoioPoeUiText {
     }
 
     private void aguardaConfiguracaoUI() {
-        if (poe.getFase() == Fase.ABERTA) {
+        if (poe.getFase() == ApoioPoeIState.Fase.ABERTA) {  ///Mudar??? porque não está a ir bucar ao Context 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Atualizar Alunos", "Atualizar Docentes", "Atualizar Propostas", "Apresenta lista de Informacoes",
                     "Exporta Informacoes ", "Avanca",

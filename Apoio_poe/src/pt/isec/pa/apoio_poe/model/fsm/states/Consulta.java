@@ -15,21 +15,29 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
     @Override
-    public String exportaCVS() {
+    public ApoioPoeState getState() {
+        return ApoioPoeState.CONSULTA;
+    }
+
+
+    @Override
+    public String mostraListas() {
         // TO DO
         return " nao implementado ainda";
     }
 
 
     @Override
-    public ApoioPoeState getState() {
-        return ApoioPoeState.CONSULTA;
+    public String exportaCVS() {
+        // TODO
+        return " nao implementado ainda";
     }
 
     @Override
-    public String filtrarListas() {
-        // TODO 
-        return super.filtrarListas();
+    public String filtraListas() {
+        // TO DO
+        return " nao implementado ainda";
     }
-    
+
+ 
 }

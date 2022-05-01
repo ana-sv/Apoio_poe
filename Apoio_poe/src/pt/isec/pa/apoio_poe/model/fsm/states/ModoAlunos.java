@@ -25,10 +25,18 @@ class ModoAlunos extends ApoioPoeStateAdapter{
     }
 
     @Override
-    public String filtrarListas() {
+    public String mostraListas() {
         return data.getListaAlunos().toString();
     }
 
+    @Override
+    public String filtraListas() {
+        // TO DO
+        return " nao implementado ainda";
+    }
+
+
+    
     @Override
     public String importaCVS(String nomeFicheiro) {
         StringBuilder sb = new StringBuilder();

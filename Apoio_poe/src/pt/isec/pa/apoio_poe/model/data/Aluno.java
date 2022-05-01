@@ -1,8 +1,5 @@
 package pt.isec.pa.apoio_poe.model.data;
 
-import pt.isec.pa.apoio_poe.model.data.Enum.Curso;
-import pt.isec.pa.apoio_poe.model.data.Enum.Ramo;
-
 public class Aluno {
 
     protected Long numEstudante;
@@ -64,7 +61,8 @@ public class Aluno {
 
     
 
-    // metodo que insira o acesso ao estagio automaticamente ?
+    // metodo que insira o acesso ao estagio automaticamente
+    // --> Meta 2 , só é necessário depois da classificacaoAlunos() estar implementada 
 
 
 

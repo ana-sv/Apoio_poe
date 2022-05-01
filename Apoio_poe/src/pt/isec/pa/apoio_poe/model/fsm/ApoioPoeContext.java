@@ -9,9 +9,11 @@
 
 
 package pt.isec.pa.apoio_poe.model.fsm;
+
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.data.Enum.Fase;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeIState.Fase;
+
 
 import java.util.regex.Pattern;
 
@@ -32,7 +34,7 @@ public class ApoioPoeContext {
     }
 
     public String mostraListas(){
-        return state.filtrarListas();
+        return state.mostraListas();
     }
 
     // Método público que permita obter o estado atual
@@ -46,6 +48,8 @@ public class ApoioPoeContext {
     public Fase getFase(){
         return state.getFase();
     }
+
+
 
 
 
@@ -83,7 +87,7 @@ public class ApoioPoeContext {
     // interação com o utilizador ou com os restantes módulos do programa
 
 
-    public boolean mailValido(String email) {
+    public boolean mailValido(String email) {            //// ??????? 
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +

@@ -1,6 +1,6 @@
 package pt.isec.pa.apoio_poe.model.data;
 
-import pt.isec.pa.apoio_poe.model.data.Enum.TipoProposta;
+
 
 public class AutoProposta extends Proposta{
     protected Long numEstudante; 
