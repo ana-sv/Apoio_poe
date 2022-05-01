@@ -31,12 +31,34 @@ public class Aluno {
         this.estagioAcesso = estagioAcesso;
     }
 
-    public long getStudentNumber() {
+    public Long getNumEstudante() {
         return numEstudante;
+    }
+
+     public String getNomeEstudante(){
+        return nome; 
     }
 
     public String getEmail() {
         return mail;
+    }
+
+    public String getSiglaCurso(){
+        return siglaCurso;
+    }
+
+    public String getSiglaRamo(){
+        return siglaRamo;
+    }
+
+    public Double getClassificacao(){
+        return classificacao;
+    }
+
+    public String getAcessoEstagio(){
+        if ( estagioAcesso == true )
+            return "SIM";
+        return "NAO"; 
     }
  
 
