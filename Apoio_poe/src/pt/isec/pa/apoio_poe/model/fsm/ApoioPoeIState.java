@@ -14,7 +14,7 @@ public interface ApoioPoeIState {
     public String mostraListas();
 
     public String importaCVS( String nomeFicheiro );
-    public String exportaCVS( /*pode ter que levar aqui algo  */);
+    public String exportaCVS( String nomeFicheiro );
 
     public boolean alteraModoConfiguracao(int op);
 

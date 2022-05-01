@@ -32,7 +32,7 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     }
 
     @Override
-    public String exportaCVS() {
+    public String exportaCVS( String nomeFicheiro) {
         return " ";
     }
     
@@ -71,6 +71,9 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     public Fase getFase() {
         return null;
     }
+
+
+    
 
 
 

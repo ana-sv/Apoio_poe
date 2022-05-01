@@ -82,6 +82,10 @@ public class ApoioPoeContext {
         return state.importaCVS(nomeFicheiro);
     }
 
+    public String exportaCVS( String nomeFicheiro ){
+        return state.exportaCVS(nomeFicheiro);
+    }
+
 
 
 

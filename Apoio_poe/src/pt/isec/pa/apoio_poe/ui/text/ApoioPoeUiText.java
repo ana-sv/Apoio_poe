@@ -1,7 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.text;
 
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeIState;
 import pt.isec.pa.apoio_poe.ui.utils.PAInput;
 
 public class ApoioPoeUiText {
@@ -173,7 +172,7 @@ public class ApoioPoeUiText {
                 "Lista de Alunos", "Importar info Alunos", "Exportar info Alunos", "Avancar", "Gravar Estado Aplicacao ", "Sair")) {
              case 1 -> System.out.println(poe.mostraListas());
              case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
-            // case 3 -> exportar
+             case 3 ->  System.out.println(poe.exportaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
             case 4 -> poe.avanca();
             // case 5-> TO DO gravar estado a aplicacao
             case 6 -> finish = true;
@@ -224,7 +223,7 @@ public class ApoioPoeUiText {
         while (!finish) {
 
 
-            if (poe.getFase() == null)
+            if (poe.getFaseEnum() == null)
                 System.out.print("\n>>>>>>>>>>>>>>>>>>> Estado: " + poe.getState());
             else
                 System.out.print("\n>>>>>>>>>>>>>>>>>>> Estado: " + poe.getState() + " > Fase: " + poe.getFase());

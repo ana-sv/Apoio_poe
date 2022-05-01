@@ -18,7 +18,7 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
     // AtualizarOrientadores se fase=Fase.ABERTA
 
     @Override
-    public String exportaCVS() {
+    public String exportaCVS(String nomeFicheiro) {
         // TO DO
         return " nao implementado ainda";
     }

@@ -28,7 +28,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
     @Override
-    public String exportaCVS() {
+    public String exportaCVS(String nomeFicheiro) {
         // TODO
         return " nao implementado ainda";
     }

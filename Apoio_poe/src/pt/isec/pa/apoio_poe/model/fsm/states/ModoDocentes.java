@@ -19,7 +19,7 @@ class ModoDocentes extends ApoioPoeStateAdapter {
 
 
     @Override
-    public String exportaCVS() {
+    public String exportaCVS(String nomeFicheiro) {
         // TODO
         return " nao implementado ainda";
     }
