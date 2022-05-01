@@ -4,17 +4,17 @@ import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 import java.util.*;
 
 public class ApoioPoeData {
-    HashMap < Long, Aluno > listaAlunos; 
-    HashMap < String, Docente > listaDocentes;
-    HashMap < String , Proposta > listaPropostas;
-    HashMap<String, Candidatura> listaCandidaturas;
+    HashMap < Long, Aluno > listaAlunos;             // numEstudante, Aluno
+    HashMap < String, Docente > listaDocentes;       //mail , Docente
+    HashMap < String , Proposta > listaPropostas;    // codigoProp , Proposta
+    HashMap< Aluno, Candidatura> listaCandidaturas;
 
 
     public ApoioPoeData() {
         this.listaAlunos = new HashMap<>();
         this.listaDocentes = new HashMap<>();
         this.listaPropostas = new HashMap<>();
-        this.listaCandidaturas = new HashMap<String, Candidatura>();
+        this.listaCandidaturas = new HashMap<>();
     }
     public HashMap < Long, Aluno > getListaAlunos(){
         return listaAlunos;
@@ -25,6 +25,11 @@ public class ApoioPoeData {
     public HashMap < String , Proposta  > getListaProposta(){
         return listaPropostas;
     }
+
+    public HashMap < Aluno , Candidatura  > getListaCandidaturas(){
+        return listaCandidaturas;
+    }
+
 
     public boolean alunoExiste(long numeroAluno){
         return listaAlunos.containsKey(numeroAluno);
@@ -38,7 +43,7 @@ public class ApoioPoeData {
         return false;
     }
 
-    public void adicionaAluno(long numeroAluno, String nome, String mail, String curso, String ramo, double classificacao, Boolean estagioAcesso){
+    public void adicionaAluno(long numeroAluno, String nome, String mail, String curso, String ramo, Double classificacao, Boolean estagioAcesso){
         listaAlunos.put(numeroAluno, new Aluno(numeroAluno, nome, mail, curso, ramo, classificacao, estagioAcesso));
     }
 
@@ -61,6 +66,7 @@ public class ApoioPoeData {
         }
         return false;
     }
+    
     public void adicionaProposta(TipoProposta tipoProp, String codigoProp, String titulo){
         listaPropostas.put(codigoProp , new Proposta(tipoProp,codigoProp,titulo ));
     }

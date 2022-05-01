@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
+import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
@@ -26,8 +27,14 @@ class ModoAlunos extends ApoioPoeStateAdapter{
 
     @Override
     public String mostraListas() {
-        return data.getListaAlunos().toString();
+        StringBuilder str= new StringBuilder();
+        for ( Aluno a : data.getListaAlunos().values()) {
+            str.append(a.alunoToString());
+        }
+        return str.toString();
     }
+
+
 
     @Override
     public String filtraListas() {
@@ -135,7 +142,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                         break;
                     }
                 } else {
-                    sb.append("Student Number not found");
+                    sb.append("Classificacao nao encontrada!\n");
                     break;
                 }
                 //Acesso Estagio
@@ -143,11 +150,11 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                     String cString = sc.next();
                     estagioAcesso = Boolean.parseBoolean(cString);
                     if(classificacao>1 || classificacao<0){
-                        sb.append("Classification is not valid");
+                        sb.append("Classificacao invalida!\n");       ////???  rever 
                         break;
                     }
                 } else {
-                    sb.append("Student Number not found");
+                    sb.append("Classificacao nao encontrada!\n");
                     break;
                 }
 
@@ -156,7 +163,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                 if(!sc.hasNext())
                     data.adicionaAluno(numeroAluno, nome, mail, curso, ramo, classificacao, estagioAcesso);
                 else
-                    sb.append("More fields than expected\n");
+                    sb.append("Atributos a mais!\n");
 
             }
 

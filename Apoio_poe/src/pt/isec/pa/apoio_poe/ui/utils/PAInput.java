@@ -31,7 +31,9 @@ public final class PAInput {
         if (onlyOneWord) {
             Scanner auxsc = new Scanner(value);
             value = auxsc.next();  // this can/should be imnproved
+            auxsc.close();
         }
+       
         return value;
     }
 

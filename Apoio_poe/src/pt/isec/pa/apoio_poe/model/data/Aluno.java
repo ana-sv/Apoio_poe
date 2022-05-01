@@ -57,9 +57,22 @@ public class Aluno {
             return "SIM";
         return "NAO"; 
     }
+
+    public String alunoToString(){
+        StringBuilder s = new StringBuilder();
+        s.append("\n[" + numEstudante + "] ");
+        s.append( nome + " - " + mail + " - " + siglaCurso +" - " + siglaRamo + " " + classificacao + " - ");
+       
+        if (estagioAcesso == true )
+          s.append(" POSSIBILIDADE DE ESTAGIO ");
+        else
+          s.append(" SEM POSSIBILIDADE DE ESTAGIO ");
+
+        return s.toString();
+
+    }
  
 
-    
 
     // metodo que insira o acesso ao estagio automaticamente
     // --> Meta 2 , só é necessário depois da classificacaoAlunos() estar implementada 
