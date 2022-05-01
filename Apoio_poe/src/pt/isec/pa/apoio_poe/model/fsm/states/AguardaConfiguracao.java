@@ -1,24 +1,12 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import java.io.*;
-import java.util.*;
 
-import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.*;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
-/*
 
-NOTAS DE IMPLEMENTAÇAO 
-
-Default: When no access modifier is specified for a class, method, or data member 
-– It is said to be having the default access modifier by default. 
-
-The data members, class or methods which are not declared using any
-access modifiers i.e. having default access modifier are accessible only within the same package.
-
-
-*/
 
 class AguardaConfiguracao extends ApoioPoeStateAdapter {
     Fase fase;
@@ -34,14 +22,23 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
 
         StringBuilder s = new StringBuilder();
 
-            s.append("> Lista Alunos ");
-            s.append(data.getListaAlunos());
+            s.append("\n> Lista Alunos ");
+            for ( Aluno a : data.getListaAlunos().values()) {
+                s.append(a.alunoToString());
+            }
+            s.append("\n");
 
-            s.append("> Lista Docentes ");
-            s.append(data.getListaDocentes());
-
-            s.append("> Lista Propostas ");
-            s.append(data.getListaProposta());
+            s.append("\n> Lista Docentes ");
+            for ( Docente a : data.getListaDocentes().values()) {
+                s.append(a.DocentesToString());
+            }
+            s.append("\n");
+    
+            s.append("\n> Lista Propostas ");
+            for ( Proposta a : data.getListaProposta().values()) {
+                s.append(a.propostasToString());
+            }
+            s.append("\n");
 
         return s.toString();
     }
@@ -87,11 +84,6 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
         return sb.toString();
     }
 
-    @Override
-    public String filtraListas() {
-        // TO DO
-        return " nao implementado ainda";
-    }
 
     public void classificaAlunos() {
         // TO DO - META 2

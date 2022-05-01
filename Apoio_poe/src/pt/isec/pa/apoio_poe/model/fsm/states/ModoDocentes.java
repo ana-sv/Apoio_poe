@@ -7,6 +7,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 import java.io.*;
 import java.util.*;
+import java.util.regex.Pattern;
 
 class ModoDocentes extends ApoioPoeStateAdapter {
 
@@ -58,21 +59,31 @@ class ModoDocentes extends ApoioPoeStateAdapter {
         return sb.toString();
     }
 
-    
+
     @Override
     public String mostraListas() {
         StringBuilder str= new StringBuilder();
         for ( Docente a : data.getListaDocentes().values()) {
             str.append(a.DocentesToString());
         }
-
-        
         if(str.isEmpty())
             str.append("\n> SEM IMFORMACAO !");
 
         return str.toString();
     }
 
+    public boolean mailValido(String email) {            
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
+    
 
     @Override
     public String importaCVS(String nomeFicheiro) {
@@ -108,6 +119,10 @@ class ModoDocentes extends ApoioPoeStateAdapter {
 
                     if (data.docenteExiste(mail)) {
                         sb.append("ATENCAO! Docente com  " + mail + " ja existe\n");
+                        break;
+                    }
+                    if(!mailValido(mail)) {
+                        sb.append("ATENCAO! Mail nao é valido");
                         break;
                     }
                 } else {

@@ -24,7 +24,7 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
     }
 
     @Override
-    public String filtraListas() {
+    public String filtraListas( String filtros ) {
         // TO DO
         return " nao implementado ainda";
     }

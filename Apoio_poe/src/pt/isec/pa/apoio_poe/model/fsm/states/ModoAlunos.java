@@ -7,6 +7,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 import java.io.*;
 import java.util.*;
+import java.util.regex.Pattern;
 
 class ModoAlunos extends ApoioPoeStateAdapter{
 
@@ -76,12 +77,24 @@ class ModoAlunos extends ApoioPoeStateAdapter{
 
 
     @Override
-    public String filtraListas() {
+    public String filtraListas( String filtros ) {
         // TO DO
         return " nao implementado ainda";
     }
 
 
+    public boolean mailValido(String email) {            
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
+    
     
     @Override
     public String importaCVS(String nomeFicheiro) {
@@ -134,7 +147,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                 //Mail
                 if (sc.hasNext()) {
                     mail = sc.next();
-                    if(!data.mailValido(mail)) {
+                    if(!mailValido(mail)) {
                         sb.append("ATENCAO! Mail nao é valido");
                         break;
                     }

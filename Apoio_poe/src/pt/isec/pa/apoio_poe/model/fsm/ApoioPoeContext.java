@@ -85,10 +85,9 @@ public class ApoioPoeContext {
         return state.exportaCVS(nomeFicheiro);
     }
 
-
-
-
-
+    public String filtraListas( String filtros ){
+        return state.filtraListas(filtros);
+    }
 
 
 

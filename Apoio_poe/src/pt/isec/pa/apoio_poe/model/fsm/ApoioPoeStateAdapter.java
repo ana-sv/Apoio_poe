@@ -27,7 +27,7 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     }
 
     @Override
-    public String filtraListas() {
+    public String filtraListas( String filtros ) {
         return " ";
     }
 

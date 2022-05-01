@@ -2,7 +2,6 @@ package pt.isec.pa.apoio_poe.model.data;
 
 import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class ApoioPoeData {
     HashMap < Long, Aluno > listaAlunos;             // numEstudante, Aluno
@@ -114,18 +113,7 @@ public class ApoioPoeData {
 
     
 
-    public boolean mailValido(String email) {            
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-                "[a-zA-Z0-9_+&*-]+)*@" +
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}$";
-
-        Pattern pat = Pattern.compile(emailRegex);
-        if (email == null)
-            return false;
-        return pat.matcher(email).matches();
-    }
-    
+  
 
 
 
