@@ -216,13 +216,13 @@ class ModoPropostas extends ApoioPoeStateAdapter{
                     String snString = sc.next();
                     tipoProp = TipoProposta.valueOf(snString);
 
-                    if(tipoProp.equals("T1")){
+                    if(tipoProp.name().equals("T1")){
                         importEstagio(sc);
                     }
-                    if(tipoProp.equals("T2")){
+                    if(tipoProp.name().equals("T2")){
                         importProjecto(sc);
                     }
-                    if(tipoProp.equals("T3")){
+                    if(tipoProp.name().equals("T3")){
                         importAutoProposta(sc);
                     }
 

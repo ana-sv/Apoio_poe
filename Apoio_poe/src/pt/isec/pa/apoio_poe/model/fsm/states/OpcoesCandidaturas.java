@@ -5,10 +5,10 @@ import pt.isec.pa.apoio_poe.model.data.*;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
- class OrganizaCandidaturas extends ApoioPoeStateAdapter {
+ class OpcoesCandidaturas extends ApoioPoeStateAdapter {
     Fase fase;
 
-     OrganizaCandidaturas(ApoioPoeContext context, ApoioPoeData data) {
+     OpcoesCandidaturas(ApoioPoeContext context, ApoioPoeData data) {
         super(context, data);
         fase = Fase.ABERTA;
     }
