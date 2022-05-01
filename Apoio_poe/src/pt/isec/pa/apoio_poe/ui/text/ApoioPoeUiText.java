@@ -145,7 +145,7 @@ public class ApoioPoeUiText {
             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
             case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
             case 4 -> poe.avanca();
-            // case 5-> TO DO gravar estado a aplicacao
+            case 5 -> System.out.println("\nNAO IMPLEMENTADO ");
             case 6 -> finish = true;
             default -> System.out.println("Escolha uma opcao!");
         }
@@ -160,7 +160,7 @@ public class ApoioPoeUiText {
             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
             case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true ))); 
             case 4 -> poe.avanca();
-            // case 5-> TO DO gravar estado a aplicacao
+            case 5 -> System.out.println("\nNAO IMPLEMENTADO ");
             case 6 -> finish = true;
             default -> System.out.println("Escolha uma opcao!");
         }
@@ -174,7 +174,7 @@ public class ApoioPoeUiText {
              case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
              case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
             case 4 -> poe.avanca();
-            // case 5-> TO DO gravar estado a aplicacao
+             case 5-> System.out.println("\nNAO IMPLEMENTADO ");
             case 6 -> finish = true;
             default -> System.out.println("Escolha uma opcao!");
         }
@@ -184,17 +184,16 @@ public class ApoioPoeUiText {
     private void aguardaConfiguracaoUI() {
         if (poe.getFase()== "ABERTA") {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Atualizar Alunos", "Atualizar Docentes", "Atualizar Propostas", "Apresenta lista de Informacoes",
-                    "Exporta Informacoes ", "Avancar",
-                    "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
+                    "Atualizar Alunos", "Atualizar Docentes", "Atualizar Propostas", "Exporta Informacoes ", "Avancar",
+                    "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", " Carregar Estado da Aplicacao ", "Sair")) {
                 case 1 -> poe.alteraModoConfiguracao(1);
                 case 2 -> poe.alteraModoConfiguracao(2);
                 case 3 -> poe.alteraModoConfiguracao(3);
-                // case 4 -> lista com filtros
-                // case 5 -> TODO exportar info
-                case 6 -> poe.avanca();
-                case 7 -> System.out.println("Fase fechada: " + poe.avancaFechandoFase() );
-                // case 8-> TO DO gravar estado a aplicacao
+                case 4 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
+                case 5 -> poe.avanca();
+                case 6 -> System.out.println("Fase fechada: " + poe.avancaFechandoFase() );
+                case 7 -> System.out.println("\nNAO IMPLEMENTADO ");
+                case 8 -> System.out.println("\nNAO IMPLEMENTADO ");
                 case 9 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
@@ -202,12 +201,12 @@ public class ApoioPoeUiText {
         } else {
 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Avancar", "Gravar Estado Aplicacao ",
-                    "Sair")) {
-                // case 1 -> lista com filtros
-                // case 2 -> TODO exportar info
+                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Avancar", "Gravar Estado Aplicacao ", " Carregar Estado da Aplicacao ","Sair")) {
+                case 1 -> System.out.println(poe.mostraListas());
+                case 4 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
                 case 3 -> poe.avanca();
-                // case 4-> TO DO gravar estado a aplicacao
+                case 7 -> System.out.println("\nNAO IMPLEMENTADO ");
+                case 8 -> System.out.println("\nNAO IMPLEMENTADO ");
                 case 5 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
