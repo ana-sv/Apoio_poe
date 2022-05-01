@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
@@ -25,7 +26,16 @@ class ModoDocentes extends ApoioPoeStateAdapter {
 
     @Override
     public String mostraListas() {
-        return data.getListaDocentes().toString();
+        StringBuilder str= new StringBuilder();
+        for ( Docente a : data.getListaDocentes().values()) {
+            str.append(a.DocentesToString());
+        }
+
+        
+        if(str.isEmpty())
+            str.append("\n> SEM IMFORMACAO !");
+
+        return str.toString();
     }
 
 
@@ -38,58 +48,43 @@ class ModoDocentes extends ApoioPoeStateAdapter {
         Scanner sc = null;
 
         try{
-            fr = new FileReader(nomeFicheiro);
+            fr = new FileReader(nomeFicheiro + ".csv");
             br = new BufferedReader(fr);
 
             while ((linha = br.readLine()) != null) {
                 sc = new Scanner(linha);
                 sc.useDelimiter(",");
 
-                //Mail Docente
-                if (sc.hasNext()) {
-                    String snString = sc.next();
-                    mail = snString;
-
-                    if (data.docenteExiste(mail)) {
-                        sb.append("Docente com  " + mail + " ja existe\n");
-                        break;
-                    }
-                } else {
-                    sb.append("Mail do docente nao encontrado");
-                    break;
-                }
 
                 //Nome
                 if (sc.hasNext()) {
-                    nome = sc.next();
+
+                    String snString = sc.next();
+                    nome = snString;
                 } else {
-                    sb.append("Nome nao encontrado");
+                    sb.append("ATENCAO! Nome nao encontrado");
                     break;
                 }
 
-                //Mail
+                //Mail 
                 if (sc.hasNext()) {
+                    
                     mail = sc.next();
-                    if(!context.mailValido(mail)) {
-                        sb.append("Mail nao é valido");
-                        break;
-                    }
 
                     if (data.docenteExiste(mail)) {
-                        sb.append("Mail  " + mail + " ja existe\n");
+                        sb.append("ATENCAO! Docente com  " + mail + " ja existe\n");
                         break;
                     }
                 } else {
-                    sb.append("Mail nao encontrado\n");
+                    sb.append("ATENCAO! Mail do docente nao encontrado");
                     break;
                 }
-
 
                 //Adicionar Docente
                 if(!sc.hasNext())
                     data.adicionaDocente(nome, mail);
                 else
-                    sb.append("More fields than expected\n");
+                    sb.append("ATENCAO! Atribuitos a mais \n");
 
             }
 

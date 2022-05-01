@@ -28,25 +28,26 @@ public class ApoioPoeUiText {
     }
 
     private void atribuicaoOrientadoresUI() {
-        if (poe.getFase() == ApoioPoeIState.Fase.ABERTA) {  ///Mudar??? porque não está a ir bucar ao Context 
+        if (poe.getFase()== "ABERTA") {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Apresenta lista de Informacoes", "Exporta Informacoes  ", "Atribuicao Automatica de Orientadores",
-                    "Avanca", "Avança [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
+                    "Apresenta lista de Informacoes", "Exporta Informacoes  ", "Atribuicao Automatica de Orientadores","Voltar",
+                    "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
                 // case 1 -> lista com filtros
                 // case 2 -> TO DO EXPORTA
-                // case 3 -> TO DO atribuicao automatica de ppropostas
-                case 4 -> poe.avanca();
-                case 5 -> poe.avancaFechandoFase(); // adicionar condicao que so pode fechar quando todas as
+                // case 3 -> TO DO atribuicao automatica de orientadores
+                case 4 -> poe.volta(); 
+                case 5 -> poe.avanca();
+                case 6 -> poe.avancaFechandoFase(); // adicionar condicao que so pode fechar quando todas as
                                                     // candidaturas estao lacradas !
-                // case 6-> TO DO gravar estado a aplicacao
-                case 7 -> finish = true;
+                // case 7-> TO DO gravar estado a aplicacao
+                case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
 
         } else {
 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Avanca", "Gravar Estado Aplicacao ",
+                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Avancar", "Gravar Estado Aplicacao ",
                     "Sair")) {
                 // case 1 -> lista com filtros
                 // case 2 -> TO DO EXPORTA
@@ -60,24 +61,25 @@ public class ApoioPoeUiText {
     }
 
     private void atribuicaoPorpostasUI() {
-        if (poe.getFase() == ApoioPoeIState.Fase.ABERTA) {  ///Mudar??? porque não está a ir bucar ao Context 
+        if (poe.getFase()== "ABERTA") {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Atribuicao Automatica de Propostas",
-                    "Avanca", "Avança [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
+                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Atribuicao Automatica de Propostas", "Voltar",
+                    "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
                 // case 1 -> lista com filtros
                 // case 2 -> TO DO EXPORTA
                 // case 3 -> TO DO atribuicao automatica de ppropostas
-                case 4 -> poe.avanca();
-                case 5 -> poe.avancaFechandoFase();
-                // case 6-> TO DO gravar estado a aplicacao
-                case 7 -> finish = true;
+                case 4 -> poe.volta(); 
+                case 5 -> poe.avanca();
+                case 6 -> poe.avancaFechandoFase();
+                // case 7-> TO DO gravar estado a aplicacao
+                case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
 
         } else {
 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Avanca", "Gravar Estado Aplicacao ",
+                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Avancar", "Gravar Estado Aplicacao ",
                     "Sair")) {
                 // case 1 -> lista com filtros
                 // case 2 -> TO DO EXPORTA
@@ -92,7 +94,7 @@ public class ApoioPoeUiText {
 
     private void resolveEmpateUI() {
         switch (PAInput.chooseOption("Escolha uma opcao: ",
-                "Apresenta lista de Informacoes", "Resolver Empates", "avancar", "Gravar Estado Aplicacao ", "Sair")) {
+                "Apresenta lista de Informacoes", "Resolver Empates", "Avancar", "Gravar Estado Aplicacao ", "Sair")) {
             // case 1 -> lista com filtros
             // case 2 -> resolver empates
             case 3 -> poe.avanca();
@@ -104,25 +106,26 @@ public class ApoioPoeUiText {
     }
 
     private void organizaCandidaturasUI() {
-        if (poe.getFase() == ApoioPoeIState.Fase.ABERTA) {  ///Mudar??? porque não está a ir bucar ao Context 
+        if (poe.getFase()== "ABERTA") {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Apresenta lista de Informacoes", "Importa Informacoes Candidaturas",
-                    "Exporta Informacoes Candidaturas ", "Avanca", "Avança [Fechando Fase]", "Gravar Estado Aplicacao ",
+                    "Lista Candidaturas", "Importa Info Candidaturas",
+                    "Exporta Info Candidaturas ", "Voltar" , "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ",
                     "Sair")) {
                 // case 1 -> lista com filtros
                 // case 2 -> TO DO IMPORTA
                 // case 3 -> TO DO EXPORTA
-                case 4 -> poe.avanca();
-                case 5 -> poe.avancaFechandoFase();
-                // case 6-> TO DO gravar estado a aplicacao
-                case 7 -> finish = true;
+                case 4 -> poe.volta(); 
+                case 5 -> poe.avanca();
+                case 6 -> poe.avancaFechandoFase();
+                // case 7-> TO DO gravar estado a aplicacao
+                case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
 
         } else {
 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Apresenta lista de Informacoes", "Exporta Informacoes Candidaturas ", "Avanca",
+                    "Apresenta lista de Informacoes", "Exporta Informacoes Candidaturas ", "Avancar",
                     "Gravar Estado Aplicacao ", "Sair")) {
                 // case 1 -> lista com filtros
                 // case 2 -> TO DO EXPORTA
@@ -137,13 +140,10 @@ public class ApoioPoeUiText {
 
     private void modoPropostasUI() {
         switch (PAInput.chooseOption("Escolha uma opcao: ",
-                "Apresenta lista de Informacoes", "Importar info Propostas", " Exportar info Propostas", "avancar",
+                "Lista de Propostas", "Importar info Propostas", "Exportar info Propostas", "Avancar",
                 "Gravar Estado Aplicacao ", "Sair")) {
             case 1 -> System.out.println(poe.mostraListas());
-            case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("Insira nome do ficheiro", true )));
-            // exemplo : case 1 ->
-            // System.out.println(m.importTeachersCSV(PAInput.readString("Introduce the name
-            // of the file to read: ", true)));
+            case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
             // case 3 -> exportar
             case 4 -> poe.avanca();
             // case 5-> TO DO gravar estado a aplicacao
@@ -155,11 +155,11 @@ public class ApoioPoeUiText {
 
     private void modoDocentesUI() {
         switch (PAInput.chooseOption("Escolha uma opcao: ",
-                "Apresenta lista de Informacoes", "Importar info Docentes", " Exportar info Docentes", "avancar",
+                "Lista de Docentes", "Importar info Docentes", "Exportar info Docentes", "Avancar",
                 "Gravar Estado Aplicacao ", "Sair")) {
             case 1 -> System.out.println(poe.mostraListas());
-            case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("Insira nome do ficheiro", true )));
-            // case 3 -> exportar
+            case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
+           //  case 3 -> 
             case 4 -> poe.avanca();
             // case 5-> TO DO gravar estado a aplicacao
             case 6 -> finish = true;
@@ -170,7 +170,7 @@ public class ApoioPoeUiText {
 
     private void modoAlunosUI() {
         switch (PAInput.chooseOption("Escolha uma opcao: ",
-                "Apresenta lista de Informacoes", "Importar info Alunos", "Exportar info Alunos", "avancar", "Gravar Estado Aplicacao ", "Sair")) {
+                "Lista de Alunos", "Importar info Alunos", "Exportar info Alunos", "Avancar", "Gravar Estado Aplicacao ", "Sair")) {
              case 1 -> System.out.println(poe.mostraListas());
              case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
             // case 3 -> exportar
@@ -183,11 +183,11 @@ public class ApoioPoeUiText {
     }
 
     private void aguardaConfiguracaoUI() {
-        if (poe.getFase() == ApoioPoeIState.Fase.ABERTA) {  ///Mudar??? porque não está a ir bucar ao Context 
+        if (poe.getFase()== "ABERTA") {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Atualizar Alunos", "Atualizar Docentes", "Atualizar Propostas", "Apresenta lista de Informacoes",
-                    "Exporta Informacoes ", "Avanca",
-                    "Avança [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
+                    "Exporta Informacoes ", "Avancar",
+                    "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
                 case 1 -> poe.alteraModoConfiguracao(1);
                 case 2 -> poe.alteraModoConfiguracao(2);
                 case 3 -> poe.alteraModoConfiguracao(3);
@@ -203,7 +203,7 @@ public class ApoioPoeUiText {
         } else {
 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
-                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Avanca", "Gravar Estado Aplicacao ",
+                    "Apresenta lista de Informacoes", "Exporta Informacoes ", "Avancar", "Gravar Estado Aplicacao ",
                     "Sair")) {
                 // case 1 -> lista com filtros
                 // case 2 -> TODO exportar info
@@ -216,15 +216,18 @@ public class ApoioPoeUiText {
     }
 
     public void start() {
+
+        
+            System.out.println();
+            System.out.println("************ Apoio à gestao de projetos e estágios ************ ");
+
         while (!finish) {
 
-            System.out.println();
-            System.out.println("*********** Apoio à gestao de projetos e estágios *********** ");
 
             if (poe.getFase() == null)
-                System.out.print(">>> Estado: " + poe.getState());
+                System.out.print("\n>>>>>>>>>>>>>>>>>>> Estado: " + poe.getState());
             else
-                System.out.print(">>> Estado: " + poe.getState() + " > Fase: " + poe.getFase());
+                System.out.print("\n>>>>>>>>>>>>>>>>>>> Estado: " + poe.getState() + " > Fase: " + poe.getFase());
 
             System.out.println();
 

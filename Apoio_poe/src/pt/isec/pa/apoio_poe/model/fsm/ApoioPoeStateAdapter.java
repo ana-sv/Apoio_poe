@@ -10,8 +10,6 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     protected ApoioPoeData data; 
 
 
-
-
     protected ApoioPoeStateAdapter(ApoioPoeContext context, ApoioPoeData data) {
         this.context = context;
         this.data = data; 

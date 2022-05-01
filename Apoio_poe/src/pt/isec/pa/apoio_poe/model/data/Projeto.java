@@ -15,6 +15,18 @@ public class Projeto extends Proposta{
         this.numEstudante = numEstudante;
     }
 
+
+    public String propostasToString(){
+        StringBuilder s = new StringBuilder();
+
+        s.append("\n[" + tipoProp + "] " + " [" + codigoProp + "] ");
+   
+        s.append( area + " - " + titulo + " - " + mailDocente +" - " + numEstudante );
+
+        return s.toString();
+
+    }
+
     
     
 }

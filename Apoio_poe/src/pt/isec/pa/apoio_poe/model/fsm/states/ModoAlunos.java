@@ -31,6 +31,10 @@ class ModoAlunos extends ApoioPoeStateAdapter{
         for ( Aluno a : data.getListaAlunos().values()) {
             str.append(a.alunoToString());
         }
+
+        if(str.isEmpty())
+            str.append("\n> SEM IMFORMACAO !");
+
         return str.toString();
     }
 
@@ -58,7 +62,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
         Scanner sc = null;
 
         try{
-            fr = new FileReader(nomeFicheiro);
+            fr = new FileReader(nomeFicheiro+".csv");
             br = new BufferedReader(fr);
 
             while ((linha = br.readLine()) != null) {
@@ -80,7 +84,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                         break;
                     }
                 } else {
-                    sb.append("Numero de aluno nao encontrado");
+                    sb.append("ATENCAO! Numero de aluno nao encontrado");
                     break;
                 }
 
@@ -88,7 +92,7 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                 if (sc.hasNext()) {
                     nome = sc.next();
                 } else {
-                    sb.append("Nome nao encontrado");
+                    sb.append("ATENCAO! Nome nao encontrado");
                     break;
                 }
 
@@ -96,16 +100,16 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                 if (sc.hasNext()) {
                     mail = sc.next();
                     if(!context.mailValido(mail)) {
-                        sb.append("Mail nao é valido");
+                        sb.append("ATENCAO! Mail nao é valido");
                         break;
                     }
 
                     if (data.alunoExiste(mail)) {
-                        sb.append("Mail  " + mail + " ja existe\n");
+                        sb.append("ATENCAO! Mail  " + mail + " ja existe\n");
                         break;
                     }
                 } else {
-                    sb.append("Mail nao encontrado\n");
+                    sb.append("ATENCAO! Mail nao encontrado\n");
                     break;
                 }
 
@@ -113,11 +117,11 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                 if (sc.hasNext()) {
                     curso = sc.next();
                     if(!(curso.equalsIgnoreCase("LEI") || curso.equalsIgnoreCase("LEI-PL"))){
-                        sb.append("Curso não é valido ");
+                        sb.append("ATENCAO! Curso não é valido ");
                         break;
                     }
                 } else {
-                    sb.append("Curso nao encontrado");
+                    sb.append("ATENCAO! Curso nao encontrado");
                     break;
                 }
 
@@ -125,11 +129,11 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                 if (sc.hasNext()) {
                     ramo = sc.next();
                     if(!(ramo.equalsIgnoreCase("DA") || ramo.equalsIgnoreCase("RAS") || ramo.equalsIgnoreCase("SI"))){
-                        sb.append("Ramo nao é valido");
+                        sb.append("ATENCAO! Ramo nao é valido");
                         break;
                     }
                 } else {
-                    sb.append("Ramo nao encontrado");
+                    sb.append("ATENCAO! Ramo nao encontrado!\n");
                     break;
                 }
 
@@ -138,11 +142,11 @@ class ModoAlunos extends ApoioPoeStateAdapter{
                     String cString = sc.next();
                     classificacao = Double.parseDouble(cString);
                     if(classificacao>1 || classificacao<0){
-                        sb.append("Classification is not valid");
+                        sb.append("ATENCAO! Classificacao nao e valida!\n");
                         break;
                     }
                 } else {
-                    sb.append("Classificacao nao encontrada!\n");
+                    sb.append("ATENCAO! Classificacao nao encontrada!\n");
                     break;
                 }
                 //Acesso Estagio

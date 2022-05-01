@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.model.data;
 
+
 public class Estagio extends Proposta {
     protected String area; 
     protected String entAcolhimento;
@@ -10,6 +11,18 @@ public class Estagio extends Proposta {
         this.area = area;
         this.titulo = titulo;
         this.entAcolhimento = entAcolhimento;
+    }
+
+
+    public String propostasToString(){
+        StringBuilder s = new StringBuilder();
+
+        s.append("\n[" + tipoProp + "] " + " [" + codigoProp + "] ");
+   
+        s.append( area + " - " + titulo + " - " + entAcolhimento );
+
+        return s.toString();
+
     }
 
 

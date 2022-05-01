@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
@@ -26,7 +27,16 @@ class ModoPropostas extends ApoioPoeStateAdapter{
 
     @Override
     public String mostraListas() {
-        return data.getListaProposta().toString();
+        StringBuilder str= new StringBuilder();
+        for ( Proposta a : data.getListaProposta().values()) {
+            str.append(a.propostasToString());
+        }
+
+        
+        if(str.isEmpty())
+            str.append("\n> SEM IMFORMACAO !");
+
+        return str.toString();
     }
 
     @Override
@@ -39,7 +49,7 @@ class ModoPropostas extends ApoioPoeStateAdapter{
         Scanner sc = null;
 
         try{
-            fr = new FileReader(nomeFicheiro);
+            fr = new FileReader(nomeFicheiro+".csv");
             br = new BufferedReader(fr);
 
             while ((linha = br.readLine()) != null) {

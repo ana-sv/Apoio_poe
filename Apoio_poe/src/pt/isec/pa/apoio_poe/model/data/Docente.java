@@ -12,4 +12,13 @@ public class Docente {
     public String getEmail() {
         return mail;
     }
+
+    public String DocentesToString(){
+        StringBuilder s = new StringBuilder();
+        s.append("\n[" + mail + "] " + nome );
+        return s.toString();
+    }
+
+
+
 }

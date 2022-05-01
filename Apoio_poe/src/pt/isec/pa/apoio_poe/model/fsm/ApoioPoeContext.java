@@ -45,8 +45,12 @@ public class ApoioPoeContext {
         return state.getState(); 
     }
 
-    public Fase getFase(){
+    public Fase getFaseEnum(){
         return state.getFase();
+    }
+
+    public String getFase(){
+        return state.getFase().toString();
     }
 
 
@@ -65,9 +69,12 @@ public class ApoioPoeContext {
        state.avanca();
    }
 
-
     public boolean avancaFechandoFase(){
-        return avancaFechandoFase();
+        return state.fechaFase();
+    }
+
+    public boolean volta(){
+        return state.voltar(); 
     }
 
 
