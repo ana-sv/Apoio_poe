@@ -139,7 +139,7 @@ public class ApoioPoeUiText {
         switch (PAInput.chooseOption("Escolha uma opcao: ",
                 "Apresenta lista de Informacoes", "Importar info Propostas", " Exportar info Propostas", "avancar",
                 "Gravar Estado Aplicacao ", "Sair")) {
-            // case 1 -> lista com filtros
+            case 1 -> System.out.println(poe.mostraListas());
             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("Insira nome do ficheiro", true )));
             // exemplo : case 1 ->
             // System.out.println(m.importTeachersCSV(PAInput.readString("Introduce the name
@@ -157,7 +157,7 @@ public class ApoioPoeUiText {
         switch (PAInput.chooseOption("Escolha uma opcao: ",
                 "Apresenta lista de Informacoes", "Importar info Docentes", " Exportar info Docentes", "avancar",
                 "Gravar Estado Aplicacao ", "Sair")) {
-            // case 1 -> lista com filtros
+            case 1 -> System.out.println(poe.mostraListas());
             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("Insira nome do ficheiro", true )));
             // case 3 -> exportar
             case 4 -> poe.avanca();
