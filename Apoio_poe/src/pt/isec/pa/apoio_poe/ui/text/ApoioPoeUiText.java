@@ -143,7 +143,7 @@ public class ApoioPoeUiText {
                 "Gravar Estado Aplicacao ", "Sair")) {
             case 1 -> System.out.println(poe.mostraListas());
             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
-            // case 3 -> exportar
+            case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
             case 4 -> poe.avanca();
             // case 5-> TO DO gravar estado a aplicacao
             case 6 -> finish = true;
@@ -158,7 +158,7 @@ public class ApoioPoeUiText {
                 "Gravar Estado Aplicacao ", "Sair")) {
             case 1 -> System.out.println(poe.mostraListas());
             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
-           //  case 3 -> 
+            case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true ))); 
             case 4 -> poe.avanca();
             // case 5-> TO DO gravar estado a aplicacao
             case 6 -> finish = true;
@@ -172,7 +172,7 @@ public class ApoioPoeUiText {
                 "Lista de Alunos", "Importar info Alunos", "Exportar info Alunos", "Avancar", "Gravar Estado Aplicacao ", "Sair")) {
              case 1 -> System.out.println(poe.mostraListas());
              case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
-             case 3 ->  System.out.println(poe.exportaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
+             case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
             case 4 -> poe.avanca();
             // case 5-> TO DO gravar estado a aplicacao
             case 6 -> finish = true;
