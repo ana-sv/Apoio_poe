@@ -1,10 +1,11 @@
 package pt.isec.pa.apoio_poe.model.data;
+import javax.print.Doc;
 import java.util.*;
 
 public class ApoioPoeData {
     HashMap < Long, Aluno > listaAlunos; 
     HashMap < String, Docente > listaDocentes;
-    HashMap < Long , Proposta > listaPropostas; 
+    HashMap < String , Proposta > listaPropostas;
     HashMap<String, Candidatura> listaCandidaturas;
 
 
@@ -30,16 +31,27 @@ public class ApoioPoeData {
     public void adicionaAluno(long numeroAluno, String nome, String mail, String curso, String ramo, double classificacao, Boolean estagioAcesso){
         listaAlunos.put(numeroAluno, new Aluno(numeroAluno, nome, mail, curso, ramo, classificacao, estagioAcesso));
     }
+
     public boolean docenteExiste(String email){
-        for(Aluno s : listaAlunos.values()) {
+        for(Docente s : listaDocentes.values()) {
             if(email.equals(s.getEmail()))
                 return true;
         }
         return false;
     }
-
     public void adicionaDocente(String nome, String mail){
         listaDocentes.put(mail , new Docente(nome, mail));
+    }
+
+    public boolean propostaExiste(String codigprop){
+        for(Proposta s : listaPropostas.values()) {
+            if(codigprop.equals(s.getCodigoProp()))
+                return true;
+        }
+        return false;
+    }
+    public void adicionaProposta(Enum.TipoProposta tipoProp, String codigoProp, String titulo){
+        listaPropostas.put(codigoProp , new Proposta(tipoProp,codigoProp,titulo ));
     }
 
     // TODO

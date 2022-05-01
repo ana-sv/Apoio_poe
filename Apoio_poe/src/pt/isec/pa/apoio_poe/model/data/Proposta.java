@@ -7,10 +7,16 @@ public class Proposta {
     protected String codigoProp;
     protected String titulo;
 
-    public Proposta() { }
+    public Proposta(TipoProposta tipoProp, String codigoProp, String titulo) {
+        this.tipoProp = tipoProp;
+        this.codigoProp = codigoProp;
+        this.titulo = titulo;
+    }
 
+    public Proposta() {
+    }
 
-    
- 
-    
+    public String getCodigoProp() {
+        return codigoProp;
+    }
 }

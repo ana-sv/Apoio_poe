@@ -9,5 +9,7 @@ public class Docente {
         this.nome = nome;
         this.mail = mail;
     }
-    
+    public String getEmail() {
+        return mail;
+    }
 }

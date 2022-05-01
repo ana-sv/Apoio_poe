@@ -140,7 +140,7 @@ public class ApoioPoeUiText {
                 "Apresenta lista de Informacoes", "Importar info Propostas", " Exportar info Propostas", "avancar",
                 "Gravar Estado Aplicacao ", "Sair")) {
             // case 1 -> lista com filtros
-            // case 2 -> importar
+            case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("Insira nome do ficheiro", true )));
             // exemplo : case 1 ->
             // System.out.println(m.importTeachersCSV(PAInput.readString("Introduce the name
             // of the file to read: ", true)));
@@ -158,7 +158,7 @@ public class ApoioPoeUiText {
                 "Apresenta lista de Informacoes", "Importar info Docentes", " Exportar info Docentes", "avancar",
                 "Gravar Estado Aplicacao ", "Sair")) {
             // case 1 -> lista com filtros
-            // case 2 -> importar
+            case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("Insira nome do ficheiro", true )));
             // case 3 -> exportar
             case 4 -> poe.avanca();
             // case 5-> TO DO gravar estado a aplicacao
