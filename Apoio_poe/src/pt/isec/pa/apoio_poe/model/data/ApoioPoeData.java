@@ -85,6 +85,29 @@ public class ApoioPoeData {
         return this.listaPropostas.size();
     }
 
+    public Integer contaPropostasDA(){
+      int n = Collections.frequency(listaPropostas.values(), new Estagio("DA") );   
+        n =+ Collections.frequency(listaPropostas.values(), new Projeto("DA") );   
+        return n; 
+
+     } 
+
+     public Integer contaPropostasSI(){
+        int n = Collections.frequency(listaPropostas.values(), new Estagio("SI") );   
+          n =+ Collections.frequency(listaPropostas.values(), new Projeto("SI") );   
+          return n; 
+  
+       } 
+
+       public Integer contaPropostasRAS(){
+        int n = Collections.frequency(listaPropostas.values(), new Estagio("RAS") );   
+          n =+ Collections.frequency(listaPropostas.values(), new Projeto("RAS") );   
+          return n; 
+  
+       } 
+  
+
+
     public Integer contaCandidaturas(){
         return this.listaCandidaturas.size();
     }

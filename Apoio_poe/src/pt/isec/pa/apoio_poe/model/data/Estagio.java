@@ -13,6 +13,10 @@ public class Estagio extends Proposta {
         this.entAcolhimento = entAcolhimento;
     }
 
+    public Estagio( String ramo){
+        this.area = ramo; 
+    }
+
 
     public String propostasToString(){
         StringBuilder s = new StringBuilder();
@@ -23,6 +27,10 @@ public class Estagio extends Proposta {
 
         return s.toString();
 
+    }
+
+    public String getRamo(){
+        return area;
     }
 
 

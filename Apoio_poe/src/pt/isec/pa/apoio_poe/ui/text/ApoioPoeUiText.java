@@ -193,7 +193,7 @@ public class ApoioPoeUiText {
                 // case 4 -> lista com filtros
                 // case 5 -> TODO exportar info
                 case 6 -> poe.avanca();
-                case 7 -> poe.avancaFechandoFase(); // ADICIONAR CONDICAO Q SO FECHAS SE nAlunos <= n Propostas
+                case 7 -> System.out.println("Fase fechada: " + poe.avancaFechandoFase() );
                 // case 8-> TO DO gravar estado a aplicacao
                 case 9 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");

@@ -26,6 +26,10 @@ public class Proposta {
         return codigoProp;
     }
 
+    public String getRamo(){
+        return " ";
+    }
+
     public String propostasToString(){
         return " ";
     }

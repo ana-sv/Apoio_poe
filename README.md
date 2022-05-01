@@ -39,7 +39,7 @@
 - [ ] mostrar listas de propostas projeto/estagio com filtros - Estado Organiza Candidaturas 
 - [ ] mostrar listas de propostas alunos com filtros - Estado Organiza Candidaturas   
 
-- [ ] exportacao da info - Estado Modo Alunos/Modo Docentes / Modo Propostas
+- [x] exportacao da info - Estado Modo Alunos/Modo Docentes / Modo Propostas
 
 - [ ] exportacao da info - OrganizaCadidaturas   
 - [ ] exportacao da info - Atribuicao de Propostas 

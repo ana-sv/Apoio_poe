@@ -32,7 +32,6 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
         return " nao implementado ainda";
     }
 
-
     @Override
     public String exportaCVS(String nomeFicheiro) {
         // TODO
@@ -45,16 +44,14 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
         return " nao implementado ainda";
     }
 
-
     public void classificaAlunos() {
         // TO DO - META 2
     }
 
-
     @Override
     public void avanca() { // avanca sem fechar fase
 
-        // classificaAlunos() 
+        // classificaAlunos()
         changeState(ApoioPoeState.ORGANIZA_CANDIDATURAS);
     }
 
@@ -63,7 +60,9 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
 
         // classificaAlunos()
 
-        if (data.contaPropostas() >= data.contaAlunos()) {
+        if (data.contaPropostasDA() >= data.getListaAlunos().size()
+                && data.contaPropostasSI() >= data.getListaAlunos().size()
+                && data.contaPropostasRAS() >= data.getListaAlunos().size()) { 
             fase = Fase.FECHADA;
             return true;
         }

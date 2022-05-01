@@ -15,6 +15,10 @@ public class Projeto extends Proposta{
         this.numEstudante = numEstudante;
     }
 
+    public Projeto( String ramo){
+        this.area = ramo; 
+    }
+
 
     public String propostasToString(){
         StringBuilder s = new StringBuilder();
@@ -25,6 +29,10 @@ public class Projeto extends Proposta{
 
         return s.toString();
 
+    }
+
+    public String getRamo(){
+        return area;
     }
 
     
