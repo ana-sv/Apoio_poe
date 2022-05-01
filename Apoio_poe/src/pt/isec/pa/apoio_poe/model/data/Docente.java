@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.model.data;
 
+
 public class Docente {
     protected String nome;
     protected String mail;
@@ -18,6 +19,8 @@ public class Docente {
         s.append("\n[" + mail + "] " + nome );
         return s.toString();
     }
+
+
 
 
 

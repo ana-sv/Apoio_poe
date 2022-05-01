@@ -15,7 +15,6 @@ import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeIState.Fase;
 
 
-import java.util.regex.Pattern;
 
 public class ApoioPoeContext {
     private ApoioPoeIState state; 
@@ -97,19 +96,6 @@ public class ApoioPoeContext {
     // Conjunto de métodos que permita obter os dados necessários à 
     // interação com o utilizador ou com os restantes módulos do programa
 
-
-    public boolean mailValido(String email) {            //// ??????? 
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-                "[a-zA-Z0-9_+&*-]+)*@" +
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}$";
-
-        Pattern pat = Pattern.compile(emailRegex);
-        if (email == null)
-            return false;
-        return pat.matcher(email).matches();
-    }
- 
 
 
 
