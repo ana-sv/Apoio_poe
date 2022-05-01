@@ -67,10 +67,15 @@ public class ApoioPoeData {
         return false;
     }
     
-    public void adicionaProposta(TipoProposta tipoProp, String codigoProp, String titulo){
-        listaPropostas.put(codigoProp , new Proposta(tipoProp,codigoProp,titulo ));
+    public void adicionaEstagio(String codigoProp, String area, String titulo, String entidadeAcolhimento){
+            listaPropostas.put(codigoProp , new Estagio(codigoProp, area,titulo, entidadeAcolhimento ));
     }
-
+    public void adicionaProjecto(String codigoProp, String area, String titulo, String mail, Long numEstudante){
+            listaPropostas.put(codigoProp , new Projeto(codigoProp, area, titulo, mail, numEstudante));
+    }
+    public void adicionaAutoProposta(String codigoProp, String titulo, Long numEstudante){
+            listaPropostas.put(codigoProp , new AutoProposta(codigoProp,titulo, numEstudante ));
+    }
 
     public Integer contaAlunos(){
        return  this.listaAlunos.size();

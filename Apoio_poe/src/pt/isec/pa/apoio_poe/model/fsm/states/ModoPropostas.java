@@ -72,15 +72,134 @@ class ModoPropostas extends ApoioPoeStateAdapter{
 
         return str.toString();
     }
+    private boolean importEstagio(Scanner sc){
+        StringBuilder sb = new StringBuilder();
+        String codigoProp = null, area = null, entAcolhimento = null, titulo=null;
 
+
+                //Codigo Proposta
+                if (sc.hasNext()) {
+                    codigoProp = sc.next();
+                } else {
+                    sb.append("Codigo de proposta nao encontrado");
+                }
+
+                //Area Proposta
+                if (sc.hasNext()) {
+                    area = sc.next();
+                } else {
+                    sb.append("Area de proposta nao encontrado");
+                }
+                //Titulo Proposta
+                if (sc.hasNext()) {
+                    titulo = sc.next();
+                } else {
+                    sb.append("Titulo de proposta nao encontrado");
+                }
+                //Entidade de Acolhimento Proposta
+                if (sc.hasNext()) {
+                    entAcolhimento = sc.next();
+                } else {
+                    sb.append("Titulo de proposta nao encontrado");
+                }
+
+                //Adicionar Proposta
+                if(!sc.hasNext())
+                    data.adicionaEstagio(codigoProp, area, titulo, entAcolhimento);
+                else
+                    sb.append("Atributos a mais!\n");
+
+        return true;
+    }
+    private boolean importAutoProposta(Scanner sc){
+        StringBuilder sb = new StringBuilder();
+        String codigoProp = null, area = null, entAcolhimento = null, titulo=null;
+        long numeroAluno = 0;
+
+        //Codigo Proposta
+        if (sc.hasNext()) {
+            codigoProp = sc.next();
+        } else {
+            sb.append("Codigo de proposta nao encontrado");
+        }
+        //Titulo Proposta
+        if (sc.hasNext()) {
+            titulo = sc.next();
+        } else {
+            sb.append("Titulo de proposta nao encontrado");
+        }
+        //Numero Aluno Proposta
+        String snString = sc.next();
+        if(snString.length()!=10){
+            sb.append("Numero de aluno nao e valido");
+
+        }
+        numeroAluno = Long.parseLong(snString);
+
+        //Adicionar Proposta
+        if(!sc.hasNext())
+            data.adicionaAutoProposta(codigoProp, titulo, numeroAluno);
+        else
+            sb.append("Atributos a mais!\n");
+
+        return true;
+    }
+    private boolean importProjecto(Scanner sc){
+        StringBuilder sb = new StringBuilder();
+        String codigoProp = null,mail=null, area = null, entAcolhimento = null, titulo=null;
+        long numeroAluno = 0;
+
+        //Codigo Proposta
+        if (sc.hasNext()) {
+            codigoProp = sc.next();
+        } else {
+            sb.append("Codigo de proposta nao encontrado");
+        }
+
+        //Area Proposta
+        if (sc.hasNext()) {
+            area = sc.next();
+        } else {
+            sb.append("Area de proposta nao encontrado");
+        }
+        //Titulo Proposta
+        if (sc.hasNext()) {
+            titulo = sc.next();
+        } else {
+            sb.append("Titulo de proposta nao encontrado");
+        }
+        //Entidade de Acolhimento Proposta
+        if (sc.hasNext()) {
+            mail = sc.next();
+        } else {
+            sb.append("Titulo de proposta nao encontrado");
+        }
+        //Numero Aluno Proposta
+        String snString = sc.next();
+        if(snString.length()!=10){
+            sb.append("Numero de aluno nao e valido");
+
+        }
+        numeroAluno = Long.parseLong(snString);
+
+        //Adicionar Proposta
+        if(!sc.hasNext())
+            data.adicionaProjecto(codigoProp, area, titulo, mail, numeroAluno);
+        else
+            sb.append("Atributos a mais!\n");
+
+        return true;
+    }
     @Override
     public String importaCVS(String nomeFicheiro) {
         StringBuilder sb = new StringBuilder();
         TipoProposta tipoProp = null;
-        String codigoProp, titulo, linha;
+        String codigoProp, area, entAcolhimento, titulo, linha;
         FileReader fr = null;
         BufferedReader br = null;
         Scanner sc = null;
+        String reposta;
+
 
         try{
             fr = new FileReader(nomeFicheiro+".csv");
@@ -90,32 +209,27 @@ class ModoPropostas extends ApoioPoeStateAdapter{
                 sc = new Scanner(linha);
                 sc.useDelimiter(",");
 
-                //Codigo Proposta
+
+
+                //Tipo Proposta
                 if (sc.hasNext()) {
                     String snString = sc.next();
-                    codigoProp = snString;
+                    tipoProp = TipoProposta.valueOf(snString);
 
-                    if (data.propostaExiste(codigoProp)) {
-                        sb.append("Proposta com  " + codigoProp + " ja existe\n");
-                        break;
+                    if(tipoProp.equals("T1")){
+                        importEstagio(sc);
                     }
+                    if(tipoProp.equals("T2")){
+                        importProjecto(sc);
+                    }
+                    if(tipoProp.equals("T3")){
+                        importAutoProposta(sc);
+                    }
+
                 } else {
                     sb.append("codigoProp da proposta nao encontrado");
                     break;
                 }
-
-                //Titulo
-                if (sc.hasNext()) {
-                    titulo = sc.next();
-                } else {
-                    sb.append("Titulo nao encontrado");
-                    break;
-                }
-                //Adicionar Proposta
-                if(!sc.hasNext())
-                    data.adicionaProposta(tipoProp, codigoProp, titulo);
-                else
-                    sb.append("More fields than expected\n");
             }
 
             if(sc!=null) sc.close();
