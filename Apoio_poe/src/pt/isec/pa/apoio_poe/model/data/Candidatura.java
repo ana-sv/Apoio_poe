@@ -36,8 +36,29 @@ public class Candidatura {
 
     }
 
+    public String candidaturaToString() {
+        StringBuilder s = new StringBuilder();
 
-    
-    
+        s.append( "[" + numEstudante + "]");
+
+        for (Proposta p : listaProp){
+            s.append( " - " + p.getCodigoProp() );
+            s.append( " > " + estadoCand );
+        }
+
+        return s.toString();
+    }
+
+    public Long getNumEstudante(){
+        return numEstudante;
+    }
+
+    public ArrayList<Proposta> getListaPropostas(){
+        return listaProp;
+    }
+
 
 }
+
+    
+    

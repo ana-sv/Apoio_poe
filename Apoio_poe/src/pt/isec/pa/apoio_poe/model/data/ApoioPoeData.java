@@ -16,6 +16,39 @@ public class ApoioPoeData {
         this.listaPropostas = new HashMap<>();
         this.listaCandidaturas = new HashMap<>();
     }
+
+
+
+    public String infoCandidaturasToString( Boolean comOrientador){
+        StringBuilder str = new StringBuilder();
+
+       Set<Map.Entry<Aluno,Candidatura>> aux = listaCandidaturas.entrySet();
+      
+       for( Map.Entry<Aluno, Candidatura>  it : aux ){
+
+           str.append( "\n[" + it.getKey().numEstudante + "] ");
+           str.append( " " + it.getKey().nome + " : ");
+
+        for (Proposta p : it.getValue().listaProp){
+            str.append( " , " + p.getCodigoProp() );
+        }
+
+       if ( comOrientador = true ){
+        str.append(" - " + it.getValue().orientador);
+    }
+        str.append(" - " + it.getValue().estadoCand );
+
+       }
+
+      
+        return str.toString();
+    }
+
+
+
+
+
+
     public HashMap < Long, Aluno > getListaAlunos(){
         return listaAlunos;
     }
