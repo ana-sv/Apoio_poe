@@ -10,7 +10,9 @@ public interface ApoioPoeIState {
 
     // interface deve ter poucos metodos e apenas aqueles que representam mudança de estado
 
-    public String filtraListas( String filtros ); 
+    public String filtraListasAlunos( String filtros ); 
+    public String filtraListasPropostas( String filtros );
+    public String filtraListasOrientadores( String filtros );
     public String mostraListas();
 
     public String importaCVS( String nomeFicheiro );

@@ -86,7 +86,7 @@ public class ApoioPoeContext {
     }
 
     public String filtraListas( String filtros ){
-        return state.filtraListas(filtros);
+        return state.filtraListasAlunos(filtros);  // MUDAR MUDAR MUDAR 
     }
 
 

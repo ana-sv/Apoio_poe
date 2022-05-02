@@ -76,13 +76,6 @@ class ModoAlunos extends ApoioPoeStateAdapter{
 
 
 
-    @Override
-    public String filtraListas( String filtros ) {
-        // TO DO
-        return " nao implementado ainda";
-    }
-
-
     public boolean mailValido(String email) {            
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +

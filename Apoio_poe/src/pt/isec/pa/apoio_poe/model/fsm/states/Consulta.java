@@ -21,12 +21,6 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     }
 
 
-    @Override
-    public String filtraListas( String filtros ) {
-        // TO DO
-        return " nao implementado ainda";
-    }
-
 
 
     @Override

@@ -27,10 +27,21 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     }
 
     @Override
-    public String filtraListas( String filtros ) {
+    public String filtraListasAlunos( String filtros ) {
         return " ";
     }
 
+    @Override
+    public String filtraListasPropostas(String filtros) {
+         return " ";
+    }
+
+    @Override
+    public String filtraListasOrientadores(String filtros) {
+         return " ";
+    }
+ 
+ 
     @Override
     public String exportaCVS( String nomeFicheiro) {
         return " ";
@@ -71,6 +82,9 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     public Fase getFase() {
         return null;
     }
+
+
+
 
 
     
