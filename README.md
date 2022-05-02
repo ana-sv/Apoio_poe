@@ -36,7 +36,7 @@
 
 - [x]  importação dos ficheiros propostas
 
-- [ ]  importação dos ficheiros candidaduras
+- [x]  importação dos ficheiros candidaduras
   
 - [ ] mostrar listas de propostas projeto/estagio com filtros - Estado Organiza Candidaturas 
 - [ ] mostrar listas de propostas alunos com filtros - Estado Organiza Candidaturas   
