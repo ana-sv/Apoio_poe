@@ -82,6 +82,7 @@ class ModoPropostas extends ApoioPoeStateAdapter{
                     codigoProp = sc.next();
                 } else {
                     sb.append("Codigo de proposta nao encontrado");
+                    return false;
                 }
 
                 //Area Proposta
@@ -89,18 +90,21 @@ class ModoPropostas extends ApoioPoeStateAdapter{
                     area = sc.next();
                 } else {
                     sb.append("Area de proposta nao encontrado");
+                    return false;
                 }
                 //Titulo Proposta
                 if (sc.hasNext()) {
                     titulo = sc.next();
                 } else {
                     sb.append("Titulo de proposta nao encontrado");
+                    return false;
                 }
                 //Entidade de Acolhimento Proposta
                 if (sc.hasNext()) {
                     entAcolhimento = sc.next();
                 } else {
                     sb.append("Titulo de proposta nao encontrado");
+                    return false;
                 }
 
                 //Adicionar Proposta
@@ -121,20 +125,27 @@ class ModoPropostas extends ApoioPoeStateAdapter{
             codigoProp = sc.next();
         } else {
             sb.append("Codigo de proposta nao encontrado");
+            return false;
         }
         //Titulo Proposta
         if (sc.hasNext()) {
             titulo = sc.next();
         } else {
             sb.append("Titulo de proposta nao encontrado");
+            return false;
         }
         //Numero Aluno Proposta
-        String snString = sc.next();
-        if(snString.length()!=10){
-            sb.append("Numero de aluno nao e valido");
+        if (sc.hasNext()) {
+            String snString = sc.next();;
+            if (snString.length() != 10) {
+                sb.append("Numero de aluno nao e valido");
 
+            }
+            numeroAluno = Long.parseLong(snString);
+        }else {
+            sb.append("Numero Aluno proposta nao encontrado");
+            return false;
         }
-        numeroAluno = Long.parseLong(snString);
 
         //Adicionar Proposta
         if(!sc.hasNext())
@@ -154,6 +165,7 @@ class ModoPropostas extends ApoioPoeStateAdapter{
             codigoProp = sc.next();
         } else {
             sb.append("Codigo de proposta nao encontrado");
+            return false;
         }
 
         //Area Proposta
@@ -161,26 +173,34 @@ class ModoPropostas extends ApoioPoeStateAdapter{
             area = sc.next();
         } else {
             sb.append("Area de proposta nao encontrado");
+            return false;
         }
         //Titulo Proposta
         if (sc.hasNext()) {
             titulo = sc.next();
         } else {
             sb.append("Titulo de proposta nao encontrado");
+            return false;
         }
         //Entidade de Acolhimento Proposta
         if (sc.hasNext()) {
             mail = sc.next();
         } else {
             sb.append("Titulo de proposta nao encontrado");
+            return false;
         }
         //Numero Aluno Proposta
-        String snString = sc.next();
-        if(snString.length()!=10){
-            sb.append("Numero de aluno nao e valido");
+        if (sc.hasNext()) {
+            String snString = sc.next();
+            if (snString.length() != 10) {
+                sb.append("Numero de aluno nao e valido");
 
+            }
+            numeroAluno = Long.parseLong(snString);
+        }else {
+            sb.append("Numero Aluno proposta nao encontrado");
+            return false;
         }
-        numeroAluno = Long.parseLong(snString);
 
         //Adicionar Proposta
         if(!sc.hasNext())
