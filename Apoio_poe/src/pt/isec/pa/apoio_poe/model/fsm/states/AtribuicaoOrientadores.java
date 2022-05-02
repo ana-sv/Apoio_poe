@@ -87,7 +87,7 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
     @Override
     public void avanca() {
         fechaFase();  // porque avançando para o estado Consulta ano é possivel voltar atrás 
-        changeState(ApoioPoeState.ORGANIZA_CANDIDATURAS);
+        changeState(ApoioPoeState.CONSULTA);
     }
 
     @Override
@@ -106,5 +106,12 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
         fase = Fase.FECHADA;
         return true;
     }
+
+    
+    @Override
+    public Fase getFase() {
+        return this.fase;
+    }
+
 
 }

@@ -117,7 +117,7 @@ class ModoPropostas extends ApoioPoeStateAdapter{
     }
     private boolean importAutoProposta(Scanner sc){
         StringBuilder sb = new StringBuilder();
-        String codigoProp = null, area = null, entAcolhimento = null, titulo=null;
+        String codigoProp = null, titulo=null;
         long numeroAluno = 0;
 
         //Codigo Proposta
@@ -157,7 +157,7 @@ class ModoPropostas extends ApoioPoeStateAdapter{
     }
     private boolean importProjecto(Scanner sc){
         StringBuilder sb = new StringBuilder();
-        String codigoProp = null,mail=null, area = null, entAcolhimento = null, titulo=null;
+        String codigoProp = null,mail=null, area = null, titulo=null;
         long numeroAluno = 0;
 
         //Codigo Proposta
@@ -214,11 +214,10 @@ class ModoPropostas extends ApoioPoeStateAdapter{
     public String importaCVS(String nomeFicheiro) {
         StringBuilder sb = new StringBuilder();
         TipoProposta tipoProp = null;
-        String codigoProp, area, entAcolhimento, titulo, linha;
+        String linha;
         FileReader fr = null;
         BufferedReader br = null;
         Scanner sc = null;
-        String reposta;
 
 
         try{

@@ -18,10 +18,8 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
     @Override
     public String filtraListasAlunos( Integer q , String filtros ) {  //autoproposta , registada , nao registada
-
-
         // TO DO
-        return " nao implementado ainda";
+        return " ";
     }
 
 
@@ -29,12 +27,14 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     @Override
     public String filtraListasPropostas( Integer q ,String filtros ) { // autopropostas, docentes, com candidatura , sem candidatura
         // TO DO
-        return " nao implementado ainda";
+        return " ";
     }
 
     @Override
     public String mostraListas() {
         StringBuilder s = new StringBuilder();
+
+        s.append("\nCANDIDATURAS");
 
         for( Candidatura c : data.getListaCandidaturas().values() )
             s.append( c.candidaturaToString() );
@@ -47,7 +47,6 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     public String importaCVS(String nomeFicheiro) {
 
         StringBuilder sb = new StringBuilder();
-        boolean flag = false;
         long numeroAluno;
         String linha;
 
@@ -84,10 +83,12 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
                     break;
                 }
 
+                
                 //codigo prop
                 while (sc.hasNext()) {
                     codigoPropostas.add(sc.next());
                 }
+
                 //Adicionar Aluno
                 if(!sc.hasNext())
                     data.adicionaCandidatura(numeroAluno, codigoPropostas);
@@ -157,7 +158,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
     @Override
     public ApoioPoeState getState() {
-        return ApoioPoeState.ORGANIZA_CANDIDATURAS;
+        return ApoioPoeState.OPCOES_CANDIDATURAS;
     }
 
 
@@ -184,6 +185,12 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
         fase = Fase.FECHADA;
         return true;    
+    }
+
+
+    @Override
+    public Fase getFase() {
+        return this.fase;
     }
 
 

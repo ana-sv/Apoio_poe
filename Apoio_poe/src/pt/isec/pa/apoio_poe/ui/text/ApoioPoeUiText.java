@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.ui.text;
 
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeIState.Fase;
 import pt.isec.pa.apoio_poe.ui.utils.PAInput;
 
 public class ApoioPoeUiText {
@@ -19,7 +20,7 @@ public class ApoioPoeUiText {
                 "Apresenta lista de Informacoes", "Exporta Informacoes  ", "Gravar Estado Aplicacao ", "Sair")) {
             case 1 -> System.out.println(poe.filtraListas(   PAInput.readString("> Insira filtros ", false ) ) );
             case 2 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
-            case 3-> System.out.println("\nNAO IMPLEMENTADO "); 
+            case 3 -> System.out.println( poe.gravaEstadoAplicacao() ); 
             case 4 -> finish = true;
             default -> System.out.println("Escolha uma opcao!");
         }
@@ -27,7 +28,7 @@ public class ApoioPoeUiText {
     }
 
     private void atribuicaoOrientadoresUI() {
-        if (poe.getFase()== "ABERTA") {  
+        if (poe.getFaseEnum()== Fase.ABERTA) {   
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Exporta Informacoes  ", "Atribuicao Automatica de Orientadores","Voltar",
                     "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
@@ -37,7 +38,7 @@ public class ApoioPoeUiText {
                 case 4 -> poe.volta(); 
                 case 5 -> poe.avanca();
                 case 6 -> System.out.println("\nFASE FECHADA: " + poe.avancaFechandoFase() );
-                 case 7-> System.out.println("\nNAO IMPLEMENTADO ");
+                 case 7-> System.out.println( poe.gravaEstadoAplicacao() ); 
                 case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
@@ -50,7 +51,7 @@ public class ApoioPoeUiText {
                 case 1 -> System.out.println(poe.filtraListas(   PAInput.readString("> Insira filtros ", false ) ) );
                  case 2 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
                 case 3 -> poe.avanca();
-                case 4-> System.out.println("\nNAO IMPLEMENTADO "); 
+                case 4->System.out.println( poe.gravaEstadoAplicacao() ); 
                 case 5 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
@@ -59,7 +60,7 @@ public class ApoioPoeUiText {
     }
 
     private void atribuicaoPorpostasUI() {
-        if (poe.getFase()== "ABERTA") {  
+        if (poe.getFaseEnum()== Fase.ABERTA) {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Exporta Informacoes ", "Atribuicao Automatica de Propostas", "Voltar",
                     "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
@@ -69,7 +70,7 @@ public class ApoioPoeUiText {
                 case 4 -> poe.volta(); 
                 case 5 -> poe.avanca();
                 case 6 -> System.out.println("\nFASE FECHADA: " + poe.avancaFechandoFase() );
-                case 7-> System.out.println("\nNAO IMPLEMENTADO "); 
+                case 7-> System.out.println( poe.gravaEstadoAplicacao() ); 
                 case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
@@ -82,7 +83,7 @@ public class ApoioPoeUiText {
                 case 1 -> System.out.println(poe.filtraListas(   PAInput.readString("> Insira filtros ", false ) ) );
                 case 2 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
                 case 3 -> poe.avanca();
-                case 4 -> System.out.println("\nNAO IMPLEMENTADO ");
+                case 4 -> System.out.println( poe.gravaEstadoAplicacao() ); 
                 case 5 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
@@ -96,15 +97,15 @@ public class ApoioPoeUiText {
              case 1 -> System.out.println(poe.filtraListas(   PAInput.readString("> Insira filtros ", false ) ) );
             // case 2 -> resolver empates
             case 3 -> poe.avanca();
-             case 4-> System.out.println("\nNAO IMPLEMENTADO "); 
+             case 4-> System.out.println( poe.gravaEstadoAplicacao() ); 
             case 5 -> finish = true;
             default -> System.out.println("Escolha uma opcao!");
         }
 
     }
 
-    private void organizaCandidaturasUI() {
-       // if (poe.getFase()== "ABERTA") {
+    private void opcoesCandidaturasUI() {
+        if (poe.getFaseEnum()== Fase.ABERTA) {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Lista Candidaturas", "Importa Info Candidaturas",
                     "Exporta Info Candidaturas ", "Voltar" , "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ",
@@ -115,25 +116,25 @@ public class ApoioPoeUiText {
                 case 4 -> poe.volta(); 
                 case 5 -> poe.avanca();
                 case 6 -> System.out.println("\nFASE FECHADA: " + poe.avancaFechandoFase() );
-                case 7 -> System.out.println("\nNAO IMPLEMENTADO "); 
+                case 7 -> System.out.println( poe.gravaEstadoAplicacao() ); 
                 case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
 
-      /*  } else {
+        } else {
 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Exporta Informacoes Candidaturas ", "Avancar",
                     "Gravar Estado Aplicacao ", "Sair")) {
                  case 1 -> System.out.println(poe.filtraListas(   PAInput.readString("> Insira filtros ", false ) ) );
-                case 2 ->System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
+                case 2 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
                 case 3 -> poe.avanca();
-                 case 4-> System.out.println("\nNAO IMPLEMENTADO "); 
+                 case 4-> System.out.println( poe.gravaEstadoAplicacao() ); 
                 case 5 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
 
-        }*/
+        }
     }
 
     private void modoPropostasUI() {
@@ -144,7 +145,7 @@ public class ApoioPoeUiText {
             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
             case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
             case 4 -> poe.avanca();
-            case 5 -> System.out.println("\nNAO IMPLEMENTADO "); 
+            case 5 -> System.out.println( poe.gravaEstadoAplicacao() ); 
             case 6 -> finish = true;
             default -> System.out.println("Escolha uma opcao!");
         }
@@ -159,7 +160,7 @@ public class ApoioPoeUiText {
             case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
             case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true ))); 
             case 4 -> poe.avanca();
-            case 5 -> System.out.println("\nNAO IMPLEMENTADO "); 
+            case 5 -> System.out.println( poe.gravaEstadoAplicacao() ); 
             case 6 -> finish = true;
             default -> System.out.println("Escolha uma opcao!");
         }
@@ -173,7 +174,7 @@ public class ApoioPoeUiText {
              case 2 -> System.out.println(poe.importaCVS(   PAInput.readString("> Insira nome do ficheiro: ", true )));
              case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
             case 4 -> poe.avanca();
-             case 5-> System.out.println("\nNAO IMPLEMENTADO ");
+             case 5-> System.out.println( poe.gravaEstadoAplicacao() ); 
             case 6 -> finish = true;
             default -> System.out.println("Escolha uma opcao!");
         }
@@ -181,7 +182,7 @@ public class ApoioPoeUiText {
     }
 
     private void aguardaConfiguracaoUI() {
-        if (poe.getFase()== "ABERTA") {  
+        if (poe.getFaseEnum()== Fase.ABERTA) {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Atualizar Alunos", "Atualizar Docentes", "Atualizar Propostas", "Exporta Informacoes ", "Avancar",
                     "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", " Carregar Estado da Aplicacao ", "Sair")) {
@@ -191,7 +192,7 @@ public class ApoioPoeUiText {
                 case 4 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
                 case 5 -> poe.avanca();
                 case 6 -> System.out.println("\nFASE FECHADA: " + poe.avancaFechandoFase() );
-                case 7 -> System.out.println("\nNAO IMPLEMENTADO "); 
+                case 7 -> System.out.println( poe.gravaEstadoAplicacao() ); 
                 case 8 -> System.out.println("\nNAO IMPLEMENTADO "); 
                 case 9 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
@@ -204,8 +205,8 @@ public class ApoioPoeUiText {
                 case 1 -> System.out.println(poe.mostraListas());
                 case 4 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
                 case 3 -> poe.avanca();
-                case 7 -> System.out.println("\nNAO IMPLEMENTADO "); 
-                case 8 -> System.out.println("\nNAO IMPLEMENTADO "); 
+                case 7 -> System.out.println( poe.gravaEstadoAplicacao() ); 
+                case 8 -> System.out.println(poe.carregaEstadoAplicacao()); 
                 case 5 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
             }
@@ -235,7 +236,7 @@ public class ApoioPoeUiText {
                 case MODO_DOCENTES -> modoDocentesUI();
                 case MODO_PROPOSTAS -> modoPropostasUI();
 
-                case ORGANIZA_CANDIDATURAS -> organizaCandidaturasUI();
+                case OPCOES_CANDIDATURAS -> opcoesCandidaturasUI();
 
                 case ATRIBUICAO_PROPOSTAS -> atribuicaoPorpostasUI();
                 case RESOLVE_EMPATES -> resolveEmpateUI();

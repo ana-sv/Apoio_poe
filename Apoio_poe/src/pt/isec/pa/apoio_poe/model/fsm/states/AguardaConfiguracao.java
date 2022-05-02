@@ -93,7 +93,7 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     public void avanca() { // avanca sem fechar fase
 
         // classificaAlunos()
-        changeState(ApoioPoeState.ORGANIZA_CANDIDATURAS);
+        changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
     }
 
     @Override

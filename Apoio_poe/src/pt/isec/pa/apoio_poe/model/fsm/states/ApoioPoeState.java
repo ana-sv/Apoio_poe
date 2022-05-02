@@ -11,7 +11,7 @@ public enum ApoioPoeState {
     MODO_DOCENTES,
     MODO_PROPOSTAS,
 
-    ORGANIZA_CANDIDATURAS,
+    OPCOES_CANDIDATURAS,
     ATRIBUICAO_PROPOSTAS,
     RESOLVE_EMPATES,
 
@@ -29,7 +29,7 @@ public enum ApoioPoeState {
              case MODO_DOCENTES -> new ModoDocentes(context,data);
              case MODO_PROPOSTAS -> new ModoPropostas(context,data);
 
-             case ORGANIZA_CANDIDATURAS -> new OpcoesCandidaturas(context,data);
+             case OPCOES_CANDIDATURAS -> new OpcoesCandidaturas(context,data);
              case ATRIBUICAO_PROPOSTAS -> new AtribuicaoPropostas(context,data);
              case RESOLVE_EMPATES -> new ResolveEmpates(context,data);
 

@@ -74,5 +74,8 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
         return sb.toString();
     }
 
+    
+
+
  
 }

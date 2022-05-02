@@ -111,11 +111,16 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
     @Override
     public boolean voltar() {
         if( fase == Fase.ABERTA ){
-            changeState(ApoioPoeState.ORGANIZA_CANDIDATURAS);
+            changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
             return true;
         }
         return false; 
 
+    }
+
+    @Override
+    public Fase getFase() {
+        return this.fase;
     }
 
 

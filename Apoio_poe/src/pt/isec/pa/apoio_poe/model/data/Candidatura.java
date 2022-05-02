@@ -1,7 +1,6 @@
 package pt.isec.pa.apoio_poe.model.data;
 
 import java.util.ArrayList;
-import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 
 public class Candidatura {
     protected Long numEstudante; 
@@ -24,7 +23,7 @@ public class Candidatura {
         this.numEstudante = numEstudante;
         this.listaProp = p;
 
-/*        if( p.tipoProp == TipoProposta.T3 ){ // é autoproposta
+/*        if( p.tipoProp == TipoProposta.T3 ){ // é autoproposta                //REVER
             this.numEstudante = numEstudante;
             this.listaProp = new ArrayList<>(1); // entao só pode ter uma proposta
             listaProp.add(p); 
@@ -42,17 +41,12 @@ public class Candidatura {
     public String candidaturaToString() {
       StringBuilder s = new StringBuilder();
 
-        s.append( "[" + numEstudante + "]");
+        s.append( "\n[" + numEstudante + "]");
+        s.append(listaProp);
 
-      /*    for (String p : listaProp){
-            s.append( " - " + p.getCodigoProp() );
-            s.append( " > " + estadoCand );
-        }
-*/
         return s.toString();
-
-
     }
+
 
     public Long getNumEstudante(){
         return numEstudante;

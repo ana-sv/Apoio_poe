@@ -86,7 +86,16 @@ public class ApoioPoeContext {
     }
 
     public String filtraListas( String filtros ){
-        return "NAO IMPLEMENTADAS";  
+        return "NAO IMPLEMENTADO";  
+    }
+
+    public String gravaEstadoAplicacao(){
+        return "NAO IMPLEMENTADO";  
+    }
+
+    public String carregaEstadoAplicacao(){
+        return "NAO IMPLEMENTADO";  
+
     }
 
 
