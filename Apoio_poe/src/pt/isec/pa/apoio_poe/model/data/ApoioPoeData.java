@@ -8,13 +8,14 @@ public class ApoioPoeData {
     HashMap < String, Docente > listaDocentes;       //mail , Docente
     HashMap < String , Proposta > listaPropostas;    // codigoProp , Proposta
     HashMap< Aluno, Candidatura> listaCandidaturas;
-
+    HashMap< Long, Candidatura> listaCandidatos;
 
     public ApoioPoeData() {
         this.listaAlunos = new HashMap<>();
         this.listaDocentes = new HashMap<>();
         this.listaPropostas = new HashMap<>();
         this.listaCandidaturas = new HashMap<>();
+        this.listaCandidatos = new HashMap<>();
     }
 
 
@@ -29,9 +30,9 @@ public class ApoioPoeData {
            str.append( "\n[" + it.getKey().numEstudante + "] ");
            str.append( " " + it.getKey().nome + " : ");
 
-        for (Proposta p : it.getValue().listaProp){
+      /*  for (String p : it.getValue().listaProp){
             str.append( " , " + p.getCodigoProp() );
-        }
+        }*/
 
        if ( comOrientador = true ){
         str.append(" - " + it.getValue().orientador);
@@ -63,7 +64,9 @@ public class ApoioPoeData {
         return listaCandidaturas;
     }
 
-
+    public HashMap < Long , Candidatura  > getlistaCandidatos(){
+        return listaCandidatos;
+    }
     public boolean alunoExiste(long numeroAluno){
         return listaAlunos.containsKey(numeroAluno);
     }
@@ -109,7 +112,9 @@ public class ApoioPoeData {
     public void adicionaAutoProposta(String codigoProp, String titulo, Long numEstudante){
             listaPropostas.put(codigoProp , new AutoProposta(codigoProp,titulo, numEstudante ));
     }
-
+    public void adicionaCandidatura(Long numEstudante, ArrayList<String> lista){
+            listaCandidatos.put(numEstudante, new Candidatura(numEstudante,lista));
+    }
     public Integer contaAlunos(){
        return  this.listaAlunos.size();
     }

@@ -1,5 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 import pt.isec.pa.apoio_poe.model.data.*;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
@@ -47,8 +49,68 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     @Override
     public String importaCVS(String nomeFicheiro) {
 
-        // TO DO 
-        return " nao implementado ainda";
+        StringBuilder sb = new StringBuilder();
+        boolean flag = false;
+        long numeroAluno;
+        String linha;
+
+        FileReader fr = null;
+        BufferedReader br = null;
+        Scanner sc = null;
+
+
+        try{
+            fr = new FileReader(nomeFicheiro+".csv");
+            br = new BufferedReader(fr);
+
+            while ((linha = br.readLine()) != null) {
+                ArrayList<String> codigoPropostas = new ArrayList<>();
+                sc = new Scanner(linha);
+                sc.useDelimiter(",");
+
+                //Numero Aluno
+                if (sc.hasNext()) {
+                    String snString = sc.next();
+                    if(snString.length()!=10){
+                        sb.append("Numero de aluno nao e valido");
+                        break;
+                    }
+
+                    numeroAluno = Long.parseLong(snString);
+
+                    if (data.alunoExiste(numeroAluno)) {
+                        sb.append("Aluno com numero " + numeroAluno + " ja existe\n");
+                        break;
+                    }
+                } else {
+                    sb.append("ATENCAO! Numero de aluno nao encontrado");
+                    break;
+                }
+
+                //codigo prop
+                while (sc.hasNext()) {
+                    codigoPropostas.add(sc.next());
+                }
+                //Adicionar Aluno
+                if(!sc.hasNext())
+                    data.adicionaCandidatura(numeroAluno, codigoPropostas);
+                else
+                    sb.append("Atributos a mais!\n");
+
+            }
+
+            if(sc!=null) sc.close();
+            br.close();
+            fr.close();
+        }catch (FileNotFoundException e){
+            sb.append("O ficheiro nao foi encontrado\n");
+        }catch (NumberFormatException e){
+            sb.append("Argumento deverá ser um numero\n");
+        }catch (IOException e){
+            sb.append("Houve um erro (IOException)\n");
+        }
+
+        return sb.toString();
     }
 
 

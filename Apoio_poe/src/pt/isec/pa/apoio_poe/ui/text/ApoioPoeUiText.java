@@ -104,7 +104,7 @@ public class ApoioPoeUiText {
     }
 
     private void organizaCandidaturasUI() {
-        if (poe.getFase()== "ABERTA") {  
+       // if (poe.getFase()== "ABERTA") {
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Lista Candidaturas", "Importa Info Candidaturas",
                     "Exporta Info Candidaturas ", "Voltar" , "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ",
@@ -120,7 +120,7 @@ public class ApoioPoeUiText {
                 default -> System.out.println("Escolha uma opcao!");
             }
 
-        } else {
+      /*  } else {
 
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Exporta Informacoes Candidaturas ", "Avancar",
@@ -133,7 +133,7 @@ public class ApoioPoeUiText {
                 default -> System.out.println("Escolha uma opcao!");
             }
 
-        }
+        }*/
     }
 
     private void modoPropostasUI() {
