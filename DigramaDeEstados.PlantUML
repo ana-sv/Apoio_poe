@@ -10,9 +10,9 @@ AguardaConfiguracao --> ModoAlunos : alteraModoConfiguracao() c/ Fase1=ABERTA
 ' Se a FASE1==FECHADA , já nao há acesso aos estados ModoAluno ModoDocente ModoPropostas que são os que permitem a edicao de informacoes 
 AguardaConfiguracao --> ModoDocentes : alteraModoConfiguracao() c/ Fase1=ABERTA 
 AguardaConfiguracao --> ModoPropostas : alteraModoConfiguracao() c/ Fase1=ABERTA 
-AguardaConfiguracao --> OrganizaCandidaturas : fechaFase c/ Fase1=FECHADA 
+AguardaConfiguracao --> OpcoesCandidaturas : fechaFase c/ Fase1=FECHADA 
 ' neste estado, o metod fechaFase: Fase1=FECHADA, classificacao dos alunos e avança para o proximo estado 
-AguardaConfiguracao --> OrganizaCandidaturas : avanca() c/Fase1=ABERTA 
+AguardaConfiguracao --> OpcoesCandidaturas : avanca() c/Fase1=ABERTA 
 ' avanca : classifica alunos e avanca
 
 
@@ -45,18 +45,18 @@ ModoPropostas --> AguardaConfiguracao: continua()
 
 
 ' OrganizaCandidatura - FASE2
-OrganizaCandidaturas --> AguardaConfiguracao : volta() & Fase2=ABERTA
-OrganizaCandidaturas --> OrganizaCandidaturas : importaDados() & Fase2=ABERTA
-OrganizaCandidaturas --> OrganizaCandidaturas : exportaDados() 
-OrganizaCandidaturas --> OrganizaCandidaturas : filtraListas() 
-OrganizaCandidaturas --> OrganizaCandidaturas : adicionaCandidatura() & Fase2=ABERTA
-OrganizaCandidaturas --> OrganizaCandidaturas : removeCandidatura() & Fase2=ABERTA
-OrganizaCandidaturas --> OrganizaCandidaturas : atualizaCandidatura() & Fase2=ABERTA
-OrganizaCandidaturas --> AtribuicaoPropostas : avanca() & Fase2=ABERTA 
-OrganizaCandidaturas --> AtribuicaoPropostas : fechaFase() 
+OpcoesCandidaturas --> AguardaConfiguracao : volta() & Fase2=ABERTA
+OpcoesCandidaturas --> OpcoesCandidaturas : importaDados() & Fase2=ABERTA
+OpcoesCandidaturas --> OpcoesCandidaturas : exportaDados() 
+OpcoesCandidaturas --> OpcoesCandidaturas : filtraListas() 
+OpcoesCandidaturas --> OpcoesCandidaturas : adicionaCandidatura() & Fase2=ABERTA
+OpcoesCandidaturas --> OpcoesCandidaturas : removeCandidatura() & Fase2=ABERTA
+OpcoesCandidaturas --> OpcoesCandidaturas : atualizaCandidatura() & Fase2=ABERTA
+OpcoesCandidaturas --> AtribuicaoPropostas : avanca() & Fase2=ABERTA 
+OpcoesCandidaturas --> AtribuicaoPropostas : fechaFase() 
 
 ' AtribuicaoPropostas -FASE3
-AtribuicaoPropostas --> OrganizaCandidaturas : volta() & Fase3=ABERTA
+AtribuicaoPropostas --> OpcoesCandidaturas : volta() & Fase3=ABERTA
 AtribuicaoPropostas --> AtribuicaoPropostas : filtraListas() 
 AtribuicaoPropostas --> AtribuicaoPropostas : exportaDados() 
 AtribuicaoPropostas --> AtribuicaoPropostas : atualizaPropostas() && Fase3=ABERTA
