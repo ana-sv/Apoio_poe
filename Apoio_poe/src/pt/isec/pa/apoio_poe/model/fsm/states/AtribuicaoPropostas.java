@@ -23,13 +23,13 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
     }
 
     @Override
-    public String filtraListasAlunos( String filtros ) {
+    public String filtraListasAlunos( Integer q ,String filtros ) {
         // TO DO
         return " nao implementado ainda";
     }
 
     @Override
-    public String filtraListasPropostas( String filtros ) {
+    public String filtraListasPropostas( Integer q ,String filtros ) {
         // TO DO
         return " nao implementado ainda";
     }

@@ -1,6 +1,5 @@
 package pt.isec.pa.apoio_poe.model.data;
 
-import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 import java.util.*;
 
 public class ApoioPoeData {

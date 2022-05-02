@@ -15,10 +15,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
     @Override
-    public String filtraListasAlunos( String filtros ) {  //autoproposta , registada , 
-
-
-
+    public String filtraListasAlunos( Integer q , String filtros ) {  //autoproposta , registada , nao registada
 
 
         // TO DO
@@ -28,7 +25,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
     @Override
-    public String filtraListasPropostas( String filtros ) {
+    public String filtraListasPropostas( Integer q ,String filtros ) { // autopropostas, docentes, com candidatura , sem candidatura
         // TO DO
         return " nao implementado ainda";
     }

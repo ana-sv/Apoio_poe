@@ -27,17 +27,17 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     }
 
     @Override
-    public String filtraListasAlunos( String filtros ) {
+    public String filtraListasAlunos( Integer q ,String filtros ) {
         return " ";
     }
 
     @Override
-    public String filtraListasPropostas(String filtros) {
+    public String filtraListasPropostas(Integer q ,String filtros) {
          return " ";
     }
 
     @Override
-    public String filtraListasOrientadores(String filtros) {
+    public String filtraListasOrientadores(Integer q ,String filtros) {
          return " ";
     }
  
