@@ -1,6 +1,5 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
-import java.io.*;
 
 import pt.isec.pa.apoio_poe.model.data.*;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
@@ -43,46 +42,6 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
         return s.toString();
     }
 
-    public boolean nomeFicheiroValido(String filename) {
-        String[] f = filename.split("\\.");
-
-        if(f.length > 1)
-            return false;
-
-        return true;
-    }
-    @Override
-    public String exportaCVS( String nomeFicheiro ) {
-        
-        StringBuilder sb = new StringBuilder();
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        PrintWriter pw = null;
-
-        if(!nomeFicheiroValido(nomeFicheiro)){
-            return sb.append("ATENCAO! Nome do ficheiro nao e' valido! ").toString();
-        }else if(!nomeFicheiro.endsWith(".csv"))
-        nomeFicheiro  += ".csv";
-
-        try{
-            fw = new FileWriter(nomeFicheiro );
-            bw = new BufferedWriter(fw);
-            pw = new PrintWriter(bw);
-
-
-            pw.println(mostraListas());
-
-            pw.close();
-            bw.close();
-            fw.close();
-        }catch (FileNotFoundException e){
-            sb.append("The specified file was not found");
-        }catch (IOException e){
-            sb.append("There was an error (IOException)");
-        }
-
-        return sb.toString();
-    }
 
 
     public void classificaAlunos() {

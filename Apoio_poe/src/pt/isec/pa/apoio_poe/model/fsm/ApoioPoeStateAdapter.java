@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Ficheiro;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 
@@ -44,7 +45,7 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
  
     @Override
     public String exportaCVS( String nomeFicheiro) {
-        return " ";
+        return Ficheiro.exportaCVS(nomeFicheiro, mostraListas() );  //exporta de acordo com as informações de cada estado
     }
     
 
