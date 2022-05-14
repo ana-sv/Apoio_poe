@@ -1,22 +1,56 @@
-package pt.isec.pa.apoio_poe.model.data;
-
+package pt.isec.pa.apoio_poe.model.fsm;
 
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
 
-import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta; 
-
+import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 
 public final class Ficheiro {
 
-    private Ficheiro(){    }   // para evitar que ser possivel criar uma classe Ficheiro
+    private Ficheiro() { } // para evitar que ser possivel criar uma classe Ficheiro
+
+
+
+    public static String gravaParaBinario(ApoioPoeContext contexto, String nomeFicheiro) {
+        
+        if (!nomeFicheiroValido(nomeFicheiro))
+            return "Nome de ficheiro invalido!"; 
+
+        try {
+            // create a new file with an ObjectOutputStream
+            FileOutputStream f = new FileOutputStream(nomeFicheiro);
+            ObjectOutputStream oout = new ObjectOutputStream(f);
+   
+            // write something in the file
+            oout.writeObject(contexto);
+   
+            // close the stream
+            oout.close();
+
+              return "Gravado com sucesso !";
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return " ";  
+    }
+
+
+
+    public static ApoioPoeContext carregaDeBinario(String nomeFicheiro) {
+
+        return null;
+
+
+
+    }
     
 
-    
-    
-    public static boolean mailValido(String email) {            
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+    public static boolean mailValido(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
@@ -26,53 +60,47 @@ public final class Ficheiro {
             return false;
         return pat.matcher(email).matches();
     }
-    
 
     public static boolean nomeFicheiroValido(String filename) {
         String[] f = filename.split("\\.");
 
-        if(f.length > 1)
+        if (f.length > 1)
             return false;
 
         return true;
     }
 
+    public static String exportaCVS(String nomeFicheiro, String str) {
 
-    public static String exportaCVS( String nomeFicheiro, String str ) {
-        
         StringBuilder sb = new StringBuilder();
         FileWriter fw = null;
         BufferedWriter bw = null;
         PrintWriter pw = null;
 
-        if(!nomeFicheiroValido(nomeFicheiro)){
+        if (!nomeFicheiroValido(nomeFicheiro)) {
             return sb.append("ATENCAO! Nome do ficheiro nao e' valido! ").toString();
-        }else if(!nomeFicheiro.endsWith(".csv"))
-        nomeFicheiro  += ".csv";
+        } else if (!nomeFicheiro.endsWith(".csv"))
+            nomeFicheiro += ".csv";
 
-        try{
-            fw = new FileWriter(nomeFicheiro );
+        try {
+            fw = new FileWriter(nomeFicheiro);
             bw = new BufferedWriter(fw);
             pw = new PrintWriter(bw);
 
-
-             pw.println( str );
-
+            pw.println(str);
 
             pw.close();
             bw.close();
             fw.close();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             sb.append("The specified file was not found");
-        }catch (IOException e){
+        } catch (IOException e) {
             sb.append("There was an error (IOException)");
         }
 
         return sb.toString();
     }
 
-
-    
     public static String importaCVSalunos(String nomeFicheiro, ApoioPoeData data) {
         StringBuilder sb = new StringBuilder();
         long numeroAluno;
@@ -85,18 +113,18 @@ public final class Ficheiro {
         BufferedReader br = null;
         Scanner sc = null;
 
-        try{
-            fr = new FileReader(nomeFicheiro+".csv");
+        try {
+            fr = new FileReader(nomeFicheiro + ".csv");
             br = new BufferedReader(fr);
 
             while ((linha = br.readLine()) != null) {
                 sc = new Scanner(linha);
                 sc.useDelimiter(",");
 
-                //Numero Aluno
+                // Numero Aluno
                 if (sc.hasNext()) {
                     String snString = sc.next();
-                    if(snString.length()!=10){
+                    if (snString.length() != 10) {
                         sb.append("Numero de aluno nao e valido");
                         break;
                     }
@@ -112,7 +140,7 @@ public final class Ficheiro {
                     break;
                 }
 
-                //Nome
+                // Nome
                 if (sc.hasNext()) {
                     nome = sc.next();
                 } else {
@@ -120,10 +148,10 @@ public final class Ficheiro {
                     break;
                 }
 
-                //Mail
+                // Mail
                 if (sc.hasNext()) {
                     mail = sc.next();
-                    if(!mailValido(mail)) {
+                    if (!mailValido(mail)) {
                         sb.append("ATENCAO! Mail nao é valido");
                         break;
                     }
@@ -137,10 +165,10 @@ public final class Ficheiro {
                     break;
                 }
 
-                //Curso
+                // Curso
                 if (sc.hasNext()) {
                     curso = sc.next();
-                    if(!(curso.equalsIgnoreCase("LEI") || curso.equalsIgnoreCase("LEI-PL"))){
+                    if (!(curso.equalsIgnoreCase("LEI") || curso.equalsIgnoreCase("LEI-PL"))) {
                         sb.append("ATENCAO! Curso não é valido ");
                         break;
                     }
@@ -149,10 +177,10 @@ public final class Ficheiro {
                     break;
                 }
 
-                //Ramo
+                // Ramo
                 if (sc.hasNext()) {
                     ramo = sc.next();
-                    if(!(ramo.equalsIgnoreCase("DA") || ramo.equalsIgnoreCase("RAS") || ramo.equalsIgnoreCase("SI"))){
+                    if (!(ramo.equalsIgnoreCase("DA") || ramo.equalsIgnoreCase("RAS") || ramo.equalsIgnoreCase("SI"))) {
                         sb.append("ATENCAO! Ramo nao é valido");
                         break;
                     }
@@ -161,11 +189,11 @@ public final class Ficheiro {
                     break;
                 }
 
-                //Classificação
+                // Classificação
                 if (sc.hasNext()) {
                     String cString = sc.next();
                     classificacao = Double.parseDouble(cString);
-                    if(classificacao>1 || classificacao<0){
+                    if (classificacao > 1 || classificacao < 0) {
                         sb.append("ATENCAO! Classificacao nao e valida!\n");
                         break;
                     }
@@ -173,12 +201,12 @@ public final class Ficheiro {
                     sb.append("ATENCAO! Classificacao nao encontrada!\n");
                     break;
                 }
-                //Acesso Estagio
+                // Acesso Estagio
                 if (sc.hasNext()) {
                     String cString = sc.next();
                     estagioAcesso = Boolean.parseBoolean(cString);
-                    if(classificacao>1 || classificacao<0){
-                        sb.append("Classificacao invalida!\n");       ////???  rever 
+                    if (classificacao > 1 || classificacao < 0) {
+                        sb.append("Classificacao invalida!\n"); //// ??? rever
                         break;
                     }
                 } else {
@@ -186,29 +214,28 @@ public final class Ficheiro {
                     break;
                 }
 
-
-                //Adicionar Aluno
-                if(!sc.hasNext())
+                // Adicionar Aluno
+                if (!sc.hasNext())
                     data.adicionaAluno(numeroAluno, nome, mail, curso, ramo, classificacao, estagioAcesso);
                 else
                     sb.append("Atributos a mais!\n");
 
             }
 
-            if(sc!=null) sc.close();
+            if (sc != null)
+                sc.close();
             br.close();
             fr.close();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             sb.append("O ficheiro nao foi encontrado\n");
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             sb.append("Argumento deverá ser um numero\n");
-        }catch (IOException e){
+        } catch (IOException e) {
             sb.append("Houve um erro (IOException)\n");
         }
 
         return sb.toString();
     }
-
 
     public static String importaCVSdocentes(String nomeFicheiro, ApoioPoeData data) {
         StringBuilder sb = new StringBuilder();
@@ -217,7 +244,7 @@ public final class Ficheiro {
         BufferedReader br = null;
         Scanner sc = null;
 
-        try{
+        try {
             fr = new FileReader(nomeFicheiro + ".csv");
             br = new BufferedReader(fr);
 
@@ -225,8 +252,7 @@ public final class Ficheiro {
                 sc = new Scanner(linha);
                 sc.useDelimiter(",");
 
-
-                //Nome
+                // Nome
                 if (sc.hasNext()) {
 
                     String snString = sc.next();
@@ -236,16 +262,16 @@ public final class Ficheiro {
                     break;
                 }
 
-                //Mail 
+                // Mail
                 if (sc.hasNext()) {
-                    
+
                     mail = sc.next();
 
                     if (data.docenteExiste(mail)) {
                         sb.append("ATENCAO! Docente com  " + mail + " ja existe\n");
                         break;
                     }
-                    if(!mailValido(mail)) {
+                    if (!mailValido(mail)) {
                         sb.append("ATENCAO! Mail nao é valido");
                         break;
                     }
@@ -254,108 +280,107 @@ public final class Ficheiro {
                     break;
                 }
 
-                //Adicionar Docente
-                if(!sc.hasNext())
+                // Adicionar Docente
+                if (!sc.hasNext())
                     data.adicionaDocente(nome, mail);
                 else
                     sb.append("ATENCAO! Atribuitos a mais \n");
 
             }
 
-            if(sc!=null) sc.close();
+            if (sc != null)
+                sc.close();
             br.close();
             fr.close();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             sb.append("O ficheiro nao foi encontrado\n");
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             sb.append("Argumento deverá ser um numero\n");
-        }catch (IOException e){
+        } catch (IOException e) {
             sb.append("Houve um erro (IOException)\n");
         }
 
         return sb.toString();
     }
 
-
-
-    private static boolean importEstagio(Scanner sc , ApoioPoeData data){
+    private static boolean importEstagio(Scanner sc, ApoioPoeData data) {
         StringBuilder sb = new StringBuilder();
-        String codigoProp = null, area = null, entAcolhimento = null, titulo=null;
+        String codigoProp = null, area = null, entAcolhimento = null, titulo = null;
 
-
-                //Codigo Proposta
-                if (sc.hasNext()) {
-                    codigoProp = sc.next();
-                } else {
-                    sb.append("Codigo de proposta nao encontrado");
-                    return false;
-                }
-
-                //Area Proposta
-                if (sc.hasNext()) {
-                    area = sc.next();
-                } else {
-                    sb.append("Area de proposta nao encontrado");
-                    return false;
-                }
-                //Titulo Proposta
-                if (sc.hasNext()) {
-                    titulo = sc.next();
-                } else {
-                    sb.append("Titulo de proposta nao encontrado");
-                    return false;
-                }
-                //Entidade de Acolhimento Proposta
-                if (sc.hasNext()) {
-                    entAcolhimento = sc.next();
-                } else {
-                    sb.append("Titulo de proposta nao encontrado");
-                    return false;
-                }
-
-                //Adicionar Proposta
-                if(!sc.hasNext())
-                    data.adicionaEstagio(codigoProp, area, titulo, entAcolhimento);
-                else
-                    sb.append("Atributos a mais!\n");
-
-        return true;
-    }
-
-    private static boolean importAutoProposta(Scanner sc, ApoioPoeData data){
-        StringBuilder sb = new StringBuilder();
-        String codigoProp = null, titulo=null;
-        long numeroAluno = 0;
-
-        //Codigo Proposta
+        // Codigo Proposta
         if (sc.hasNext()) {
             codigoProp = sc.next();
         } else {
             sb.append("Codigo de proposta nao encontrado");
             return false;
         }
-        //Titulo Proposta
+
+        // Area Proposta
+        if (sc.hasNext()) {
+            area = sc.next();
+        } else {
+            sb.append("Area de proposta nao encontrado");
+            return false;
+        }
+        // Titulo Proposta
         if (sc.hasNext()) {
             titulo = sc.next();
         } else {
             sb.append("Titulo de proposta nao encontrado");
             return false;
         }
-        //Numero Aluno Proposta
+        // Entidade de Acolhimento Proposta
         if (sc.hasNext()) {
-            String snString = sc.next();;
+            entAcolhimento = sc.next();
+        } else {
+            sb.append("Titulo de proposta nao encontrado");
+            return false;
+        }
+
+        // Adicionar Proposta
+        if (!sc.hasNext())
+            data.adicionaEstagio(codigoProp, area, titulo, entAcolhimento);
+        else
+            sb.append("Atributos a mais!\n");
+
+        return true;
+    }
+
+    private static boolean importAutoProposta(Scanner sc, ApoioPoeData data) {
+        StringBuilder sb = new StringBuilder();
+        String codigoProp = null, titulo = null;
+        long numeroAluno = 0;
+
+        // Codigo Proposta
+        if (sc.hasNext()) {
+            codigoProp = sc.next();
+        } else {
+            sb.append("Codigo de proposta nao encontrado");
+            return false;
+        }
+        // Titulo Proposta
+        if (sc.hasNext()) {
+            titulo = sc.next();
+        } else {
+            sb.append("Titulo de proposta nao encontrado");
+            return false;
+        }
+        // Numero Aluno Proposta
+        if (sc.hasNext()) {
+            String snString = sc.next();
+            ;
             if (snString.length() != 10) {
                 sb.append("Numero de aluno nao e valido");
 
             }
             numeroAluno = Long.parseLong(snString);
-        }else {
+        } else {
             sb.append("Numero Aluno proposta nao encontrado");
             return false;
         }
 
-        //Adicionar Proposta
-        if(!sc.hasNext())
+        // Adicionar Proposta
+        if (!sc.hasNext())
             data.adicionaAutoProposta(codigoProp, titulo, numeroAluno);
         else
             sb.append("Atributos a mais!\n");
@@ -363,13 +388,12 @@ public final class Ficheiro {
         return true;
     }
 
-    
-    private static boolean importProjecto(Scanner sc , ApoioPoeData data){
+    private static boolean importProjecto(Scanner sc, ApoioPoeData data) {
         StringBuilder sb = new StringBuilder();
-        String codigoProp = null,mail=null, area = null, titulo=null;
+        String codigoProp = null, mail = null, area = null, titulo = null;
         long numeroAluno = 0;
 
-        //Codigo Proposta
+        // Codigo Proposta
         if (sc.hasNext()) {
             codigoProp = sc.next();
         } else {
@@ -377,28 +401,28 @@ public final class Ficheiro {
             return false;
         }
 
-        //Area Proposta
+        // Area Proposta
         if (sc.hasNext()) {
             area = sc.next();
         } else {
             sb.append("Area de proposta nao encontrado");
             return false;
         }
-        //Titulo Proposta
+        // Titulo Proposta
         if (sc.hasNext()) {
             titulo = sc.next();
         } else {
             sb.append("Titulo de proposta nao encontrado");
             return false;
         }
-        //Entidade de Acolhimento Proposta
+        // Entidade de Acolhimento Proposta
         if (sc.hasNext()) {
             mail = sc.next();
         } else {
             sb.append("Titulo de proposta nao encontrado");
             return false;
         }
-        //Numero Aluno Proposta
+        // Numero Aluno Proposta
         if (sc.hasNext()) {
             String snString = sc.next();
             if (snString.length() != 10) {
@@ -406,23 +430,19 @@ public final class Ficheiro {
 
             }
             numeroAluno = Long.parseLong(snString);
-        }else {
+        } else {
             sb.append("Numero Aluno proposta nao encontrado");
             return false;
         }
 
-        //Adicionar Proposta
-        if(!sc.hasNext())
+        // Adicionar Proposta
+        if (!sc.hasNext())
             data.adicionaProjecto(codigoProp, area, titulo, mail, numeroAluno);
         else
             sb.append("Atributos a mais!\n");
 
         return true;
     }
-
-
-
-
 
     public static String importaCVSpropostas(String nomeFicheiro, ApoioPoeData data) {
         StringBuilder sb = new StringBuilder();
@@ -432,30 +452,27 @@ public final class Ficheiro {
         BufferedReader br = null;
         Scanner sc = null;
 
-
-        try{
-            fr = new FileReader(nomeFicheiro+".csv");
+        try {
+            fr = new FileReader(nomeFicheiro + ".csv");
             br = new BufferedReader(fr);
 
             while ((linha = br.readLine()) != null) {
                 sc = new Scanner(linha);
                 sc.useDelimiter(",");
 
-
-
-                //Tipo Proposta
+                // Tipo Proposta
                 if (sc.hasNext()) {
                     String snString = sc.next();
                     tipoProp = TipoProposta.valueOf(snString);
 
-                    if(tipoProp.name().equals("T1")){
-                        importEstagio(sc,data);
+                    if (tipoProp.name().equals("T1")) {
+                        importEstagio(sc, data);
                     }
-                    if(tipoProp.name().equals("T2")){
+                    if (tipoProp.name().equals("T2")) {
                         importProjecto(sc, data);
                     }
-                    if(tipoProp.name().equals("T3")){
-                        importAutoProposta(sc,data);
+                    if (tipoProp.name().equals("T3")) {
+                        importAutoProposta(sc, data);
                     }
 
                 } else {
@@ -464,24 +481,21 @@ public final class Ficheiro {
                 }
             }
 
-            if(sc!=null) sc.close();
+            if (sc != null)
+                sc.close();
             br.close();
             fr.close();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             sb.append("O ficheiro nao foi encontrado\n");
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             sb.append("Argumento deverá ser um numero\n");
-        }catch (IOException e){
+        } catch (IOException e) {
             sb.append("Houve um erro (IOException)\n");
         }
 
         return sb.toString();
-    
+
     }
-
-
-
-
 
     public static String importaCVScandidaturas(String nomeFicheiro, ApoioPoeData data) {
 
@@ -493,9 +507,8 @@ public final class Ficheiro {
         BufferedReader br = null;
         Scanner sc = null;
 
-
-        try{
-            fr = new FileReader(nomeFicheiro+".csv");
+        try {
+            fr = new FileReader(nomeFicheiro + ".csv");
             br = new BufferedReader(fr);
 
             while ((linha = br.readLine()) != null) {
@@ -503,10 +516,10 @@ public final class Ficheiro {
                 sc = new Scanner(linha);
                 sc.useDelimiter(",");
 
-                //Numero Aluno
+                // Numero Aluno
                 if (sc.hasNext()) {
                     String snString = sc.next();
-                    if(snString.length()!=10){
+                    if (snString.length() != 10) {
                         sb.append("Numero de aluno nao e valido");
                         break;
                     }
@@ -522,28 +535,28 @@ public final class Ficheiro {
                     break;
                 }
 
-                
-                //codigo prop
+                // codigo prop
                 while (sc.hasNext()) {
                     codigoPropostas.add(sc.next());
                 }
 
-                //Adicionar Aluno
-                if(!sc.hasNext())
+                // Adicionar Aluno
+                if (!sc.hasNext())
                     data.adicionaCandidatura(numeroAluno, codigoPropostas);
                 else
                     sb.append("Atributos a mais!\n");
 
             }
 
-            if(sc!=null) sc.close();
+            if (sc != null)
+                sc.close();
             br.close();
             fr.close();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             sb.append("O ficheiro nao foi encontrado\n");
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             sb.append("Argumento deverá ser um numero\n");
-        }catch (IOException e){
+        } catch (IOException e) {
             sb.append("Houve um erro (IOException)\n");
         }
 

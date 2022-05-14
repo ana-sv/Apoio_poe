@@ -1,7 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.data.Ficheiro;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 
@@ -28,18 +27,8 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     }
 
     @Override
-    public String filtraListasAlunos( Integer q ,String filtros ) {
+    public String filtraListas( String filtros ) {
         return " ";
-    }
-
-    @Override
-    public String filtraListasPropostas(Integer q ,String filtros) {
-         return " ";
-    }
-
-    @Override
-    public String filtraListasOrientadores(Integer q ,String filtros) {
-         return " ";
     }
  
  
@@ -54,6 +43,15 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
         return " ";
     }
 
+    @Override
+    public String gravaEstadoApp( ApoioPoeContext contexto , String nomeFicheiro ){ 
+        return Ficheiro.gravaParaBinario(contexto, nomeFicheiro).toString();
+    }
+
+    @Override
+    public ApoioPoeContext carregaEstadoApp( String nomeFicheiro ){
+        return Ficheiro.carregaDeBinario(nomeFicheiro);
+    }
 
     @Override
     public boolean alteraModoConfiguracao(int op) {

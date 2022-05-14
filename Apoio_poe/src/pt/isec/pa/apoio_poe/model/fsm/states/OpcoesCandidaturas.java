@@ -1,9 +1,9 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
-import pt.isec.pa.apoio_poe.model.data.Ficheiro;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
+import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
  class OpcoesCandidaturas extends ApoioPoeStateAdapter {
     Fase fase;
@@ -14,7 +14,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     }
 
 
-    @Override
+
     public String filtraListasAlunos( Integer q , String filtros ) {  //autoproposta , registada , nao registada
         // TO DO
         return " ";
@@ -22,7 +22,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
 
-    @Override
+
     public String filtraListasPropostas( Integer q ,String filtros ) { // autopropostas, docentes, com candidatura , sem candidatura
         // TO DO
         return " ";

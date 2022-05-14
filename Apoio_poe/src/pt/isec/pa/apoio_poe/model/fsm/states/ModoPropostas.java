@@ -1,10 +1,10 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.data.Ficheiro;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
+import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
 class ModoPropostas extends ApoioPoeStateAdapter{
 
