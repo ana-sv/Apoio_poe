@@ -9,45 +9,55 @@ import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 
 public final class Ficheiro {
 
-    private Ficheiro() { } // para evitar que ser possivel criar uma classe Ficheiro
-
-
+    private Ficheiro() {
+    } // para evitar que ser possivel criar uma classe Ficheiro
 
     public static String gravaParaBinario(ApoioPoeContext contexto, String nomeFicheiro) {
-        
+
         if (!nomeFicheiroValido(nomeFicheiro))
-            return "Nome de ficheiro invalido!"; 
+            return "Nome de ficheiro invalido!";
 
         try {
             // create a new file with an ObjectOutputStream
             FileOutputStream f = new FileOutputStream(nomeFicheiro);
-            ObjectOutputStream oout = new ObjectOutputStream(f);
-   
-            // write something in the file
-            oout.writeObject(contexto);
-   
-            // close the stream
-            oout.close();
+            ObjectOutputStream out = new ObjectOutputStream(f);
 
-              return "Gravado com sucesso !";
+            // write something in the file
+            out.writeObject(contexto);
+
+            // close the stream
+            out.close();
+
+            return "Gravado com sucesso !";
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return " ";  
+        return " ";
     }
-
-
 
     public static ApoioPoeContext carregaDeBinario(String nomeFicheiro) {
 
-        return null;
+        if (!nomeFicheiroValido(nomeFicheiro))
+            return null;
 
+            try {
+               
+                FileInputStream f = new FileInputStream(nomeFicheiro);
+                ObjectInputStream in = new ObjectInputStream(f);
+          
+              return (ApoioPoeContext) in.readObject(); 
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            return null;
 
 
     }
-    
 
     public static boolean mailValido(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
