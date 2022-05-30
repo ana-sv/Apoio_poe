@@ -1,11 +1,15 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import pt.isec.pa.apoio_poe.model.data.*;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
-
-
 
 class AguardaConfiguracao extends ApoioPoeStateAdapter {
     private Integer index = 0;
@@ -16,25 +20,21 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
 
 
 
-    public void classificaAlunos() {
-        // TO DO - META 2
-    }
-
     @Override
     public void avancaEstado() { // avanca sem fechar/bloquear estado
 
-        // classificaAlunos()
+        data.sortByClassification();
         changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
     }
 
     @Override
     public boolean fechaEstado() { // avança e fecha/bloquea estado
 
-        // classificaAlunos()
+        data.sortByClassification();
 
         if (data.contaPropostasDA() >= data.getListaAlunos().size()
                 && data.contaPropostasSI() >= data.getListaAlunos().size()
-                && data.contaPropostasRAS() >= data.getListaAlunos().size()) { 
+                && data.contaPropostasRAS() >= data.getListaAlunos().size()) {
             data.setSituacaoEstados(index, false);
             return true;
         }
@@ -61,11 +61,8 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     }
 
     @Override
-    public boolean getSituacaoEstado(){
+    public boolean getSituacaoEstado() {
         return data.getSituacaoEstados(this.index);
     }
-
-
-
 
 }

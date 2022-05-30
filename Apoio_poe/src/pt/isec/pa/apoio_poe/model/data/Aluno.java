@@ -18,10 +18,10 @@ public class Aluno {
         this.siglaCurso = siglaCurso;
         this.siglaRamo = siglaRamo;
 
-        if ( classificacao >= 0.60 ){
+        if ( classificacao >= 0.6 ){
             this.estagioAcesso = true; 
         }
-         else if ( classificacao < 0.60 ) {
+         else if ( classificacao < 0.6 ) {
              this.estagioAcesso = false;
          }
 
@@ -80,6 +80,11 @@ public class Aluno {
 
         return s.toString();
 
+    }
+
+
+    public int compareTo(Aluno value) {
+        return Double.compare(this.classificacao, value.classificacao);
     }
 
 

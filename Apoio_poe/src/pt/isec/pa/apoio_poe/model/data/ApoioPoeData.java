@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.model.data;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ApoioPoeData {
 
@@ -31,9 +32,24 @@ public class ApoioPoeData {
     }
 
 
+    // https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
+    public void sortByClassification() {
+
+        HashMap<Long, Aluno> temp = listaAlunos.entrySet()
+                .stream()
+                .sorted((i1, i2) -> i1.getValue().compareTo(
+                        i2.getValue()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1, LinkedHashMap::new));
+
+       this.listaAlunos = temp;  // funciona?
+    }
+
 
     
-    public String mostraListas() {   // MUDAR PARA DADOS
+    public String mostraListas() {   
 
         StringBuilder s = new StringBuilder();
 
