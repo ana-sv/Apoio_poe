@@ -69,16 +69,15 @@ public class ApoioPoeContext implements Serializable {
 
 
     public String gravaEstadoAplicacao(String nomeFicheiro) {
-        return state.gravaEstadoApp(this, nomeFicheiro);
+        return state.gravaEstadoApp(this.data, nomeFicheiro);
     }
 
     public String carregaEstadoAplicacao(String nomeFicheiro) { // MELHORAR
-        ApoioPoeContext a = new ApoioPoeContext();
+        ApoioPoeData a = new ApoioPoeData();
         a = state.carregaEstadoApp(nomeFicheiro);
 
-        if (a != null) {
-            this.data = a.data;
-            this.state = a.state;
+        if (a!= null) {
+            this.data = a;
             return "\n> Estado Carregado com sucesso!\n";
         }
 

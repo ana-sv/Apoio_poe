@@ -12,7 +12,7 @@ public final class Ficheiro {
     private Ficheiro() {
     } // para evitar que ser possivel criar uma classe Ficheiro
 
-    public static String gravaParaBinario(ApoioPoeContext contexto, String nomeFicheiro) {
+    public static String gravaParaBinario(ApoioPoeData data, String nomeFicheiro) {
 
         if (!nomeFicheiroValido(nomeFicheiro))
             return "Nome de ficheiro invalido!";
@@ -23,7 +23,7 @@ public final class Ficheiro {
             ObjectOutputStream out = new ObjectOutputStream(f);
 
             // write something in the file
-            out.writeObject(contexto);
+            out.writeObject(data);
 
             // close the stream
             out.close();
@@ -37,7 +37,7 @@ public final class Ficheiro {
         return " ";
     }
 
-    public static ApoioPoeContext carregaDeBinario(String nomeFicheiro) {
+    public static ApoioPoeData carregaDeBinario(String nomeFicheiro) {
 
         if (!nomeFicheiroValido(nomeFicheiro))
             return null;
@@ -47,7 +47,7 @@ public final class Ficheiro {
                 FileInputStream f = new FileInputStream(nomeFicheiro);
                 ObjectInputStream in = new ObjectInputStream(f);
           
-              return (ApoioPoeContext) in.readObject(); 
+              return (ApoioPoeData) in.readObject(); 
 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -34,12 +34,12 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     }
 
     @Override
-    public String gravaEstadoApp( ApoioPoeContext contexto , String nomeFicheiro ){ 
-        return Ficheiro.gravaParaBinario(contexto, nomeFicheiro).toString();
+    public String gravaEstadoApp( ApoioPoeData data, String nomeFicheiro ){ 
+        return Ficheiro.gravaParaBinario(data, nomeFicheiro).toString();
     }
 
     @Override
-    public ApoioPoeContext carregaEstadoApp( String nomeFicheiro ){
+    public ApoioPoeData carregaEstadoApp( String nomeFicheiro ){
         return Ficheiro.carregaDeBinario(nomeFicheiro);
     }
 
