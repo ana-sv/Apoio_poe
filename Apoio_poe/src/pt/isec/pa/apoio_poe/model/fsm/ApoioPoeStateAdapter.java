@@ -20,21 +20,11 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
         context.changeState(newState.createState(context,data));
     }
     
-
-    @Override
-    public String mostraListas() {
-        return " ";
-    }
-
-    @Override
-    public String filtraListas( String filtros ) {
-        return " ";
-    }
- 
  
     @Override
-    public String exportaCVS( String nomeFicheiro) {
-        return Ficheiro.exportaCVS(nomeFicheiro, mostraListas() );  //exporta de acordo com as informações de cada estado
+    public String exportaCVS( String nomeFicheiro) {       // está aqui porque todos os estados se servem dela 
+      //  return Ficheiro.exportaCVS(nomeFicheiro, mostraListas() );  //exporta de acordo com as informações de cada estado
+        return " ";
     }
     
 
@@ -53,22 +43,33 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
         return Ficheiro.carregaDeBinario(nomeFicheiro);
     }
 
+    
     @Override
     public boolean alteraModoConfiguracao(int op) {
         return false;
     }
+
+
     @Override
     public boolean voltar() {
         return false;
     }
 
     @Override
-    public void avanca() {  }
+    public void avancaEstado() {  }
+
+
+
+        @Override
+    public boolean fechaEstado() {
+        return false;
+    }
+
 
     @Override
-    public boolean fechaFase(){  
-        return false; 
-      }
+    public boolean getSituacaoEstado(){
+        return true;
+    }
 
 
     @Override
@@ -77,10 +78,7 @@ public abstract class ApoioPoeStateAdapter implements ApoioPoeIState{
     }
 
 
-    @Override
-    public Fase getFase() {
-        return null;
-    }
+
 
 
 

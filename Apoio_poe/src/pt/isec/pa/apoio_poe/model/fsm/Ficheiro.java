@@ -59,6 +59,9 @@ public final class Ficheiro {
 
     }
 
+
+
+
     public static boolean mailValido(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
@@ -79,6 +82,7 @@ public final class Ficheiro {
 
         return true;
     }
+
 
     public static String exportaCVS(String nomeFicheiro, String str) {
 
@@ -111,6 +115,9 @@ public final class Ficheiro {
         return sb.toString();
     }
 
+
+
+    
     public static String importaCVSalunos(String nomeFicheiro, ApoioPoeData data) {
         StringBuilder sb = new StringBuilder();
         long numeroAluno;

@@ -5,11 +5,13 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
  class Consulta extends ApoioPoeStateAdapter {
-     boolean fase;
+    private Integer index = 4;
+
+
 
      Consulta(ApoioPoeContext context, ApoioPoeData data) {
         super(context, data);
-        fase = true;
+
     }
 
 
@@ -22,7 +24,6 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
 
-    @Override
     public String mostraListas() {
         StringBuilder s = new StringBuilder();
 
@@ -33,7 +34,11 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
 
-    
+    @Override
+    public boolean getSituacaoEstado(){
+        return data.getSituacaoEstados(this.index);
+    }
+
 
 
  

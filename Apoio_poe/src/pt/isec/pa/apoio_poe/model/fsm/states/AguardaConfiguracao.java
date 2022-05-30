@@ -8,38 +8,10 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
 class AguardaConfiguracao extends ApoioPoeStateAdapter {
-    Fase fase;
+    private Integer index = 0;
 
     AguardaConfiguracao(ApoioPoeContext context, ApoioPoeData data) {
         super(context, data);
-        fase = Fase.ABERTA;
-
-    }
-
-    @Override
-    public String mostraListas() {
-
-        StringBuilder s = new StringBuilder();
-
-            s.append("\n> Lista Alunos ");
-            for ( Aluno a : data.getListaAlunos().values()) {
-                s.append(a.alunoToString());
-            }
-            s.append("\n");
-
-            s.append("\n> Lista Docentes ");
-            for ( Docente a : data.getListaDocentes().values()) {
-                s.append(a.DocentesToString());
-            }
-            s.append("\n");
-    
-            s.append("\n> Lista Propostas ");
-            for ( Proposta a : data.getListaProposta().values()) {
-                s.append(a.propostasToString());
-            }
-            s.append("\n");
-
-        return s.toString();
     }
 
 
@@ -49,21 +21,21 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     }
 
     @Override
-    public void avanca() { // avanca sem fechar fase
+    public void avancaEstado() { // avanca sem fechar/bloquear estado
 
         // classificaAlunos()
         changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
     }
 
     @Override
-    public boolean fechaFase() { // avança e fecha fase
+    public boolean fechaEstado() { // avança e fecha/bloquea estado
 
         // classificaAlunos()
 
         if (data.contaPropostasDA() >= data.getListaAlunos().size()
                 && data.contaPropostasSI() >= data.getListaAlunos().size()
                 && data.contaPropostasRAS() >= data.getListaAlunos().size()) { 
-            fase = Fase.FECHADA;
+            data.setSituacaoEstados(index, false);
             return true;
         }
 
@@ -88,8 +60,12 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
         return ApoioPoeState.AGUARDA_CONFIGURACAO;
     }
 
-    public Fase getFase() {
-        return fase;
+    @Override
+    public boolean getSituacaoEstado(){
+        return data.getSituacaoEstados(this.index);
     }
+
+
+
 
 }

@@ -15,7 +15,7 @@ class ModoPropostas extends ApoioPoeStateAdapter{
     
     
 
-    @Override
+
     public String mostraListas() {
         StringBuilder str= new StringBuilder();
         for ( Proposta a : data.getListaProposta().values()) {
@@ -41,7 +41,7 @@ class ModoPropostas extends ApoioPoeStateAdapter{
     }
 
     @Override
-    public void avanca() {
+    public void avancaEstado() {
         changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
     }
     

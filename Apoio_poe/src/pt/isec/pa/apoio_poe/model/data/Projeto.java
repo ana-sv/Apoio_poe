@@ -13,6 +13,7 @@ public class Projeto extends Proposta{
         this.titulo = titulo;
         this.mailDocente = mail;
         this.numEstudante = numEstudante;
+        this.orientador = null; 
     }
 
     public Projeto( String ramo){

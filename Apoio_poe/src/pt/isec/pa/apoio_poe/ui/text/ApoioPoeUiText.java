@@ -1,7 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.text;
 
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeIState.Fase;
 import pt.isec.pa.apoio_poe.ui.utils.PAInput;
 
 public class ApoioPoeUiText {
@@ -28,7 +27,7 @@ public class ApoioPoeUiText {
     }
 
     private void atribuicaoOrientadoresUI() {
-        if (poe.getFaseEnum()== Fase.ABERTA) {   
+        if (poe.getSituacaoEstado() == true ) {   
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Exporta Informacoes  ", "Atribuicao Automatica de Orientadores","Voltar",
                     "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
@@ -60,7 +59,7 @@ public class ApoioPoeUiText {
     }
 
     private void atribuicaoPorpostasUI() {
-        if (poe.getFaseEnum()== Fase.ABERTA) {  
+        if (poe.getSituacaoEstado() == true ) {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Apresenta lista de Informacoes", "Exporta Informacoes ", "Atribuicao Automatica de Propostas", "Voltar",
                     "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", "Sair")) {
@@ -105,7 +104,7 @@ public class ApoioPoeUiText {
     }
 
     private void opcoesCandidaturasUI() {
-        if (poe.getFaseEnum()== Fase.ABERTA) {  
+        if (poe.getSituacaoEstado() == true ) {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Lista Candidaturas", "Importa Info Candidaturas",
                     "Exporta Info Candidaturas ", "Voltar" , "Avancar", "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ",
@@ -182,7 +181,7 @@ public class ApoioPoeUiText {
     }
 
     private void aguardaConfiguracaoUI() {
-        if (poe.getFaseEnum()== Fase.ABERTA) {  
+        if (poe.getSituacaoEstado() == true ) {  
             switch (PAInput.chooseOption("Escolha uma opcao: ",
                     "Atualizar Alunos", "Atualizar Docentes", "Atualizar Propostas", "Exporta Informacoes ", "Avancar",
                     "Avancar [Fechando Fase]", "Gravar Estado Aplicacao ", " Carregar Estado da Aplicacao ", "Sair")) {
@@ -222,10 +221,10 @@ public class ApoioPoeUiText {
         while (!finish) {
 
 
-            if (poe.getFaseEnum() == null)
+            if ( poe.getSituacaoEstado() == true)
                 System.out.print("\n>>>>>>>>>>>>>>>>>>> Estado: " + poe.getState());
             else
-                System.out.print("\n>>>>>>>>>>>>>>>>>>> Estado: " + poe.getState() + " > Fase: " + poe.getFase());
+                System.out.print("\n>>>>>>>>>>>>>>>>>>> Estado: " + poe.getState() + " > Fase: " + poe.getSituacaoEstado());
 
             System.out.println();
 

@@ -6,31 +6,22 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
-    Fase fase;
+    private Integer index = 3;
 
     AtribuicaoOrientadores(ApoioPoeContext context, ApoioPoeData data) {
         super(context, data);
-        fase = Fase.ABERTA;
 
     }
 
-    // TO DO
-    // Atribuicao automatica se fase=Fase.ABERTA
-    // AtualizarOrientadores se fase=Fase.ABERTA
-
-
-
    
-    public String filtraListasOrientadores(Integer q , String filtros ) {
+    public String filtraListasOrientadores(Integer q , String filtros ) {       // MUDAR PARA DADOS?
         // TO DO
         return " nao implementado ainda";
     }
 
 
-    @Override
-    public String mostraListas() {
+    public String mostraListas() {                  // MUDAR PARA DADOS?
         StringBuilder s = new StringBuilder();
-
         s.append(data.infoCandidaturasToString(true));
 
     return s.toString();
@@ -46,14 +37,15 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
     }
 
     @Override
-    public void avanca() {
-        fechaFase();  // porque avançando para o estado Consulta ano é possivel voltar atrás 
+    public void avancaEstado() {
+        fechaEstado();  // porque avançando para o estado Consulta ano é possivel voltar atrás 
         changeState(ApoioPoeState.CONSULTA);
     }
 
     @Override
     public boolean voltar() {
-        if (context.getFaseEnum() == Fase.ABERTA) {
+
+        if (data.getSituacaoEstados(this.index) == true) {
             changeState(ApoioPoeState.ATRIBUICAO_PROPOSTAS);
             return true;
         }
@@ -62,17 +54,17 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
     }
 
     @Override
-    public boolean fechaFase() {
+    public boolean fechaEstado() {
         // falta certeficar aqui que todos os alunos tem uma candidatura com uma proposta
-        fase = Fase.FECHADA;
+        data.setSituacaoEstados(index, false);
         return true;
     }
 
-    
     @Override
-    public Fase getFase() {
-        return this.fase;
+    public boolean getSituacaoEstado(){
+        return data.getSituacaoEstados(this.index);
     }
+
 
 
 }

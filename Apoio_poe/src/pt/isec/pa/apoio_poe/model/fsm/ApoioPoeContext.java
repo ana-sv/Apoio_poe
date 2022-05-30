@@ -13,7 +13,6 @@ import java.io.Serializable;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeIState.Fase;
 
 public class ApoioPoeContext implements Serializable {
     private ApoioPoeIState state;
@@ -30,9 +29,6 @@ public class ApoioPoeContext implements Serializable {
         state = newState;
     }
 
-    public String mostraListas() {
-        return state.mostraListas();
-    }
 
     // Método público que permita obter o estado atual
     public ApoioPoeState getState() {
@@ -42,13 +38,8 @@ public class ApoioPoeContext implements Serializable {
         return state.getState();
     }
 
-    public Fase getFaseEnum() {
-        return state.getFase();
-    }
 
-    public String getFase() {
-        return state.getFase().toString();
-    }
+
 
     // Métodos que reencaminhem as ações/eventos para o estado ativo
 
@@ -57,11 +48,11 @@ public class ApoioPoeContext implements Serializable {
     }
 
     public void avanca() {
-        state.avanca();
+        state.avancaEstado();
     }
 
     public boolean avancaFechandoFase() {
-        return state.fechaFase();
+        return state.fechaEstado();
     }
 
     public boolean volta() {
@@ -76,10 +67,6 @@ public class ApoioPoeContext implements Serializable {
         return state.exportaCVS(nomeFicheiro);
     }
 
-    public String filtraListas(String filtros) {
-        // return state.filtraListas();
-        return "NAO IMPLEMENTADO";
-    }
 
     public String gravaEstadoAplicacao(String nomeFicheiro) {
         return state.gravaEstadoApp(this, nomeFicheiro);
@@ -102,5 +89,23 @@ public class ApoioPoeContext implements Serializable {
 
     // Conjunto de métodos que permita obter os dados necessários à
     // interação com o utilizador ou com os restantes módulos do programa
+
+
+    public Boolean getSituacaoEstado(){
+        return state.getSituacaoEstado();
+    }
+
+    public String mostraListas() {
+        return  data.mostraListas();
+    }
+
+    
+    public String filtraListas(String filtros) {
+        // return filtraListas();
+        return "NAO IMPLEMENTADO";
+    }
+
+
+
 
 }

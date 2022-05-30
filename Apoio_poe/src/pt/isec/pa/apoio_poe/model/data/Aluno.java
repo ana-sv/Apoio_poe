@@ -11,13 +11,23 @@ public class Aluno {
     protected boolean estagioAcesso;
 
     
-    public Aluno(Long numEstudante, String nome, String mail, String siglaCurso, String siglaRamo) {
+    public Aluno(Long numEstudante, String nome, String mail, String siglaCurso, String siglaRamo, double classificacao ) {
         this.numEstudante = numEstudante;
         this.nome = nome;
         this.mail = mail;
         this.siglaCurso = siglaCurso;
         this.siglaRamo = siglaRamo;
+
+        if ( classificacao >= 0.60 ){
+            this.estagioAcesso = true; 
+        }
+         else if ( classificacao < 0.60 ) {
+             this.estagioAcesso = false;
+         }
+
     }
+
+
     public Aluno(Long numEstudante, String nome, String mail, String siglaCurso, String siglaRamo, double classificacao, boolean estagioAcesso ) {
         this.numEstudante = numEstudante;
         this.nome = nome;
@@ -52,10 +62,8 @@ public class Aluno {
         return classificacao;
     }
 
-    public String getAcessoEstagio(){
-        if ( estagioAcesso == true )
-            return "SIM";
-        return "NAO"; 
+    public Boolean getAcessoEstagio(){
+        return estagioAcesso; 
     }
 
  
@@ -66,18 +74,16 @@ public class Aluno {
         s.append( nome + " - " + mail + " - " + siglaCurso +" - " + siglaRamo + " " + classificacao + " - ");
        
         if (estagioAcesso == true )
-          s.append(" POSSIBILIDADE DE ESTAGIO ");
+          s.append(" Estagio : SIM  ");
         else
-          s.append(" SEM POSSIBILIDADE DE ESTAGIO ");
+        s.append(" Estagio : NAO ");
 
         return s.toString();
 
     }
- 
 
 
-    // metodo que insira o acesso ao estagio automaticamente
-    // --> Meta 2 , só é necessário depois da classificacaoAlunos() estar implementada 
+
 
 
 

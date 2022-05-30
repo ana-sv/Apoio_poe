@@ -14,7 +14,7 @@ class ModoDocentes extends ApoioPoeStateAdapter {
 
 
 
-    @Override
+
     public String mostraListas() {
         StringBuilder str= new StringBuilder();
         for ( Docente a : data.getListaDocentes().values()) {
@@ -41,7 +41,7 @@ class ModoDocentes extends ApoioPoeStateAdapter {
 
 
     @Override
-    public void avanca() {
+    public void avancaEstado() {
         changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
     }
 

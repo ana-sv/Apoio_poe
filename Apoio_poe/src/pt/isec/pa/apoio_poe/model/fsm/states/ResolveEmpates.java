@@ -21,7 +21,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
     }
 
     @Override
-    public void avanca() {
+    public void avancaEstado() {
         // TODO if nEmpates==0
         changeState(ApoioPoeState.ATRIBUICAO_PROPOSTAS);
         //else

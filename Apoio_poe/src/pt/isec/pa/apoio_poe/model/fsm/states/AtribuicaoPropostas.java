@@ -5,11 +5,11 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 class AtribuicaoPropostas extends ApoioPoeStateAdapter{
-    Fase fase;
+    private Integer index = 2;
+
 
  AtribuicaoPropostas(ApoioPoeContext context, ApoioPoeData data) {
         super(context, data);
-        fase = Fase.ABERTA;
     }
 
     public boolean atribuicaoAuto(){
@@ -33,8 +33,7 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
     }
 
 
-    @Override
-    public String mostraListas() {
+    public String mostraListas() {   // MUDAR PARA DADOS??
         StringBuilder s = new StringBuilder();
 
         s.append(data.infoCandidaturasToString(false));
@@ -50,15 +49,15 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
     }
 
     @Override
-    public void avanca() {
+    public void avancaEstado() {
         changeState(ApoioPoeState.ATRIBUICAO_ORIENTADORES);
     }
 
     @Override
-    public boolean fechaFase() {
+    public boolean fechaEstado() {
         //TODO 
         // if(nCandidaturas=nPropostas ){
-         //   fase = Fase.FECHADA;
+         //   data.setSituacaoEstados(this.index) = false; 
       //    changeState(ApoioPoeState.ATRIBUICAO_ORIENTADORES);
       //      return true;   }
 
@@ -67,7 +66,7 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
 
     @Override
     public boolean voltar() {
-        if( fase == Fase.ABERTA ){
+        if (data.getSituacaoEstados(this.index) == true) {
             changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
             return true;
         }
@@ -75,12 +74,11 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
 
     }
 
+
     @Override
-    public Fase getFase() {
-        return this.fase;
+    public boolean getSituacaoEstado(){
+        return data.getSituacaoEstados(this.index);
     }
-
-
 
 
     

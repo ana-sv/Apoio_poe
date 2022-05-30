@@ -6,11 +6,11 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
  class OpcoesCandidaturas extends ApoioPoeStateAdapter {
-    Fase fase;
+    private Integer index = 1;
+
 
      OpcoesCandidaturas(ApoioPoeContext context, ApoioPoeData data) {
         super(context, data);
-        fase = Fase.ABERTA;
     }
 
 
@@ -28,7 +28,6 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
         return " ";
     }
 
-    @Override
     public String mostraListas() {
         StringBuilder s = new StringBuilder();
 
@@ -49,8 +48,6 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
 
 
-
-
     @Override
     public ApoioPoeState getState() {
         return ApoioPoeState.OPCOES_CANDIDATURAS;
@@ -60,7 +57,7 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
     @Override
     public boolean voltar(){ 
-        if ( fase == Fase.ABERTA ){
+        if (data.getSituacaoEstados(this.index) == true) {
             changeState( ApoioPoeState.AGUARDA_CONFIGURACAO );
             return true;
         }
@@ -69,28 +66,25 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
 
     @Override
-    public void avanca() {
+    public void avancaEstado() {
         changeState( ApoioPoeState.ATRIBUICAO_PROPOSTAS );
   
     }
 
     @Override
-    public boolean fechaFase() {
+    public boolean fechaEstado() {
         // TODO : impedir fechar se houverem candidaturas sem proposta 
 
-        fase = Fase.FECHADA;
+        data.setSituacaoEstados( this.index, false);
         return true;    
     }
 
 
+
     @Override
-    public Fase getFase() {
-        return this.fase;
+    public boolean getSituacaoEstado(){
+        return data.getSituacaoEstados(this.index);
     }
-
-
-
-
 
 
 

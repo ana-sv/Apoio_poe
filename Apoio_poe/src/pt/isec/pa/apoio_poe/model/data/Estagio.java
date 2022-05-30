@@ -11,6 +11,7 @@ public class Estagio extends Proposta {
         this.area = area;
         this.titulo = titulo;
         this.entAcolhimento = entAcolhimento;
+        this.orientador = null; 
     }
 
     public Estagio( String ramo){

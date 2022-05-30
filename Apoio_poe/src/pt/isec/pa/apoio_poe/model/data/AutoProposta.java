@@ -10,6 +10,7 @@ public class AutoProposta extends Proposta{
         this.codigoProp = codigoProp;
         this.titulo = titulo;
         this.numEstudante = numEstudante;
+        this.orientador = null; 
 
     }
 
@@ -19,6 +20,9 @@ public class AutoProposta extends Proposta{
         s.append("\n[" + tipoProp + "] " + " [" + codigoProp + "] ");
    
         s.append( titulo + " - " + numEstudante );
+        
+        if (this.orientador != null)
+         s.append( " - " + orientador );
 
         return s.toString();
 
