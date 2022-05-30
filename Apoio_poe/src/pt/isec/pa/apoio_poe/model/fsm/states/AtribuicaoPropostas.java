@@ -55,13 +55,16 @@ class AtribuicaoPropostas extends ApoioPoeStateAdapter{
 
     @Override
     public boolean fechaEstado() {
-        //TODO 
-        // if(nCandidaturas=nPropostas ){
-         //   data.setSituacaoEstados(this.index) = false; 
-      //    changeState(ApoioPoeState.ATRIBUICAO_ORIENTADORES);
-      //      return true;   }
 
-        return false;
+
+        // Apenas será possível fechar esta fase se todos os alunos com candidaturas submetidas possuírem projeto atribuído
+        if( data.getListaCandidaturas().containsValue(null)){
+            return false; 
+        }
+        else{
+            changeState(ApoioPoeState.ATRIBUICAO_ORIENTADORES);
+            return true; 
+        }
     }
 
     @Override

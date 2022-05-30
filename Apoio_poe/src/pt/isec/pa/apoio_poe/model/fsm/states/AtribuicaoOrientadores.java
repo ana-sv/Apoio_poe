@@ -1,6 +1,5 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
-
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
@@ -13,23 +12,17 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
 
     }
 
-   
-    public String filtraListasOrientadores(Integer q , String filtros ) {       // MUDAR PARA DADOS?
+    public String filtraListasOrientadores(Integer q, String filtros) { // MUDAR PARA DADOS?
         // TO DO
         return " nao implementado ainda";
     }
 
-
-    public String mostraListas() {                  // MUDAR PARA DADOS?
+    public String mostraListas() { // MUDAR PARA DADOS?
         StringBuilder s = new StringBuilder();
         s.append(data.infoCandidaturasToString(true));
 
-    return s.toString();
+        return s.toString();
     }
-
-
-
-
 
     @Override
     public ApoioPoeState getState() {
@@ -38,8 +31,9 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
 
     @Override
     public void avancaEstado() {
-        fechaEstado();  // porque avançando para o estado Consulta ano é possivel voltar atrás 
-        changeState(ApoioPoeState.CONSULTA);
+        if (fechaEstado()) { // porque avançando para o estado Consulta ano é possivel voltar atrás
+            changeState(ApoioPoeState.CONSULTA);
+        }
     }
 
     @Override
@@ -55,16 +49,18 @@ class AtribuicaoOrientadores extends ApoioPoeStateAdapter {
 
     @Override
     public boolean fechaEstado() {
-        // falta certeficar aqui que todos os alunos tem uma candidatura com uma proposta
-        data.setSituacaoEstados(index, false);
-        return true;
+        if (data.getListaAlunos().size() == data.getListaAtribuidos().size()) { // todos os alunos tem uma proposta atribuida
+
+            data.setSituacaoEstados(index, false);
+            return true;
+        }
+        return false;
+
     }
 
     @Override
-    public boolean getSituacaoEstado(){
+    public boolean getSituacaoEstado() {
         return data.getSituacaoEstados(this.index);
     }
-
-
 
 }

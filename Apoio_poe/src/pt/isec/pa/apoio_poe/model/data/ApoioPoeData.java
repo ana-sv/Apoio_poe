@@ -105,6 +105,10 @@ public class ApoioPoeData {
         return listaCandidaturas;
     }
 
+    public HashMap<Long, Candidatura> getListaAtribuidos() {
+        return listaAtribuidos;
+    }
+
     public boolean alunoExiste(String email) {
         for (Aluno s : listaAlunos.values()) {
             if (email.equals(s.getEmail()))

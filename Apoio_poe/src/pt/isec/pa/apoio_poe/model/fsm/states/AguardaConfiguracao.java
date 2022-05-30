@@ -1,13 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import pt.isec.pa.apoio_poe.model.data.*;
+import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
