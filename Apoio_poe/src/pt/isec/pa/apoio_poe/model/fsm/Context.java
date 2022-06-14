@@ -11,15 +11,15 @@ package pt.isec.pa.apoio_poe.model.fsm;
 
 import java.io.Serializable;
 
-import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.states.State;
 
 public class Context implements Serializable {
     private IState state;
-    private ApoioPoeData data;
+    private Data data;
 
     public Context() {
-        data = new ApoioPoeData();
+        data = new Data();
         state = State.AGUARDA_CONFIGURACAO.createState(this, data);
         // referencia para o estado atual que poderá ser iniciado no seu construtor
     }
@@ -73,7 +73,7 @@ public class Context implements Serializable {
     }
 
     public String carregaEstadoAplicacao(String nomeFicheiro) { // MELHORAR
-        ApoioPoeData a = new ApoioPoeData();
+        Data a = new Data();
         a = state.carregaEstadoApp(nomeFicheiro);
 
         if (a!= null) {
@@ -98,6 +98,22 @@ public class Context implements Serializable {
         return  data.mostraListas();
     }
 
+    public String mostraListaAlunos(){
+        return data.mostraListasAlunos();
+    }
+
+    public String mostraListaDocentes(){
+        return data.mostraListasAlunos();
+    }
+
+    public String mostraListaPropostas(){
+        return data.mostraListaPropostas();
+    }
+
+    
+    public String mostraListaCandidaturas(){
+        return data.mostraListaCandidaturas();
+    }
     
     public String filtraListas(String filtros) {
         // return filtraListas();

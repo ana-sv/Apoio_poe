@@ -3,11 +3,9 @@ package pt.isec.pa.apoio_poe.model.data;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ApoioPoeData {
+public class Data {
 
     protected HashMap<Long, Aluno> listaAlunos; // numEstudante, Aluno
-
-
 
     protected HashMap<String, Docente> listaDocentes; // mail , Docente
     protected HashMap<String, Proposta> listaPropostas; // codigoProp , Proposta
@@ -18,19 +16,18 @@ public class ApoioPoeData {
 
     protected ArrayList<Boolean> situacaoEstados; // true se o estado está aberto, false se está fechado/bloqueado
 
-    public ApoioPoeData() {
+    public Data() {
         this.listaAlunos = new HashMap<>();
         this.listaDocentes = new HashMap<>();
         this.listaPropostas = new HashMap<>();
         this.listaCandidaturas = new HashMap<>();
         this.situacaoEstados = new ArrayList<>();
 
-        for (int i = 0; i < 5; i++) { // porque são 4 estados, uma posicao para cada um
+        for (int i = 0; i < 5; i++) { // porque são 4 fases, uma posicao para cada um
             situacaoEstados.add(true);
         }
 
     }
-
 
     // https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
     public void sortByClassification() {
@@ -44,35 +41,89 @@ public class ApoioPoeData {
                         Map.Entry::getValue,
                         (e1, e2) -> e1, LinkedHashMap::new));
 
-       this.listaAlunos = temp;  // funciona?
+        this.listaAlunos = temp; // funciona?
     }
 
-
-    
-    public String mostraListas() {   
+    public String mostraListas() {
 
         StringBuilder s = new StringBuilder();
 
-            s.append("\n> Lista Alunos ");
-            for ( Aluno a : listaAlunos.values()) {
-                s.append(a.alunoToString());
-            }
-            s.append("\n");
+        s.append("\n> Lista Alunos ");
+        for (Aluno a : listaAlunos.values()) {
+            s.append(a.alunoToString());
+        }
+        s.append("\n");
 
-            s.append("\n> Lista Docentes ");
-            for ( Docente a : listaDocentes.values()) {
-                s.append(a.DocentesToString());
-            }
-            s.append("\n");
-    
-            s.append("\n> Lista Propostas ");
-            for ( Proposta a : listaPropostas.values()) {
-                s.append(a.propostasToString());
-            }
-            s.append("\n");
+        s.append("\n> Lista Docentes ");
+        for (Docente a : listaDocentes.values()) {
+            s.append(a.DocentesToString());
+        }
+        s.append("\n");
+
+        s.append("\n> Lista Propostas ");
+        for (Proposta a : listaPropostas.values()) {
+            s.append(a.propostasToString());
+        }
+        s.append("\n");
 
         return s.toString();
     }
+
+    public String mostraListasAlunos() {
+
+        StringBuilder s = new StringBuilder();
+
+        s.append("\n> Lista Alunos ");
+        for (Aluno a : listaAlunos.values()) {
+            s.append(a.alunoToString());
+        }
+
+        return s.toString();
+    }
+
+    public String mostraListaDocentes() {
+
+        StringBuilder s = new StringBuilder();
+        s.append("\n> Lista Docentes ");
+        for (Docente a : listaDocentes.values()) {
+            s.append(a.DocentesToString());
+        }
+        s.append("\n");
+
+        return s.toString();
+    }
+
+    public String mostraListaPropostas() {
+
+        StringBuilder s = new StringBuilder();
+
+        s.append("\n> Lista Propostas ");
+        for (Proposta a : listaPropostas.values()) {
+            s.append(a.propostasToString());
+        }
+        s.append("\n");
+
+        return s.toString();
+    }
+
+
+    
+    public String mostraListaCandidaturas() {
+
+        StringBuilder s = new StringBuilder();
+
+        s.append("\n> Lista Candidaturas ");
+        for (Candidatura a : listaCandidaturas.values()) {
+            s.append(a.candidaturaToString());
+        }
+        s.append("\n");
+
+        return s.toString();
+    }
+
+
+
+    
 
     public Boolean getSituacaoEstados(int i) {
         return situacaoEstados.get(i);
@@ -91,7 +142,6 @@ public class ApoioPoeData {
     public HashMap<Long, Aluno> getListaAlunos() {
         return listaAlunos;
     }
-
 
     public HashMap<String, Docente> getListaDocentes() {
         return listaDocentes;
@@ -117,10 +167,9 @@ public class ApoioPoeData {
         return false;
     }
 
-   public boolean alunoExiste(long numeroAluno) {
+    public boolean alunoExiste(long numeroAluno) {
         return listaAlunos.containsKey(numeroAluno);
     }
-
 
     public boolean docenteExiste(String email) {
         return listaDocentes.containsKey(email);
@@ -187,11 +236,5 @@ public class ApoioPoeData {
         return n;
 
     }
-
-
-
-
-
-    
 
 }

@@ -1,4 +1,4 @@
-package pt.isec.pa.apoio_poe.ui.utils;
+package pt.isec.pa.apoio_poe.ui.text.utils;
 
 // Passar o package para fora do âmbido e11report
 // para poder ser usado em todos os exercícios

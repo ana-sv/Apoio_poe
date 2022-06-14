@@ -1,16 +1,16 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
-import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.states.State;
 
 
 
 public abstract class StateAdapter implements IState{
     protected Context context;
-    protected ApoioPoeData data; 
+    protected Data data; 
 
 
-    protected StateAdapter(Context context, ApoioPoeData data) {
+    protected StateAdapter(Context context, Data data) {
         this.context = context;
         this.data = data; 
     }
@@ -34,12 +34,12 @@ public abstract class StateAdapter implements IState{
     }
 
     @Override
-    public String gravaEstadoApp( ApoioPoeData data, String nomeFicheiro ){ 
+    public String gravaEstadoApp( Data data, String nomeFicheiro ){ 
         return Ficheiro.gravaParaBinario(data, nomeFicheiro).toString();
     }
 
     @Override
-    public ApoioPoeData carregaEstadoApp( String nomeFicheiro ){
+    public Data carregaEstadoApp( String nomeFicheiro ){
         return Ficheiro.carregaDeBinario(nomeFicheiro);
     }
 

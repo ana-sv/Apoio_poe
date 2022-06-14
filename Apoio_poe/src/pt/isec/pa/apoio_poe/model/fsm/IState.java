@@ -1,6 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
-import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.states.State;
 
 
@@ -12,8 +12,8 @@ public interface IState {
     public String importaCVS( String nomeFicheiro );
     public String exportaCVS( String nomeFicheiro );
 
-    public String gravaEstadoApp ( ApoioPoeData data , String nomeFicheiro );
-    public ApoioPoeData carregaEstadoApp( String nomeFicheiro ); 
+    public String gravaEstadoApp ( Data data , String nomeFicheiro );
+    public Data carregaEstadoApp( String nomeFicheiro ); 
 
     public boolean alteraModoConfiguracao(int op);
 

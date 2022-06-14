@@ -1,13 +1,13 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
-import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.Context;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
 class AtribuicaoOrientadores extends StateAdapter {
     private Integer index = 3;
 
-    AtribuicaoOrientadores(Context context, ApoioPoeData data) {
+    AtribuicaoOrientadores(Context context, Data data) {
         super(context, data);
 
     }

@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
 
-import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 
 public final class Ficheiro {
@@ -12,7 +12,7 @@ public final class Ficheiro {
     private Ficheiro() {
     } // para evitar que ser possivel criar uma classe Ficheiro
 
-    public static String gravaParaBinario(ApoioPoeData data, String nomeFicheiro) {
+    public static String gravaParaBinario(Data data, String nomeFicheiro) {
 
         if (!nomeFicheiroValido(nomeFicheiro))
             return "Nome de ficheiro invalido!";
@@ -37,7 +37,7 @@ public final class Ficheiro {
         return " ";
     }
 
-    public static ApoioPoeData carregaDeBinario(String nomeFicheiro) {
+    public static Data carregaDeBinario(String nomeFicheiro) {
 
         if (!nomeFicheiroValido(nomeFicheiro))
             return null;
@@ -47,7 +47,7 @@ public final class Ficheiro {
                 FileInputStream f = new FileInputStream(nomeFicheiro);
                 ObjectInputStream in = new ObjectInputStream(f);
           
-              return (ApoioPoeData) in.readObject(); 
+              return (Data) in.readObject(); 
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -118,7 +118,7 @@ public final class Ficheiro {
 
 
     
-    public static String importaCVSalunos(String nomeFicheiro, ApoioPoeData data) {
+    public static String importaCVSalunos(String nomeFicheiro, Data data) {
         StringBuilder sb = new StringBuilder();
         long numeroAluno;
         double classificacao;
@@ -254,7 +254,7 @@ public final class Ficheiro {
         return sb.toString();
     }
 
-    public static String importaCVSdocentes(String nomeFicheiro, ApoioPoeData data) {
+    public static String importaCVSdocentes(String nomeFicheiro, Data data) {
         StringBuilder sb = new StringBuilder();
         String nome, mail, linha;
         FileReader fr = null;
@@ -320,7 +320,7 @@ public final class Ficheiro {
         return sb.toString();
     }
 
-    private static boolean importEstagio(Scanner sc, ApoioPoeData data) {
+    private static boolean importEstagio(Scanner sc, Data data) {
         StringBuilder sb = new StringBuilder();
         String codigoProp = null, area = null, entAcolhimento = null, titulo = null;
 
@@ -363,7 +363,7 @@ public final class Ficheiro {
         return true;
     }
 
-    private static boolean importAutoProposta(Scanner sc, ApoioPoeData data) {
+    private static boolean importAutoProposta(Scanner sc, Data data) {
         StringBuilder sb = new StringBuilder();
         String codigoProp = null, titulo = null;
         long numeroAluno = 0;
@@ -405,7 +405,7 @@ public final class Ficheiro {
         return true;
     }
 
-    private static boolean importProjecto(Scanner sc, ApoioPoeData data) {
+    private static boolean importProjecto(Scanner sc, Data data) {
         StringBuilder sb = new StringBuilder();
         String codigoProp = null, mail = null, area = null, titulo = null;
         long numeroAluno = 0;
@@ -461,7 +461,7 @@ public final class Ficheiro {
         return true;
     }
 
-    public static String importaCVSpropostas(String nomeFicheiro, ApoioPoeData data) {
+    public static String importaCVSpropostas(String nomeFicheiro, Data data) {
         StringBuilder sb = new StringBuilder();
         TipoProposta tipoProp = null;
         String linha;
@@ -514,7 +514,7 @@ public final class Ficheiro {
 
     }
 
-    public static String importaCVScandidaturas(String nomeFicheiro, ApoioPoeData data) {
+    public static String importaCVScandidaturas(String nomeFicheiro, Data data) {
 
         StringBuilder sb = new StringBuilder();
         long numeroAluno;

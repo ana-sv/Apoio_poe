@@ -1,6 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
-import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.Context;
 import pt.isec.pa.apoio_poe.model.fsm.IState;
 
@@ -20,7 +20,7 @@ public enum State {
 
 
 
-    public IState createState( Context context, ApoioPoeData data ){
+    public IState createState( Context context, Data data ){
 
          return switch (this){
 

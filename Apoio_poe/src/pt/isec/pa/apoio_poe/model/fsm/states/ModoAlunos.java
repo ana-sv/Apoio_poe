@@ -1,14 +1,14 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.Aluno;
-import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
+import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.Context;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
 class ModoAlunos extends StateAdapter{
 
-    ModoAlunos(Context context, ApoioPoeData data) {
+    ModoAlunos(Context context, Data data) {
         super(context, data);
     }
 
