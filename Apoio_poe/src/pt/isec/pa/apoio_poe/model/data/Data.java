@@ -9,10 +9,9 @@ public class Data {
 
     protected HashMap<String, Docente> listaDocentes; // mail , Docente
     protected HashMap<String, Proposta> listaPropostas; // codigoProp , Proposta
-
     protected HashMap<Long, Candidatura> listaCandidaturas; // numAluno Candidatura
 
-    protected HashMap<Long, Proposta> listaAtribuidos; // numAluno , Proposta atribuida
+    protected HashMap<Long, String> listaFinal; // numAluno , codigo Proposta atribuida
 
     protected ArrayList<Boolean> situacaoEstados; // true se o estado está aberto, false se está fechado/bloqueado
 
@@ -155,8 +154,8 @@ public class Data {
         return listaCandidaturas;
     }
 
-    public HashMap<Long, Proposta> getListaAtribuidos() {
-        return listaAtribuidos;
+    public HashMap<Long, String> getListaFinal() {
+        return listaFinal;
     }
 
     public boolean alunoExiste(String email) {
@@ -169,6 +168,10 @@ public class Data {
 
     public boolean alunoExiste(long numeroAluno) {
         return listaAlunos.containsKey(numeroAluno);
+    }
+
+    public boolean alunoExisteListaFinal(long numeroAluno) {
+        return listaFinal.containsKey(numeroAluno);
     }
 
     public boolean docenteExiste(String email) {

@@ -31,8 +31,8 @@ public class Candidatura {
         return listaProp;
     }
 
+    public String getCodigoProposta(int index){
+        return listaProp.get(index);
+    }
 
 }
-
-    
-    

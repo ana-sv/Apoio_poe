@@ -7,7 +7,7 @@ public class Projeto extends Proposta{
 
 
     public Projeto( String codigoProp, String area, String titulo, String mail, Long numEstudante) {
-        this.tipoProp = TipoProposta.T2;
+        this.tipo = TipoProposta.T2;
         this.codigoProp = codigoProp;
         this.area = area;
         this.titulo = titulo;
@@ -24,7 +24,7 @@ public class Projeto extends Proposta{
     public String propostasToString(){
         StringBuilder s = new StringBuilder();
 
-        s.append("\n[" + tipoProp + "] " + " [" + codigoProp + "] ");
+        s.append("\n[" + tipo + "] " + " [" + codigoProp + "] ");
    
         s.append( area + " - " + titulo + " - " + mailDocente +" - " + numEstudante );
 
@@ -35,6 +35,11 @@ public class Projeto extends Proposta{
     public String getRamo(){
         return area;
     }
+
+    public TipoProposta getTipo(){
+        return tipo; 
+    }
+
 
     
     

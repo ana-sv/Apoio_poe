@@ -1,7 +1,7 @@
 package pt.isec.pa.apoio_poe.model.data;
 
 public abstract class Proposta {
-    protected TipoProposta tipoProp;
+    protected TipoProposta tipo;
     protected String codigoProp;
     protected String titulo;
     protected Docente orientador;
@@ -20,6 +20,10 @@ public abstract class Proposta {
 
     public String propostasToString(){
         return " ";
+    }
+
+    public TipoProposta getTipo(){
+        return tipo; 
     }
 
     

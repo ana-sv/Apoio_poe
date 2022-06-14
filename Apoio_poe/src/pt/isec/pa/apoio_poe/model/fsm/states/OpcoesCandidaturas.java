@@ -15,19 +15,6 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
 
 
-    public String filtraListasAlunos( Integer q , String filtros ) {  //autoproposta , registada , nao registada
-        // TO DO
-        return " ";
-    }
-
-
-
-
-    public String filtraListasPropostas( Integer q ,String filtros ) { // autopropostas, docentes, com candidatura , sem candidatura
-        // TO DO
-        return " ";
-    }
-
     public String mostraListas() {
         StringBuilder s = new StringBuilder();
 
@@ -75,7 +62,9 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
     public boolean fechaEstado() {
         // TODO : impedir fechar se houverem candidaturas sem proposta 
 
-        data.setSituacaoEstados( this.index, false);
+
+
+        data.setSituacaoEstados( this.index, false); // estado fechado 
         return true;    
     }
 

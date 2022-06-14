@@ -6,7 +6,7 @@ public class Estagio extends Proposta {
     protected String entAcolhimento;
     
     public Estagio( String codigoProp, String area, String titulo,String entAcolhimento) {
-        this.tipoProp = TipoProposta.T1;
+        this.tipo = TipoProposta.T1;
         this.codigoProp = codigoProp;
         this.area = area;
         this.titulo = titulo;
@@ -22,7 +22,7 @@ public class Estagio extends Proposta {
     public String propostasToString(){
         StringBuilder s = new StringBuilder();
 
-        s.append("\n[" + tipoProp + "] " + " [" + codigoProp + "] ");
+        s.append("\n[" + tipo + "] " + " [" + codigoProp + "] ");
    
         s.append( area + " - " + titulo + " - " + entAcolhimento );
 
@@ -35,6 +35,9 @@ public class Estagio extends Proposta {
     }
 
 
-    
+    public TipoProposta getTipo(){
+        return tipo; 
+    }
+
     
 }

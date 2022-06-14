@@ -49,7 +49,7 @@ class AtribuicaoOrientadores extends StateAdapter {
 
     @Override
     public boolean fechaEstado() {
-        if (data.getListaAlunos().size() == data.getListaAtribuidos().size()) { // todos os alunos tem uma proposta atribuida
+        if (data.getListaAlunos().size() == data.getListaFinal().size()) { // todos os alunos tem uma proposta atribuida
 
             data.setSituacaoEstados(index, false);
             return true;
