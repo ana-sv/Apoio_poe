@@ -1,13 +1,13 @@
 package pt.isec.pa.apoio_poe.ui.text;
 
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
+import pt.isec.pa.apoio_poe.model.fsm.Context;
 import pt.isec.pa.apoio_poe.ui.utils.PAInput;
 
 public class ApoioPoeUiText {
-    ApoioPoeContext poe;
+    Context poe;
     private boolean finish;
 
-    public ApoioPoeUiText(ApoioPoeContext poe) {
+    public ApoioPoeUiText(Context poe) {
         this.poe = poe;
         finish = false;
     }

@@ -2,13 +2,13 @@ package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
+import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
-class ModoPropostas extends ApoioPoeStateAdapter{
+class ModoPropostas extends StateAdapter{
 
-     ModoPropostas(ApoioPoeContext context, ApoioPoeData data) {
+     ModoPropostas(Context context, ApoioPoeData data) {
         super(context, data);
     }
 
@@ -36,13 +36,13 @@ class ModoPropostas extends ApoioPoeStateAdapter{
     }
 
     @Override
-    public ApoioPoeState getState() {
-        return ApoioPoeState.MODO_PROPOSTAS;
+    public State getState() {
+        return State.MODO_PROPOSTAS;
     }
 
     @Override
     public void avancaEstado() {
-        changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
+        changeState(State.AGUARDA_CONFIGURACAO);
     }
     
 

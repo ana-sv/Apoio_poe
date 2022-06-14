@@ -1,15 +1,15 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
+import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
- class OpcoesCandidaturas extends ApoioPoeStateAdapter {
+ class OpcoesCandidaturas extends StateAdapter {
     private Integer index = 1;
 
 
-     OpcoesCandidaturas(ApoioPoeContext context, ApoioPoeData data) {
+     OpcoesCandidaturas(Context context, ApoioPoeData data) {
         super(context, data);
     }
 
@@ -49,8 +49,8 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
 
     @Override
-    public ApoioPoeState getState() {
-        return ApoioPoeState.OPCOES_CANDIDATURAS;
+    public State getState() {
+        return State.OPCOES_CANDIDATURAS;
     }
 
 
@@ -58,7 +58,7 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
     @Override
     public boolean voltar(){ 
         if (data.getSituacaoEstados(this.index) == true) {
-            changeState( ApoioPoeState.AGUARDA_CONFIGURACAO );
+            changeState( State.AGUARDA_CONFIGURACAO );
             return true;
         }
         return false; 
@@ -67,7 +67,7 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
     @Override
     public void avancaEstado() {
-        changeState( ApoioPoeState.ATRIBUICAO_PROPOSTAS );
+        changeState( State.ATRIBUICAO_PROPOSTAS );
   
     }
 

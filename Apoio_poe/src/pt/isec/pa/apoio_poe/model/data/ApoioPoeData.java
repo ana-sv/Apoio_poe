@@ -105,7 +105,7 @@ public class ApoioPoeData {
         return listaCandidaturas;
     }
 
-    public HashMap<Long, Candidatura> getListaAtribuidos() {
+    public HashMap<Long, Proposta> getListaAtribuidos() {
         return listaAtribuidos;
     }
 

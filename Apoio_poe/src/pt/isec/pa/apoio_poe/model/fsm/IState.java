@@ -1,11 +1,11 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+import pt.isec.pa.apoio_poe.model.fsm.states.State;
 
 
 
-public interface ApoioPoeIState {
+public interface IState {
 
     // interface deve ter poucos metodos e apenas aqueles que representam mudança de estado
 
@@ -25,7 +25,7 @@ public interface ApoioPoeIState {
 
     public boolean getSituacaoEstado();
 
-    ApoioPoeState getState();
+    State getState();
 
 
   

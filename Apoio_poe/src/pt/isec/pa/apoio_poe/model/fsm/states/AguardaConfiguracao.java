@@ -1,13 +1,13 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
+import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
-class AguardaConfiguracao extends ApoioPoeStateAdapter {
+class AguardaConfiguracao extends StateAdapter {
     private Integer index = 0;
 
-    AguardaConfiguracao(ApoioPoeContext context, ApoioPoeData data) {
+    AguardaConfiguracao(Context context, ApoioPoeData data) {
         super(context, data);
     }
 
@@ -17,7 +17,7 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     public void avancaEstado() { // avanca sem fechar/bloquear estado
 
         data.sortByClassification();
-        changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
+        changeState(State.OPCOES_CANDIDATURAS);
     }
 
     @Override
@@ -38,9 +38,9 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     @Override
     public boolean alteraModoConfiguracao(int op) {
         switch (op) {
-            case 1 -> changeState(ApoioPoeState.MODO_ALUNOS);
-            case 2 -> changeState(ApoioPoeState.MODO_DOCENTES);
-            case 3 -> changeState(ApoioPoeState.MODO_PROPOSTAS);
+            case 1 -> changeState(State.MODO_ALUNOS);
+            case 2 -> changeState(State.MODO_DOCENTES);
+            case 3 -> changeState(State.MODO_PROPOSTAS);
             default -> {
                 return false;
             }
@@ -49,8 +49,8 @@ class AguardaConfiguracao extends ApoioPoeStateAdapter {
     }
 
     @Override
-    public ApoioPoeState getState() {
-        return ApoioPoeState.AGUARDA_CONFIGURACAO;
+    public State getState() {
+        return State.AGUARDA_CONFIGURACAO;
     }
 
     @Override

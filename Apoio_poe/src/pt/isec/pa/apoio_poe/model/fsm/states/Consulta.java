@@ -1,15 +1,15 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.ApoioPoeData;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
-import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
+import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
- class Consulta extends ApoioPoeStateAdapter {
+ class Consulta extends StateAdapter {
     private Integer index = 4;
 
 
 
-     Consulta(ApoioPoeContext context, ApoioPoeData data) {
+     Consulta(Context context, ApoioPoeData data) {
         super(context, data);
 
     }
@@ -17,8 +17,8 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeStateAdapter;
 
 
     @Override
-    public ApoioPoeState getState() {
-        return ApoioPoeState.CONSULTA;
+    public State getState() {
+        return State.CONSULTA;
     }
 
 
