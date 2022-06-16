@@ -43,11 +43,25 @@ public class ApoioPoeContext implements Serializable {
 
     // Métodos que reencaminhem as ações/eventos para o estado ativo
 
-    public boolean alteraModoConfiguracao(int op) {
-        return state.alteraModoConfiguracao(op);
+    public void alteraModoConfiguracao(int op) {
+        state.alteraModoConfiguracao(op);
     }
 
-    public void avanca() {
+    public void avancaParaAlunos(){
+        state.alteraModoConfiguracao(1);
+    }
+
+    public void avancaParaDocentes(){
+        state.alteraModoConfiguracao(2);
+    }
+
+    public void avancaParaPropostas(){
+        state.alteraModoConfiguracao(3);
+    }
+
+
+
+    public void avancaEstado() {
         state.avancaEstado();
     }
 

@@ -36,16 +36,12 @@ class A_AguardaConfiguracao extends StateAdapter {
     }
 
     @Override
-    public boolean alteraModoConfiguracao(int op) {
+    public void alteraModoConfiguracao(int op) {
         switch (op) {
             case 1 -> changeState(ApoioPoeState.MODO_ALUNOS);
             case 2 -> changeState(ApoioPoeState.MODO_DOCENTES);
             case 3 -> changeState(ApoioPoeState.MODO_PROPOSTAS);
-            default -> {
-                return false;
-            }
         }
-        return false;
     }
 
     @Override

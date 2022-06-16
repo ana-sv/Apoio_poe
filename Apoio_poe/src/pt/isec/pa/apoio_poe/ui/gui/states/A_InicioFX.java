@@ -1,10 +1,15 @@
 package pt.isec.pa.apoio_poe.ui.gui.states;
 
+import java.io.File;
+import java.io.IOException;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
@@ -27,16 +32,15 @@ public class A_InicioFX extends BorderPane {
         btnIniciar = new Button();
         btnIniciar.setText("Iniciar");
         btnIniciar.setMinWidth(200);
-        btnIniciar.setTextFill(Color.GREY);
 
         btnCarregar = new Button();
         btnCarregar.setText("Carregar estado da Aplicação");
         btnCarregar.setMinWidth(200);
-        btnCarregar.setTextFill(Color.ORANGERED);
 
         HBox hbox = new HBox();
         hbox.getChildren().addAll(btnIniciar, btnCarregar);
-        hbox.setSpacing(100);
+        hbox.setSpacing(200);
+        hbox.setAlignment(Pos.CENTER);
         this.setCenter(hbox);
     }
 
@@ -45,9 +49,21 @@ public class A_InicioFX extends BorderPane {
             update();
         });
         btnIniciar.setOnAction(event -> {
-            /* ... */ });
+            manager.avancaEstado();
+        });
         btnCarregar.setOnAction(event -> {
-            /* ... */ });
+            FileChooser fChooser = new FileChooser();
+            File f = fChooser.showOpenDialog(null);
+
+            if (f == null)
+                return;
+
+            try {
+                manager.carregaEstadoAplicacao(f.getCanonicalPath());
+            } catch (IOException | ClassNotFoundException e) {
+                System.err.println("Save: " + e);
+            }
+        });
 
     }
 

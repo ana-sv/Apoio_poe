@@ -15,7 +15,7 @@ public interface ApoioPoeIState {
     public String gravaEstadoApp ( Data data , String nomeFicheiro );
     public Data carregaEstadoApp( String nomeFicheiro ); 
 
-    public boolean alteraModoConfiguracao(int op);
+    public void alteraModoConfiguracao(int op);
 
     public boolean voltar();
 

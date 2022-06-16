@@ -3,7 +3,7 @@ package pt.isec.pa.apoio_poe.ui.gui;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import pt.isec.pa.apoio_poe.model.ModelManager;
-import pt.isec.pa.apoio_poe.ui.gui.states.A_InicioFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.*;
 
 public class RootPane extends BorderPane {
     ModelManager manager;
@@ -18,7 +18,8 @@ public class RootPane extends BorderPane {
 
     private void createViews() {
         StackPane stackPane = new StackPane(
-            new A_InicioFX(manager)
+            new A_InicioFX(manager),
+            new B_AguardaConfiguracaoFX(manager)
             // preencher com o restantes estados
         );
 

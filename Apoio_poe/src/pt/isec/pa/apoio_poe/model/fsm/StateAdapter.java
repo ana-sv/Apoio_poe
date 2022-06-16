@@ -45,8 +45,7 @@ public abstract class StateAdapter implements ApoioPoeIState{
 
     
     @Override
-    public boolean alteraModoConfiguracao(int op) {
-        return false;
+    public void alteraModoConfiguracao(int op) {
     }
 
 
