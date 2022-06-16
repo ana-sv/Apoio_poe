@@ -24,16 +24,13 @@ public class B_AguardaConfiguracaoFX extends BorderPane  {
     private void createViews() {
 
         // Botoes Alunos, Docentes e Propostas
-        btnAlunos = new Button();
-        btnAlunos.setText("Alunos ");
+        btnAlunos = new Button("Alunos");
         btnAlunos.setMinSize(200, 200);
 
-        btnDocentes = new Button();
-        btnDocentes.setText("Docentes ");
+        btnDocentes = new Button("Docentes");
         btnDocentes.setMinSize(200, 200);
 
-        btnPropostas = new Button();
-        btnPropostas.setText("Propostas ");
+        btnPropostas = new Button("Propoostas");
         btnPropostas.setMinSize(200, 200);
 
 
@@ -45,18 +42,7 @@ public class B_AguardaConfiguracaoFX extends BorderPane  {
 
 
 
-        // MenuBar de cima 
-
-
-
-        // MenuBar de baixo 
-
-
-
-
-
-
-
+      
 
     }
 

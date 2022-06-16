@@ -5,10 +5,8 @@ import java.io.IOException;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
