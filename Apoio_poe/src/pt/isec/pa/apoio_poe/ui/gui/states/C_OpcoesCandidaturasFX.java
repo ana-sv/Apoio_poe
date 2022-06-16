@@ -3,14 +3,20 @@ package pt.isec.pa.apoio_poe.ui.gui.states;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+import pt.isec.pa.apoio_poe.ui.gui.InputWindow;
 
 public class C_OpcoesCandidaturasFX extends BorderPane {
     ModelManager manager;
-    HBox hbox;
-    Button btnFecharFase;
+
+    Button btnImportar, btnExportar;
+    Button btnVoltar, btnAvancar, btnFecharFase;
+
+
+    VBox vboxOpcoesCandidaturas;
+   
 
     public C_OpcoesCandidaturasFX(ModelManager manager) {
         this.manager = manager;
@@ -22,16 +28,27 @@ public class C_OpcoesCandidaturasFX extends BorderPane {
 
     private void createViews() {
 
+        btnImportar = new Button("Importar Lista Candidaturas");
+        btnImportar.setMinSize(150,60);
+
+        btnExportar = new Button("Exportar Lista Candidaturas");
+        btnExportar.setMinSize(150,60);
+
+        btnAvancar = new Button("Avançar");
+        btnAvancar.setMinSize(150,60);
+
+        btnVoltar = new Button("Voltar");
+        btnVoltar.setMinSize(150,60);
         
         btnFecharFase = new Button("Fechar Fase");  // TO DO modificar este botão para ficar difernte dos outros
         btnFecharFase.setMinSize(200, 200);
 
 
-        hbox = new HBox();
-        hbox.getChildren().addAll( btnFecharFase);
-        hbox.setSpacing(100);
-        hbox.setAlignment(Pos.CENTER);
-        this.setCenter(hbox);
+        vboxOpcoesCandidaturas = new VBox();
+        vboxOpcoesCandidaturas.getChildren().addAll( btnImportar, btnExportar, btnAvancar, btnVoltar );
+        vboxOpcoesCandidaturas.setSpacing(10);
+        vboxOpcoesCandidaturas.setAlignment(Pos.CENTER_RIGHT);
+        this.setCenter(vboxOpcoesCandidaturas);
 
     }
 
@@ -39,9 +56,29 @@ public class C_OpcoesCandidaturasFX extends BorderPane {
         manager.addPropertyChangeListener(evt -> {
             update();
         });
+
+
+        btnImportar.setOnAction(event -> {
+            String str = InputWindow.display("Importar Lista de Candidaturas", "Insira o nome do ficheiro a importar: ");
+            System.out.println("nome do ficheiro importar " + str ) ;
+           manager.importaCVS(str);
+         });
+ 
+         btnExportar.setOnAction(event -> {
+             String str = InputWindow.display("Ixportar Lista de Candidaturas", "Insira o nome do ficheiro para exportação:  ");
+             System.out.println("nome ficheiro exportar " + str ) ;
+             manager.exportaCVS(str, manager.listaCandidaturas()); 
+          });
         btnFecharFase.setOnAction(event -> {
             manager.fechaFase();
         });
+
+        btnAvancar.setOnAction(event -> {
+            manager.avancaEstado();
+         });
+         btnVoltar.setOnAction(event -> {
+             manager.volta();
+         });
         
     }
 

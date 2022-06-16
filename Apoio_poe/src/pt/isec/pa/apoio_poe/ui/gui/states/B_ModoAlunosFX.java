@@ -13,8 +13,8 @@ public class B_ModoAlunosFX extends BorderPane  {
 
     Button btnImportar, btnExportar;
     Button btnVoltar, btnAvancar;
-    VBox vboxOpcoesAlunos;
 
+    VBox vboxOpcoesAlunos;
 
     public B_ModoAlunosFX(ModelManager manager) {
         this.manager = manager;
@@ -78,7 +78,7 @@ public class B_ModoAlunosFX extends BorderPane  {
             manager.avancaEstado();
          });
          btnVoltar.setOnAction(event -> {
-            manager.volta();
+             manager.volta();
          });
 
 

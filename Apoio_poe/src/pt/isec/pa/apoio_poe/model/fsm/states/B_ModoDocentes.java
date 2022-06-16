@@ -42,9 +42,16 @@ class B_ModoDocentes extends StateAdapter {
 
     @Override
     public void avancaEstado() {
-        changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
+        changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
     }
 
+
+
+    @Override
+    public boolean voltar() {
+        changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
+        return true;
+    }
 
 
 

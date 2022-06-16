@@ -28,8 +28,8 @@ public class RootPane extends BorderPane {
             new A_InicioFX( manager ),
             new B_AguardaConfiguracaoFX( manager ),
             new B_ModoAlunosFX( manager),
-           // new B_ModoDocentesFX(manager)
-         //    new B_ModoPropostasFX( manager )
+            new B_ModoDocentesFX( manager),
+             new B_ModoPropostasFX( manager ),
          new C_OpcoesCandidaturasFX( manager )
 
 

@@ -33,6 +33,13 @@ public class ModelManager {
         pcs.firePropertyChange(null, null, null);
     }
 
+       public boolean volta(){
+        boolean aux = fsm.volta();
+         pcs.firePropertyChange(null, null, null);
+         return aux;
+
+    }
+
     public void avancaParaAlunos(){
         fsm.avancaParaAlunos();
         pcs.firePropertyChange(null, null, null);
@@ -57,9 +64,7 @@ public class ModelManager {
        return fsm.avancaFechandoFase();
     }
 
-    public boolean volta(){
-        return fsm.volta(); 
-    }
+ 
 
     public String importaCVS(String nomeFicheiro ){
         return fsm.importaCVS(nomeFicheiro);
@@ -73,8 +78,16 @@ public class ModelManager {
         return fsm.mostraListaAlunos(); 
     }
 
-    public String listaADocentes(){
+    public String listaDocentes(){
         return fsm.mostraListaDocentes(); 
+    }
+
+    public String listaPropostas(){
+        return fsm.mostraListaPropostas(); 
+    }
+
+    public String listaCandidaturas(){
+        return fsm.mostraListaCandidaturas();
     }
 
 
