@@ -6,8 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import javax.swing.text.html.HTMLDocument.BlockElement;
-
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
@@ -73,6 +71,10 @@ public class ModelManager {
 
     public String listaAlunos(){
         return fsm.mostraListaAlunos(); 
+    }
+
+    public String listaADocentes(){
+        return fsm.mostraListaDocentes(); 
     }
 
 

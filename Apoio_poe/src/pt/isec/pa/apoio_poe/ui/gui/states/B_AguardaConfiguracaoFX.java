@@ -10,6 +10,7 @@ import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 public class B_AguardaConfiguracaoFX extends BorderPane  {
     ModelManager manager;
     Button btnAlunos, btnDocentes, btnPropostas;
+    Button btnFecharFase;
     HBox hbox;
 
     public B_AguardaConfiguracaoFX(ModelManager manager) {
@@ -33,9 +34,12 @@ public class B_AguardaConfiguracaoFX extends BorderPane  {
         btnPropostas = new Button("Propoostas");
         btnPropostas.setMinSize(200, 200);
 
+        btnFecharFase = new Button("Fechar Fase");  // TO DO modificar este botão para ficar difernte dos outros
+        btnFecharFase.setMinSize(200, 200);
+
 
         hbox = new HBox();
-        hbox.getChildren().addAll( btnAlunos, btnDocentes , btnPropostas);
+        hbox.getChildren().addAll( btnAlunos, btnDocentes , btnPropostas, btnFecharFase);
         hbox.setSpacing(100);
         hbox.setAlignment(Pos.CENTER);
         this.setCenter(hbox);
@@ -58,6 +62,9 @@ public class B_AguardaConfiguracaoFX extends BorderPane  {
         });
         btnPropostas.setOnAction(event -> {
             manager.avancaParaPropostas();
+        });
+        btnFecharFase.setOnAction(event -> {
+            manager.fechaFase();
         });
         
 

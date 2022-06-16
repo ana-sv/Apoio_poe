@@ -51,7 +51,7 @@ public abstract class StateAdapter implements ApoioPoeIState{
 
     @Override
     public boolean voltar() {
-        return false;
+        return true;
     }
 
     @Override

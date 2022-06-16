@@ -45,9 +45,9 @@ public final class Ficheiro {
             try {
                
                 FileInputStream f = new FileInputStream(nomeFicheiro);
-                ObjectInputStream in = new ObjectInputStream(f);
-          
-              return (Data) in.readObject(); 
+                try (ObjectInputStream in = new ObjectInputStream(f)) {
+                    return (Data) in.readObject();
+                } 
 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -27,7 +27,7 @@ class A_AguardaConfiguracao extends StateAdapter {
 
         if (data.contaPropostasDA() >= data.getListaAlunos().size()
                 && data.contaPropostasSI() >= data.getListaAlunos().size()
-                && data.contaPropostasRAS() >= data.getListaAlunos().size()) {
+                && data.contaPropostasRAS() >= data.getListaAlunos().size() && data.contaPropostasDA() != 0 ) {
             data.setSituacaoEstados(index, false);
             return true;
         }

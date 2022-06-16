@@ -6,6 +6,9 @@ import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.ui.gui.states.A_InicioFX;
 import pt.isec.pa.apoio_poe.ui.gui.states.B_AguardaConfiguracaoFX;
 import pt.isec.pa.apoio_poe.ui.gui.states.B_ModoAlunosFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.B_ModoDocentesFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.B_ModoPropostasFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.C_OpcoesCandidaturasFX;
 
 public class RootPane extends BorderPane {
     ModelManager manager;
@@ -24,8 +27,13 @@ public class RootPane extends BorderPane {
         StackPane stackPane = new StackPane(
             new A_InicioFX( manager ),
             new B_AguardaConfiguracaoFX( manager ),
-            new B_ModoAlunosFX(manager)
-            // preencher com o restantes estados
+            new B_ModoAlunosFX( manager),
+           // new B_ModoDocentesFX(manager)
+         //    new B_ModoPropostasFX( manager )
+         new C_OpcoesCandidaturasFX( manager )
+
+
+
         );
 
         this.setCenter(stackPane);

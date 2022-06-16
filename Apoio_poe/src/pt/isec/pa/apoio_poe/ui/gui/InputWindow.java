@@ -11,7 +11,6 @@ public class InputWindow {
     
 
     public static String display(String title, String headerText) {
-        String str;
 
         Stage w = new Stage();
         w.initModality(Modality.APPLICATION_MODAL);

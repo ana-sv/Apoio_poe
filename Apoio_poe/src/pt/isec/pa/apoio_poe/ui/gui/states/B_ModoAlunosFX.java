@@ -1,14 +1,8 @@
 package pt.isec.pa.apoio_poe.ui.gui.states;
 
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
@@ -18,7 +12,7 @@ public class B_ModoAlunosFX extends BorderPane  {
     ModelManager manager;
 
     Button btnImportar, btnExportar;
-    Button btnVoltar, btnFecharFase, btnAvancar;
+    Button btnVoltar, btnAvancar;
     VBox vboxOpcoesAlunos;
 
 
@@ -38,9 +32,6 @@ public class B_ModoAlunosFX extends BorderPane  {
         btnExportar = new Button("Exportar Lista Alunos");
         btnExportar.setMinSize(150,60);
 
-        btnFecharFase = new Button("Fechar Fase");
-        btnFecharFase.setMinSize(150,60);
-
         btnAvancar = new Button("Avançar");
         btnAvancar.setMinSize(150,60);
 
@@ -49,7 +40,7 @@ public class B_ModoAlunosFX extends BorderPane  {
         
         // TO DO : Desencostar os botoes da borda direita um bocadinho 
         vboxOpcoesAlunos = new VBox();
-        vboxOpcoesAlunos.getChildren().addAll( btnImportar, btnExportar, btnFecharFase, btnAvancar, btnVoltar );
+        vboxOpcoesAlunos.getChildren().addAll( btnImportar, btnExportar, btnAvancar, btnVoltar );
         vboxOpcoesAlunos.setSpacing(10);
         vboxOpcoesAlunos.setAlignment(Pos.CENTER_RIGHT);
         this.setCenter(vboxOpcoesAlunos); // vbox está centrada no CENTER_LEFT do BorderPane
@@ -64,7 +55,7 @@ public class B_ModoAlunosFX extends BorderPane  {
 
     }
 
-    void registerHandlers() {
+ private  void registerHandlers() {
         manager.addPropertyChangeListener(evt -> {
             update();
         });
@@ -81,12 +72,8 @@ public class B_ModoAlunosFX extends BorderPane  {
             manager.exportaCVS(str, manager.listaAlunos()); 
          });
 
-         btnFecharFase.setOnAction(event -> {
-            if ( !manager.fechaFase() ){
-                Alert erro = new Alert(AlertType.INFORMATION, "Erro ao fechar fase! ", ButtonType.OK);
-            }
 
-         });
+      
          btnAvancar.setOnAction(event -> {
             manager.avancaEstado();
          });
