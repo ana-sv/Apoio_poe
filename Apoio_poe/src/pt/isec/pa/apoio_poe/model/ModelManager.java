@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+import javax.swing.text.html.HTMLDocument.BlockElement;
+
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
@@ -21,6 +23,10 @@ public class ModelManager {
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(listener);
+    }
+
+    public ApoioPoeState getState() {
+        return fsm.getState();
     }
 
     
@@ -42,10 +48,6 @@ public class ModelManager {
         pcs.firePropertyChange(null, null, null);
     }
 
-
-
-
-
     public void carregaEstadoAplicacao(String caminhoFicheiro) throws IOException, ClassNotFoundException {
         ObjectInputStream oin = new ObjectInputStream(new FileInputStream(caminhoFicheiro));
         fsm = (ApoioPoeContext) oin.readObject();
@@ -53,9 +55,26 @@ public class ModelManager {
 
     }
 
-    public ApoioPoeState getState() {
-        return fsm.getState();
+    public boolean fechaFase(){
+       return fsm.avancaFechandoFase();
     }
+
+    public boolean volta(){
+        return fsm.volta(); 
+    }
+
+    public String importaCVS(String nomeFicheiro ){
+        return fsm.importaCVS(nomeFicheiro);
+    }
+
+    public String exportaCVS(String nomeFicheiro, String lista){
+        return fsm.exportaCVS(nomeFicheiro, lista);
+    }
+
+    public String listaAlunos(){
+        return fsm.mostraListaAlunos(); 
+    }
+
 
 
 

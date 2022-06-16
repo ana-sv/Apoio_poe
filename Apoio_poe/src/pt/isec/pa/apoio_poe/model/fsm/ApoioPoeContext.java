@@ -77,8 +77,8 @@ public class ApoioPoeContext implements Serializable {
         return state.importaCVS(nomeFicheiro);
     }
 
-    public String exportaCVS(String nomeFicheiro) {
-        return state.exportaCVS(nomeFicheiro);
+    public String exportaCVS(String nomeFicheiro, String lista) {
+        return state.exportaCVS(nomeFicheiro, lista);
     }
 
 

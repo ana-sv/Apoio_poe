@@ -10,7 +10,7 @@ public interface ApoioPoeIState {
     // interface deve ter poucos metodos e apenas aqueles que representam mudança de estado
 
     public String importaCVS( String nomeFicheiro );
-    public String exportaCVS( String nomeFicheiro );
+    public String exportaCVS( String nomeFicheiro, String lista );
 
     public String gravaEstadoApp ( Data data , String nomeFicheiro );
     public Data carregaEstadoApp( String nomeFicheiro ); 

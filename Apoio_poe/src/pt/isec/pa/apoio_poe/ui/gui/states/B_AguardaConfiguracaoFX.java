@@ -23,7 +23,7 @@ public class B_AguardaConfiguracaoFX extends BorderPane  {
 
     private void createViews() {
 
-        // Botoes Alunos, Docentes e Propostas
+        // TO DO falta por uma imagem ou assim para ficar + bonitinho 
         btnAlunos = new Button("Alunos");
         btnAlunos.setMinSize(200, 200);
 

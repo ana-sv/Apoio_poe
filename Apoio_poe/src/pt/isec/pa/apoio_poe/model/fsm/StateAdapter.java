@@ -22,9 +22,9 @@ public abstract class StateAdapter implements ApoioPoeIState{
     
  
     @Override
-    public String exportaCVS( String nomeFicheiro) {       // está aqui porque todos os estados se servem dela 
-      //  return Ficheiro.exportaCVS(nomeFicheiro, mostraListas() );  //exporta de acordo com as informações de cada estado
-        return " ";
+    public String exportaCVS( String nomeFicheiro, String lista) {       // está aqui porque todos os estados se servem dela 
+        return Ficheiro.exportaCVS(nomeFicheiro, lista);  //exporta de acordo com as informações de cada estado
+        
     }
     
 

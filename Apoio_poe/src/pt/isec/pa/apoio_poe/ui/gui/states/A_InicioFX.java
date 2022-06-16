@@ -29,11 +29,11 @@ public class A_InicioFX extends BorderPane {
 
         btnIniciar = new Button();
         btnIniciar.setText("Iniciar");
-        btnIniciar.setMinWidth(200);
+        btnIniciar.setMinSize(250, 50);
 
         btnCarregar = new Button();
         btnCarregar.setText("Carregar estado da Aplicação");
-        btnCarregar.setMinWidth(200);
+        btnCarregar.setMinSize(250, 50);
 
         HBox hbox = new HBox();
         hbox.getChildren().addAll(btnIniciar, btnCarregar);
