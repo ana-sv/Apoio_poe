@@ -1,22 +1,22 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.Data;
-import pt.isec.pa.apoio_poe.model.fsm.states.State;
+import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 
 
-public abstract class StateAdapter implements IState{
-    protected Context context;
+public abstract class StateAdapter implements ApoioPoeIState{
+    protected ApoioPoeContext context;
     protected Data data; 
 
 
-    protected StateAdapter(Context context, Data data) {
+    protected StateAdapter(ApoioPoeContext context, Data data) {
         this.context = context;
         this.data = data; 
     }
 
 
-    protected void changeState( State newState ){
+    protected void changeState( ApoioPoeState newState ){
         context.changeState(newState.createState(context,data));
     }
     
@@ -73,7 +73,7 @@ public abstract class StateAdapter implements IState{
 
 
     @Override
-    public State getState() {
+    public ApoioPoeState getState() {
         return null;
     }
 

@@ -1,13 +1,13 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.Data;
-import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
-class AtribuicaoOrientadores extends StateAdapter {
+class F_AtribuicaoOrientadores extends StateAdapter {
     private Integer index = 3;
 
-    AtribuicaoOrientadores(Context context, Data data) {
+    F_AtribuicaoOrientadores(ApoioPoeContext context, Data data) {
         super(context, data);
 
     }
@@ -25,14 +25,14 @@ class AtribuicaoOrientadores extends StateAdapter {
     }
 
     @Override
-    public State getState() {
-        return State.ATRIBUICAO_ORIENTADORES;
+    public ApoioPoeState getState() {
+        return ApoioPoeState.ATRIBUICAO_ORIENTADORES;
     }
 
     @Override
     public void avancaEstado() {
         if (fechaEstado()) { // porque avançando para o estado Consulta ano é possivel voltar atrás
-            changeState(State.CONSULTA);
+            changeState(ApoioPoeState.CONSULTA);
         }
     }
 
@@ -40,7 +40,7 @@ class AtribuicaoOrientadores extends StateAdapter {
     public boolean voltar() {
 
         if (data.getSituacaoEstados(this.index) == true) {
-            changeState(State.ATRIBUICAO_PROPOSTAS);
+            changeState(ApoioPoeState.ATRIBUICAO_PROPOSTAS);
             return true;
         }
         return false;

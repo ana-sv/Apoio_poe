@@ -3,13 +3,13 @@ package pt.isec.pa.apoio_poe.model.fsm.states;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
-import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
-class AtribuicaoPropostas extends StateAdapter {
+class D_AtribuicaoPropostas extends StateAdapter {
     private Integer index = 2;
 
-    AtribuicaoPropostas(Context context, Data data) {
+    D_AtribuicaoPropostas(ApoioPoeContext context, Data data) {
         super(context, data);
     }
 
@@ -74,13 +74,13 @@ class AtribuicaoPropostas extends StateAdapter {
     }
 
     @Override
-    public State getState() {
-        return State.ATRIBUICAO_PROPOSTAS;
+    public ApoioPoeState getState() {
+        return ApoioPoeState.ATRIBUICAO_PROPOSTAS;
     }
 
     @Override
     public void avancaEstado() {
-        changeState(State.ATRIBUICAO_ORIENTADORES);
+        changeState(ApoioPoeState.ATRIBUICAO_ORIENTADORES);
     }
 
     @Override
@@ -93,7 +93,7 @@ class AtribuicaoPropostas extends StateAdapter {
         if (data.getListaCandidaturas().containsValue(null)) {
             return false;
         } else {
-            changeState(State.ATRIBUICAO_ORIENTADORES);
+            changeState(ApoioPoeState.ATRIBUICAO_ORIENTADORES);
             return true;
         }
     }
@@ -101,7 +101,7 @@ class AtribuicaoPropostas extends StateAdapter {
     @Override
     public boolean voltar() {
         if (data.getSituacaoEstados(this.index) == true) {
-            changeState(State.OPCOES_CANDIDATURAS);
+            changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
             return true;
         }
         return false;

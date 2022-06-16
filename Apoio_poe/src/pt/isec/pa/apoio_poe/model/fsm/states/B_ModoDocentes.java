@@ -2,13 +2,13 @@ package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.data.Docente;
-import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
-class ModoDocentes extends StateAdapter {
+class B_ModoDocentes extends StateAdapter {
 
-     ModoDocentes(Context context, Data data) {
+     B_ModoDocentes(ApoioPoeContext context, Data data) {
         super(context, data);
     }
 
@@ -35,14 +35,14 @@ class ModoDocentes extends StateAdapter {
 
 
     @Override
-    public State getState() {
-        return State.MODO_DOCENTES;
+    public ApoioPoeState getState() {
+        return ApoioPoeState.MODO_DOCENTES;
     }
 
 
     @Override
     public void avancaEstado() {
-        changeState(State.AGUARDA_CONFIGURACAO);
+        changeState(ApoioPoeState.AGUARDA_CONFIGURACAO);
     }
 
 

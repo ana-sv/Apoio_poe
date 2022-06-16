@@ -1,15 +1,15 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.Data;
-import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
- class Consulta extends StateAdapter {
+ class G_Consulta extends StateAdapter {
     private Integer index = 4;
 
 
 
-     Consulta(Context context, Data data) {
+     G_Consulta(ApoioPoeContext context, Data data) {
         super(context, data);
 
     }
@@ -17,8 +17,8 @@ import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
 
     @Override
-    public State getState() {
-        return State.CONSULTA;
+    public ApoioPoeState getState() {
+        return ApoioPoeState.CONSULTA;
     }
 
 

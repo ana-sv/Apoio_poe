@@ -12,26 +12,26 @@ package pt.isec.pa.apoio_poe.model.fsm;
 import java.io.Serializable;
 
 import pt.isec.pa.apoio_poe.model.data.Data;
-import pt.isec.pa.apoio_poe.model.fsm.states.State;
+import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
-public class Context implements Serializable {
-    private IState state;
+public class ApoioPoeContext implements Serializable {
+    private ApoioPoeIState state;
     private Data data;
 
-    public Context() {
+    public ApoioPoeContext() {
         data = new Data();
-        state = State.AGUARDA_CONFIGURACAO.createState(this, data);
+        state = ApoioPoeState.INICIO.createState(this, data);
         // referencia para o estado atual que poderá ser iniciado no seu construtor
     }
 
     // Método package-private que permita alterar o estado atual
-    void changeState(IState newState) {
+    void changeState(ApoioPoeIState newState) {
         state = newState;
     }
 
 
     // Método público que permita obter o estado atual
-    public State getState() {
+    public ApoioPoeState getState() {
         if (state == null)
             return null;
 

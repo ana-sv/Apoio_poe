@@ -1,12 +1,12 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.Data;
-import pt.isec.pa.apoio_poe.model.fsm.Context;
+import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
- class ResolveEmpates extends StateAdapter{
+ class E_ResolveEmpates extends StateAdapter{
 
-    ResolveEmpates(Context context, Data data) {
+    E_ResolveEmpates(ApoioPoeContext context, Data data) {
         super(context, data);
     }
 
@@ -16,14 +16,14 @@ import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
     // desempate() 
 
     @Override
-    public State getState() {
-        return State.RESOLVE_EMPATES;
+    public ApoioPoeState getState() {
+        return ApoioPoeState.RESOLVE_EMPATES;
     }
 
     @Override
     public void avancaEstado() {
         // TODO if nEmpates==0
-        changeState(State.ATRIBUICAO_PROPOSTAS);
+        changeState(ApoioPoeState.ATRIBUICAO_PROPOSTAS);
         //else
         // desempate()  ???? 
 
