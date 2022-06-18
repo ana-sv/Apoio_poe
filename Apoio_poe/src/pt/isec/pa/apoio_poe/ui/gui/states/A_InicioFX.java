@@ -5,11 +5,17 @@ import java.io.IOException;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+import pt.isec.pa.apoio_poe.ui.gui.resources.ImageManager;
 
 public class A_InicioFX extends BorderPane {
     ModelManager manager;
@@ -39,8 +45,15 @@ public class A_InicioFX extends BorderPane {
         hbox.getChildren().addAll(btnIniciar, btnCarregar);
         hbox.setSpacing(200);
         hbox.setAlignment(Pos.CENTER);
-        this.setCenter(hbox);
+       
+        this.setBottom(hbox);
+
+        HBox hboxImagem = new HBox();
+        hboxImagem.setBackground(new Background(new BackgroundImage( ImageManager.getImage("logo_isec.png"),BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, null))); 
+            this.setCenter(hboxImagem);
     }
+
+
 
     void registerHandlers() {
         manager.addPropertyChangeListener(evt -> {
