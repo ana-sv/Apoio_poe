@@ -25,8 +25,10 @@ public class Data {
         for (int i = 0; i < 5; i++) { // porque são 4 fases, uma posicao para cada um
             situacaoEstados.add(true);
         }
-
+    
     }
+
+
 
     // https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
     public void sortByClassification() {
@@ -105,8 +107,6 @@ public class Data {
         return s.toString();
     }
 
-
-    
     public String mostraListaCandidaturas() {
 
         StringBuilder s = new StringBuilder();
@@ -119,10 +119,6 @@ public class Data {
 
         return s.toString();
     }
-
-
-
-    
 
     public Boolean getSituacaoEstados(int i) {
         return situacaoEstados.get(i);
@@ -140,6 +136,12 @@ public class Data {
 
     public HashMap<Long, Aluno> getListaAlunos() {
         return listaAlunos;
+    }
+
+    public ArrayList<Aluno> getArrayAlunos() {
+
+        return listaAlunos.values().stream().collect(Collectors.toCollection(ArrayList::new));
+
     }
 
     public HashMap<String, Docente> getListaDocentes() {

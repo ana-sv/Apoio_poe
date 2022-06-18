@@ -59,7 +59,7 @@ public class A_InicioFX extends BorderPane {
             try {
                 manager.carregaEstadoAplicacao(f.getCanonicalPath());
             } catch (IOException | ClassNotFoundException e) {
-                System.err.println("Save: " + e);
+                System.err.println("Carregar: " + e);
             }
         });
 

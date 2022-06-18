@@ -10,7 +10,10 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 
+import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
@@ -127,6 +130,14 @@ public class ApoioPoeContext implements Serializable {
     
     public String mostraListaCandidaturas(){
         return data.mostraListaCandidaturas();
+    }
+
+    public HashMap<Long,Aluno> getListaAlunos(){
+        return data.getListaAlunos(); 
+    }
+
+    public ArrayList<Aluno> getArrayAlunos(){
+        return data.getArrayAlunos();
     }
     
     public String filtraListas(String filtros) {

@@ -229,6 +229,7 @@ public class ApoioPoeUiText {
             System.out.println();
 
             switch (poe.getState()) {
+                case INICIO -> poe.avancaEstado();
                 case AGUARDA_CONFIGURACAO -> aguardaConfiguracaoUI();
 
                 case MODO_ALUNOS -> modoAlunosUI();

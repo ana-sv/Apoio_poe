@@ -10,6 +10,7 @@ public class Aluno {
     protected double classificacao;
     protected boolean estagioAcesso;
 
+
     
     public Aluno(Long numEstudante, String nome, String mail, String siglaCurso, String siglaRamo, double classificacao ) {
         this.numEstudante = numEstudante;

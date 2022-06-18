@@ -6,10 +6,6 @@ import javafx.stage.Stage;
 
 public class InputWindow {
 
-    private InputWindow(){
-    }
-    
-
     public static String display(String title, String headerText) {
 
         Stage w = new Stage();

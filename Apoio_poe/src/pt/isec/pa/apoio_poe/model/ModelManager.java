@@ -5,7 +5,10 @@ import java.beans.PropertyChangeSupport;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 
+import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
@@ -90,8 +93,14 @@ public class ModelManager {
         return fsm.mostraListaCandidaturas();
     }
 
+    public HashMap<Long,Aluno> getListaAlunos(){
+        return fsm.getListaAlunos();
+    }
 
+    public ArrayList<Aluno> getArrayAlunos(){
+        return fsm.getArrayAlunos();
+    }
 
-
+   
 
 }
