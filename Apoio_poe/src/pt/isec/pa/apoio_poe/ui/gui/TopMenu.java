@@ -2,14 +2,18 @@ package pt.isec.pa.apoio_poe.ui.gui;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javafx.collections.ObservableList;
+import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
@@ -89,6 +93,21 @@ public class TopMenu extends MenuBar {
 
         });
         listaAlunos.setOnAction(evt -> {
+
+            TableViewAlunos table = new TableViewAlunos();
+
+           for( Aluno a : manager.getArrayAlunos() ){
+                table.add(a);
+           }
+
+         
+
+            Scene scene = new Scene( new BorderPane( table), 500, 300);
+            Stage stage = new Stage();
+		stage.setTitle("TableView Demo");
+		stage.setScene(scene);
+		stage.show();
+
 
     
         });

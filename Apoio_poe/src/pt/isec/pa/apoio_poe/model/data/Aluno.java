@@ -2,13 +2,13 @@ package pt.isec.pa.apoio_poe.model.data;
 
 public class Aluno {
 
-    protected Long numEstudante;
-    protected String nome;
-    protected String mail;
-    protected String siglaCurso;
-    protected String siglaRamo;
-    protected double classificacao;
-    protected boolean estagioAcesso;
+    private Long numEstudante;
+    private String nome;
+    private String mail;
+    private String siglaCurso;
+    private String siglaRamo;
+    private double classificacao;
+    private boolean estagioAcesso;
 
 
     
@@ -39,12 +39,32 @@ public class Aluno {
         this.estagioAcesso = estagioAcesso;
     }
 
+
+    public Aluno( Aluno a ){
+        this.numEstudante = a.numEstudante;
+        this.nome = a.nome;
+        this.mail = a.mail;
+        this.siglaCurso = a.siglaCurso;
+        this.siglaRamo = a.siglaRamo;
+        this.classificacao = a.classificacao;
+        this.estagioAcesso = a.estagioAcesso;
+
+    }
+
+
+    public Aluno(){
+        
+    }
+
     public Long getNumEstudante() {
         return numEstudante;
     }
 
-     public String getNomeEstudante(){
+     public String getNome(){
         return nome; 
+    }
+    public void setNome(String n){
+        this.nome = n; 
     }
 
     public String getEmail() {
