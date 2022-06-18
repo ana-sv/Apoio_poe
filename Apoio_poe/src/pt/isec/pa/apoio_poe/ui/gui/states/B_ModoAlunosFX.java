@@ -1,7 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.states;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -67,37 +66,46 @@ public class B_ModoAlunosFX extends BorderPane {
         table = new TableView<>();
 
         TableColumn<Aluno,Long> cNumero = new TableColumn<>("Numero Aluno");
-        cNumero.setCellValueFactory(new PropertyValueFactory<>("numEstudante"));
+        cNumero.setCellValueFactory(new PropertyValueFactory<Aluno,Long>("numEstudante"));
         cNumero.setMinWidth(100);
         table.getColumns().add(cNumero);
 
         TableColumn<Aluno, String> cNome = new TableColumn<>("Nome");
-        cNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        cNome.setCellValueFactory(new PropertyValueFactory<Aluno, String>("nome"));
         table.getColumns().add(cNome);
         
         TableColumn<Aluno, String> cMail = new TableColumn<>("Mail");
-        cMail.setCellValueFactory(new PropertyValueFactory<>("mail"));
+        cMail.setCellValueFactory(new PropertyValueFactory<Aluno, String>("mail"));
         table.getColumns().add(cMail);
         
         TableColumn<Aluno, String> cCurso = new TableColumn<>("Curso");
-        cCurso.setCellValueFactory(new PropertyValueFactory<>("siglaCurso"));
+        cCurso.setCellValueFactory(new PropertyValueFactory<Aluno, String>("siglaCurso"));
         table.getColumns().add(cCurso);
 
-        TableColumn<Aluno, String> cRamo = new TableColumn<>("Nome");
-        cRamo.setCellValueFactory(new PropertyValueFactory<>("siglaRamo"));
+        TableColumn<Aluno, String> cRamo = new TableColumn<>("Ramo");
+        cRamo.setCellValueFactory(new PropertyValueFactory<Aluno, String>("siglaRamo"));
         table.getColumns().add(cRamo);
 
-        TableColumn<Aluno, String> cClas = new TableColumn<>("Classificação");
-        cClas.setCellValueFactory(new PropertyValueFactory<>("classificacao"));
-        table.getColumns().add(cCurso);
+        TableColumn<Aluno, Double> cClas = new TableColumn<>("Classificação");
+        cClas.setCellValueFactory(new PropertyValueFactory<Aluno, Double>("classificacao"));
+        table.getColumns().add(cClas);
 
-        TableColumn<Aluno, String> cEstagio = new TableColumn<>("Acesso a Estagio");
-        cEstagio.setCellValueFactory(new PropertyValueFactory<>("estagioAcesso"));
+        TableColumn<Aluno, Boolean> cEstagio = new TableColumn<>("Acesso a Estagio");
+        cEstagio.setCellValueFactory(new PropertyValueFactory<Aluno, Boolean>("estagioAcesso"));
         cEstagio.setMinWidth(100);
         table.getColumns().add(cEstagio);
 
+     //   table.setItems(obAlunos(manager.getArrayAlunos()));
+        table.getItems().add(new Aluno((long) 222222222, "ana","a2021548654@isec.pt","LEI", "DA", 0.55));
 
-        table.setItems(obAlunos(manager.getArrayAlunos()));
+
+
+
+
+
+
+
+
         vboxTable.getChildren().addAll(table);
 
     }
@@ -105,8 +113,6 @@ public class B_ModoAlunosFX extends BorderPane {
     private void registerHandlers() {
         manager.addPropertyChangeListener(evt -> {
             
-
-
             update();
         });
 
@@ -140,6 +146,10 @@ public class B_ModoAlunosFX extends BorderPane {
         this.setVisible(true);
 
     }
+
+
+
+    
 
 
 
