@@ -96,20 +96,16 @@ public class TopMenu extends MenuBar {
 
             TableViewAlunos table = new TableViewAlunos();
 
-           for( Aluno a : manager.getArrayAlunos() ){
+            for (Aluno a : manager.getArrayAlunos()) {
                 table.add(a);
-           }
+            }
 
-         
-
-            Scene scene = new Scene( new BorderPane( table), 500, 300);
+            Scene scene = new Scene(new BorderPane(table), 500, 300);
             Stage stage = new Stage();
-		stage.setTitle("TableView Demo");
-		stage.setScene(scene);
-		stage.show();
+            stage.setTitle("TableView Demo");
+            stage.setScene(scene);
+            stage.show();
 
-
-    
         });
 
     }

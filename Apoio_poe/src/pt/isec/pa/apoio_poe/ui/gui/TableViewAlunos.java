@@ -7,6 +7,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
+import javafx.util.converter.IntegerStringConverter;
+import javafx.util.converter.LongStringConverter;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 
 public class TableViewAlunos extends VBox  {   
@@ -23,8 +25,24 @@ public class TableViewAlunos extends VBox  {
 
 
     public TableViewAlunos() {
+
         table = new TableView<Aluno>();
         table.setEditable(true);
+
+
+
+        numEstudante = new TableColumn<Aluno, Long>("Numero Estudante");
+        numEstudante.setCellValueFactory(new PropertyValueFactory<Aluno, Long>("numEstudante"));
+        numEstudante.setCellFactory(TextFieldTableCell.forTableColumn(new LongStringConverter()));
+        numEstudante.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, Long>>() {
+			@Override
+			public void handle(CellEditEvent<Aluno, Long> event) {
+				Aluno aluno = event.getRowValue();
+				aluno.setNumEstudante(event.getNewValue());
+			}
+		});
+        table.getColumns().add(numEstudante);
+
 
         nome = new TableColumn<Aluno, String>("Nome");
 		nome.setCellValueFactory(new PropertyValueFactory<Aluno, String>("Nome"));
@@ -36,10 +54,29 @@ public class TableViewAlunos extends VBox  {
 				aluno.setNome(event.getNewValue());
 			}
 		});
-
         table.getColumns().add(nome);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         getChildren().add(table);
+
+
 
 
 
@@ -48,6 +85,9 @@ public class TableViewAlunos extends VBox  {
     public void add( Aluno aluno){
         table.getItems().add(aluno);
     }
+
+
+    
 
    
 }

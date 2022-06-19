@@ -24,11 +24,6 @@ public class B_ModoAlunosFX extends BorderPane {
     VBox vboxOpcoes;
     VBox vboxTable;
 
-
-    TableView<Aluno> table;
-    ObservableList<Aluno> obList;
-
-
     public B_ModoAlunosFX(ModelManager manager) {
         this.manager = manager;
 
@@ -58,55 +53,9 @@ public class B_ModoAlunosFX extends BorderPane {
         vboxOpcoes.setAlignment(Pos.CENTER);
 
         // TO DO : Lista Editável do lado esquerdo  
-        vboxTable = new VBox();
-        vboxTable.setAlignment(Pos.CENTER_LEFT);
-        this.setCenter(vboxTable);
+     
 
-
-        table = new TableView<>();
-
-        TableColumn<Aluno,Long> cNumero = new TableColumn<>("Numero Aluno");
-        cNumero.setCellValueFactory(new PropertyValueFactory<Aluno,Long>("numEstudante"));
-        cNumero.setMinWidth(100);
-        table.getColumns().add(cNumero);
-
-        TableColumn<Aluno, String> cNome = new TableColumn<>("Nome");
-        cNome.setCellValueFactory(new PropertyValueFactory<Aluno, String>("nome"));
-        table.getColumns().add(cNome);
-        
-        TableColumn<Aluno, String> cMail = new TableColumn<>("Mail");
-        cMail.setCellValueFactory(new PropertyValueFactory<Aluno, String>("mail"));
-        table.getColumns().add(cMail);
-        
-        TableColumn<Aluno, String> cCurso = new TableColumn<>("Curso");
-        cCurso.setCellValueFactory(new PropertyValueFactory<Aluno, String>("siglaCurso"));
-        table.getColumns().add(cCurso);
-
-        TableColumn<Aluno, String> cRamo = new TableColumn<>("Ramo");
-        cRamo.setCellValueFactory(new PropertyValueFactory<Aluno, String>("siglaRamo"));
-        table.getColumns().add(cRamo);
-
-        TableColumn<Aluno, Double> cClas = new TableColumn<>("Classificação");
-        cClas.setCellValueFactory(new PropertyValueFactory<Aluno, Double>("classificacao"));
-        table.getColumns().add(cClas);
-
-        TableColumn<Aluno, Boolean> cEstagio = new TableColumn<>("Acesso a Estagio");
-        cEstagio.setCellValueFactory(new PropertyValueFactory<Aluno, Boolean>("estagioAcesso"));
-        cEstagio.setMinWidth(100);
-        table.getColumns().add(cEstagio);
-
-     //   table.setItems(obAlunos(manager.getArrayAlunos()));
-        table.getItems().add(new Aluno((long) 222222222, "ana","a2021548654@isec.pt","LEI", "DA", 0.55));
-
-
-
-
-
-
-
-
-
-        vboxTable.getChildren().addAll(table);
+      //  vboxTable.getChildren().addAll(table);
 
     }
 
@@ -149,22 +98,7 @@ public class B_ModoAlunosFX extends BorderPane {
 
 
 
-    
 
-
-
-
-    
-    public ObservableList<Aluno> obAlunos(ArrayList<Aluno> list) {
-
-        for (Aluno a : list){
-            obList.add(a);
-        }
-
-        System.out.println(" aqui ");
-        return obList;
-
-    }
 
 
     

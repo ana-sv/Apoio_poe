@@ -53,11 +53,15 @@ public class Aluno {
 
 
     public Aluno(){
-        
+
     }
 
     public Long getNumEstudante() {
         return numEstudante;
+    }
+
+    public void setNumEstudante( Long n ){
+        this.numEstudante = n;
     }
 
      public String getNome(){
@@ -71,20 +75,40 @@ public class Aluno {
         return mail;
     }
 
+    public void setMail(String m ){
+        this.mail = m;
+    }
+
     public String getSiglaCurso(){
         return siglaCurso;
+    }
+
+    public void setSiglaCurso(String s){
+        this.siglaCurso = s;
     }
 
     public String getSiglaRamo(){
         return siglaRamo;
     }
 
+    public void setSiglaRamo( String r){
+        this.siglaRamo = r ; 
+    }
+
     public Double getClassificacao(){
         return classificacao;
     }
 
+    public void setClassifica( Double c){
+        this.classificacao = c;
+    }
+
     public Boolean getAcessoEstagio(){
         return estagioAcesso; 
+    }
+
+    public void setAcessoEstagio( Boolean c){
+        this.estagioAcesso = c;
     }
 
  
