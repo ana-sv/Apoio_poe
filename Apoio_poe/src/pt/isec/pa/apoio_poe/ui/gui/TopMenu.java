@@ -2,7 +2,6 @@ package pt.isec.pa.apoio_poe.ui.gui;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -94,17 +93,12 @@ public class TopMenu extends MenuBar {
         });
         listaAlunos.setOnAction(evt -> {
 
-            TableViewAlunos table = new TableViewAlunos();
+            TableViewAlunos table = new TableViewAlunos( );
 
             for (Aluno a : manager.getArrayAlunos()) {
-                table.add(a);
+               table.add(a);
             }
 
-            Scene scene = new Scene(new BorderPane(table), 500, 300);
-            Stage stage = new Stage();
-            stage.setTitle("TableView Demo");
-            stage.setScene(scene);
-            stage.show();
 
         });
 

@@ -71,7 +71,7 @@ public class Aluno {
         this.nome = n; 
     }
 
-    public String getEmail() {
+    public String getMail() {
         return mail;
     }
 

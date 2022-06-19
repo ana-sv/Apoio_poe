@@ -162,7 +162,7 @@ public class Data {
 
     public boolean alunoExiste(String email) {
         for (Aluno s : listaAlunos.values()) {
-            if (email.equals(s.getEmail()))
+            if (email.equals(s.getMail()))
                 return true;
         }
         return false;
