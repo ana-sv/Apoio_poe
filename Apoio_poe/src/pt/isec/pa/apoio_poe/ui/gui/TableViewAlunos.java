@@ -38,6 +38,7 @@ public class TableViewAlunos extends VBox {
     private Scene scene;
     private Stage stage;
 
+    ObservableList<Aluno> observableList ;
     public TableViewAlunos(ModelManager manager, Boolean edit) {
         this.manager = manager;
 
@@ -129,13 +130,37 @@ public class TableViewAlunos extends VBox {
         });
         table.getColumns().add(estagio);
 
-        ObservableList<Aluno> observableList = FXCollections.observableList(manager.getArrayAlunos());
-      table.getItems().addAll(observableList);
+       observableList = FXCollections.observableList(manager.getArrayAlunos());
+        table.getItems().addAll(observableList);
+
+        observableList.addListener(
+            new ListChangeListener<Aluno>() {
+              @Override
+              public void onChanged(
+                Change<? extends Aluno> change) {
+                  System.out.println(
+                    "Selection changed: " + change.getList());
+                }
+          });
 
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         getChildren().add(table);
 
+    }
+
+
+    public void tableListener(){
+
+        observableList.addListener(
+            new ListChangeListener<Aluno>() {
+              @Override
+              public void onChanged(
+                Change<? extends Aluno> change) {
+                  System.out.println(
+                    "Selection changed: " + change.getList());
+                }
+          });
     }
 
     public void displayTableAlunos() {
@@ -149,8 +174,5 @@ public class TableViewAlunos extends VBox {
     }
 
 
-    public void TableViewAlunosRefresh(){
-        this.table.refresh();
-    }
 
 }

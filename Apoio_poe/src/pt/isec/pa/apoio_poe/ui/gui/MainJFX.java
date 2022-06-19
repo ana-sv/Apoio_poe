@@ -27,11 +27,7 @@ public class MainJFX extends Application {
         primaryStage.getIcons().add(ImageManager.getImage("politecnico_icon.png") );
         primaryStage.setMinWidth(1200);   
         primaryStage.setMinHeight(800);
-        primaryStage.show();
-
-        // Slide show como no site do isec ?? ficava bonitinho
-
-        
+        primaryStage.show();        
     }
 
     public static void main(String[] args) {

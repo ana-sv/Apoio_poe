@@ -98,8 +98,7 @@ public class TopMenu extends MenuBar {
            table = new TableViewAlunos(manager, false);
             this.table.displayTableAlunos();
 
-           
-
+    
         });
      
 

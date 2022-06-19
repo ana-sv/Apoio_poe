@@ -50,8 +50,7 @@ public class B_ModoAlunosFX extends BorderPane {
 
         // TO DO : Lista Editável do lado esquerdo  
         table = new TableViewAlunos(manager, true);
-     
-
+       
         vboxTable = new VBox();
         vboxTable.getChildren().addAll(table);
         vboxTable.setAlignment(Pos.CENTER);
@@ -60,7 +59,8 @@ public class B_ModoAlunosFX extends BorderPane {
     }
 
     private void registerHandlers() {
-        manager.addPropertyChangeListener(evt -> {            
+        manager.addPropertyChangeListener(evt -> {   
+            table.tableListener();    
             update();
         });
 
@@ -83,6 +83,9 @@ public class B_ModoAlunosFX extends BorderPane {
         btnVoltar.setOnAction(event -> {
             manager.volta();
         });
+
+      
+  
 
     }
 

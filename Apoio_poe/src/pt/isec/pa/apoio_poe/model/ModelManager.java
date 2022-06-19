@@ -28,6 +28,9 @@ public class ModelManager {
     }
 
 
+    
+
+
     public ApoioPoeState getState() {
         return fsm.getState();
     }
