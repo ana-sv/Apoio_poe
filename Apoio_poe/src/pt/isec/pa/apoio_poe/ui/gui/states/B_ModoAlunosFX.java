@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.states;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -7,7 +8,7 @@ import javafx.scene.layout.VBox;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.ui.gui.InputWindow;
-import pt.isec.pa.apoio_poe.ui.gui.TableViewAlunos;
+import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewAlunos;
 
 public class B_ModoAlunosFX extends BorderPane {
     ModelManager manager;
@@ -19,6 +20,7 @@ public class B_ModoAlunosFX extends BorderPane {
     VBox vboxTable;
 
     TableViewAlunos table;
+    Button btnUpdate;
 
     public B_ModoAlunosFX(ModelManager manager) {
         this.manager = manager;
@@ -31,36 +33,41 @@ public class B_ModoAlunosFX extends BorderPane {
 
     private void createViews() {
         btnImportar = new Button("Importar Lista de Alunos");
-        btnImportar.setMinSize(150, 60);
+        btnImportar.setMinSize(200, 60);
 
         btnExportar = new Button("Exportar Lista Alunos");
-        btnExportar.setMinSize(150, 60);
+        btnExportar.setMinSize(200, 60);
 
         btnAvancar = new Button("Avançar");
-        btnAvancar.setMinSize(150, 60);
+        btnAvancar.setMinSize(200, 60);
 
         btnVoltar = new Button("Voltar");
-        btnVoltar.setMinSize(150, 60);
+        btnVoltar.setMinSize(200, 60);
+
+        btnUpdate= new Button("Update lista");
+        btnUpdate.setMinSize(200, 60);
 
         // TO DO : Desencostar os botoes da borda direita um bocadinho
         vboxOpcoes = new VBox();
-        vboxOpcoes.getChildren().addAll(btnImportar, btnExportar, btnAvancar, btnVoltar);
+        vboxOpcoes.getChildren().addAll(btnImportar, btnExportar, btnAvancar, btnVoltar, btnUpdate);
         this.setRight(vboxOpcoes);
+        vboxOpcoes.setPadding(new Insets(40));
+        vboxOpcoes.setSpacing(20);
         vboxOpcoes.setAlignment(Pos.CENTER);
 
         // TO DO : Lista Editável do lado esquerdo  
         table = new TableViewAlunos(manager, true);
        
-        vboxTable = new VBox();
+        vboxTable = new VBox( );
         vboxTable.getChildren().addAll(table);
         vboxTable.setAlignment(Pos.CENTER);
         this.setLeft(vboxTable);
+        vboxTable.setPadding(new Insets(40));
 
     }
 
     private void registerHandlers() {
         manager.addPropertyChangeListener(evt -> {   
-            table.tableListener();    
             update();
         });
 
@@ -82,6 +89,9 @@ public class B_ModoAlunosFX extends BorderPane {
         });
         btnVoltar.setOnAction(event -> {
             manager.volta();
+        });
+        btnUpdate.setOnAction(event -> {
+             table.updateTable();
         });
 
       

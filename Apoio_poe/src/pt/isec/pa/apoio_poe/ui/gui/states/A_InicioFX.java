@@ -3,8 +3,10 @@ package pt.isec.pa.apoio_poe.ui.gui.states;
 import java.io.File;
 import java.io.IOException;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -34,22 +36,25 @@ public class A_InicioFX extends BorderPane {
 
         btnIniciar = new Button();
         btnIniciar.setText("Iniciar");
-        btnIniciar.setMinSize(250, 50);
+        btnIniciar.setMinSize(300, 50);
 
         btnCarregar = new Button();
         btnCarregar.setText("Carregar estado da Aplicação");
-        btnCarregar.setMinSize(250, 50);
+        btnCarregar.setMinSize(300, 50);
 
         HBox hbox = new HBox();
         hbox.getChildren().addAll(btnIniciar, btnCarregar);
-        hbox.setSpacing(200);
+        hbox.setSpacing(50);
         hbox.setAlignment(Pos.CENTER);
+        hbox.setPadding(new Insets(200));
        
         this.setBottom(hbox);
+
 
         HBox hboxImagem = new HBox();
         hboxImagem.setBackground(new Background(new BackgroundImage( ImageManager.getImage("logo_isec.png"),BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, null))); 
         this.setCenter(hboxImagem);
+        hboxImagem.autosize();
     }
 
 

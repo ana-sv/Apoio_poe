@@ -15,6 +15,7 @@ import java.util.HashMap;
 
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Data;
+import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
 public class ApoioPoeContext implements Serializable {
@@ -138,6 +139,10 @@ public class ApoioPoeContext implements Serializable {
 
     public ArrayList<Aluno> getArrayAlunos(){
         return data.getArrayAlunos();
+    }
+
+    public ArrayList<Docente> getArrayDocentes(){
+        return data.getArrayDocentes();
     }
     
     public String filtraListas(String filtros) {

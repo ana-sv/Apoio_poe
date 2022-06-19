@@ -1,8 +1,4 @@
-package pt.isec.pa.apoio_poe.ui.gui;
-
-import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
-import java.util.Collection;
+package pt.isec.pa.apoio_poe.ui.gui.TableViews;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -144,24 +140,11 @@ public class TableViewAlunos extends VBox {
           });
 
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
         getChildren().add(table);
 
     }
 
 
-    public void tableListener(){
-
-        observableList.addListener(
-            new ListChangeListener<Aluno>() {
-              @Override
-              public void onChanged(
-                Change<? extends Aluno> change) {
-                  System.out.println(
-                    "Selection changed: " + change.getList());
-                }
-          });
-    }
 
     public void displayTableAlunos() {
 
@@ -170,6 +153,14 @@ public class TableViewAlunos extends VBox {
         stage.setTitle("Listagem de Alunos");
         stage.setScene(scene);
         stage.show();
+
+    }
+
+
+    public void updateTable(){
+        observableList = FXCollections.observableList(manager.getArrayAlunos());
+        table.getItems().addAll(observableList);
+
 
     }
 

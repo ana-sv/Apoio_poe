@@ -1,4 +1,4 @@
-package pt.isec.pa.apoio_poe.ui.gui;
+package pt.isec.pa.apoio_poe.ui.gui.Menus;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewAlunos;
 
 public class TopMenu extends MenuBar {
     ModelManager manager;

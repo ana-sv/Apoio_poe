@@ -8,8 +8,8 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javafx.collections.ListChangeListener;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
@@ -103,6 +103,10 @@ public class ModelManager {
     public ArrayList<Aluno> getArrayAlunos(){
         return fsm.getArrayAlunos();
         
+    }
+
+    public ArrayList<Docente> getArrayDocentes(){
+        return fsm.getArrayDocentes(); 
     }
 
 

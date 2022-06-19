@@ -1,5 +1,6 @@
-package pt.isec.pa.apoio_poe.ui.gui;
+package pt.isec.pa.apoio_poe.ui.gui.Menus;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -28,6 +29,7 @@ public class BottomMenu extends HBox{
         
         lb = new Label( ); 
         this.getChildren().add(lb);
+        lb.setPadding(new Insets(20));
 
 
 

@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.states;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -7,6 +8,7 @@ import javafx.scene.layout.VBox;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.ui.gui.InputWindow;
+import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewDocentes;
 
 public class B_ModoDocentesFX extends BorderPane {
     ModelManager manager;
@@ -15,36 +17,53 @@ public class B_ModoDocentesFX extends BorderPane {
     Button btnVoltar, btnAvancar;
 
     VBox vboxOpcoesDocentes;
+    VBox vboxTable;
+
+    TableViewDocentes table;
+    Button btnUpdate;
     
 
     public B_ModoDocentesFX(ModelManager manager) {
         this.manager = manager;
 
-        createViews();
+        createViews(new VBox());
         registerHandlers();
         update();
 
 
     }
 
-    private void createViews() {
+    private void createViews(VBox box) {
         btnImportar = new Button("Importar Lista de Docentes");
-        btnImportar.setMinSize(150,60);
+        btnImportar.setMinSize(200,60);
 
         btnExportar = new Button("Exportar Lista Docentes");
-        btnExportar.setMinSize(150,60);
+        btnExportar.setMinSize(200,60);
 
         btnAvancar = new Button("Avançar");
-        btnAvancar.setMinSize(150,60);
+        btnAvancar.setMinSize(200,60);
 
         btnVoltar = new Button("Voltar");
-        btnVoltar.setMinSize(150,60);
+        btnVoltar.setMinSize(200,60);
+
+        btnUpdate= new Button("Update lista");
+        btnUpdate.setMinSize(200, 60);
+
 
         vboxOpcoesDocentes = new VBox();
-        vboxOpcoesDocentes.getChildren().addAll( btnImportar, btnExportar, btnAvancar, btnVoltar);
+        vboxOpcoesDocentes.getChildren().addAll( btnImportar, btnExportar, btnAvancar, btnVoltar, btnUpdate);
         vboxOpcoesDocentes.setSpacing(10);
         vboxOpcoesDocentes.setAlignment(Pos.CENTER_RIGHT);
         this.setCenter(vboxOpcoesDocentes);
+        vboxOpcoesDocentes.setPadding(new Insets(40));
+
+
+        table = new TableViewDocentes(manager, true);
+        vboxTable = new VBox();
+        vboxTable.getChildren().addAll(table);
+        vboxTable.setAlignment(Pos.CENTER);
+        this.setLeft(vboxTable);
+        vboxTable.setPadding(new Insets(40));
 
 
     }
@@ -73,6 +92,11 @@ public class B_ModoDocentesFX extends BorderPane {
           btnVoltar.setOnAction(event -> {
             manager.volta(); 
           });
+
+          btnUpdate.setOnAction(event -> {
+            table.updateTable();
+       });
+
  
     }
 

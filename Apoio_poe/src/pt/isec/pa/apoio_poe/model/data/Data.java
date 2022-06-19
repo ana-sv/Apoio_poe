@@ -144,6 +144,10 @@ public class Data {
 
     }
 
+    public ArrayList<Docente> getArrayDocentes(){
+        return listaDocentes.values().stream().collect(Collectors.toCollection(ArrayList::new));
+    }
+
     public HashMap<String, Docente> getListaDocentes() {
         return listaDocentes;
     }
