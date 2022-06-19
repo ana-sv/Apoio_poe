@@ -49,7 +49,7 @@ public class A_InicioFX extends BorderPane {
 
         HBox hboxImagem = new HBox();
         hboxImagem.setBackground(new Background(new BackgroundImage( ImageManager.getImage("logo_isec.png"),BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, null))); 
-            this.setCenter(hboxImagem);
+        this.setCenter(hboxImagem);
     }
 
 
@@ -74,6 +74,7 @@ public class A_InicioFX extends BorderPane {
                 System.err.println("Carregar: " + e);
             }
         });
+        
 
     }
 

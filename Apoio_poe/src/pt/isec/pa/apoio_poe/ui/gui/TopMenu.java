@@ -29,8 +29,8 @@ public class TopMenu extends MenuBar {
     Menu menuListas;
     MenuItem listaAlunos, listaDocentes, listaPropostas, listaCandidaturas, listaFiltrada;
 
-    TableView<Aluno> table;
-    ObservableList<Aluno> obList;
+           
+    TableViewAlunos table;
 
     public TopMenu(ModelManager manager) {
         this.manager = manager;
@@ -68,6 +68,8 @@ public class TopMenu extends MenuBar {
                 listaCandidaturas, new SeparatorMenuItem(), listaFiltrada);
         this.getMenus().add(menuListas);
 
+      
+
     }
 
     void registerHandlers() {
@@ -93,14 +95,13 @@ public class TopMenu extends MenuBar {
         });
         listaAlunos.setOnAction(evt -> {
 
-            TableViewAlunos table = new TableViewAlunos( );
+           table = new TableViewAlunos(manager, false);
+            this.table.displayTableAlunos();
 
-            for (Aluno a : manager.getArrayAlunos()) {
-               table.add(a);
-            }
-
+           
 
         });
+     
 
     }
 
@@ -110,6 +111,7 @@ public class TopMenu extends MenuBar {
             return;
         }
         this.setVisible(true);
+
 
         // TO DO , por butoes a funcinoar ou não conforme o estado
         // if (manager.getState() == ApoioPoeState. ) {

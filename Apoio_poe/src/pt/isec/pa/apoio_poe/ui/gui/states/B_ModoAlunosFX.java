@@ -7,6 +7,7 @@ import javafx.scene.layout.VBox;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.ui.gui.InputWindow;
+import pt.isec.pa.apoio_poe.ui.gui.TableViewAlunos;
 
 public class B_ModoAlunosFX extends BorderPane {
     ModelManager manager;
@@ -16,6 +17,8 @@ public class B_ModoAlunosFX extends BorderPane {
 
     VBox vboxOpcoes;
     VBox vboxTable;
+
+    TableViewAlunos table;
 
     public B_ModoAlunosFX(ModelManager manager) {
         this.manager = manager;
@@ -46,15 +49,18 @@ public class B_ModoAlunosFX extends BorderPane {
         vboxOpcoes.setAlignment(Pos.CENTER);
 
         // TO DO : Lista Editável do lado esquerdo  
+        table = new TableViewAlunos(manager, true);
      
 
-      //  vboxTable.getChildren().addAll(table);
+        vboxTable = new VBox();
+        vboxTable.getChildren().addAll(table);
+        vboxTable.setAlignment(Pos.CENTER);
+        this.setLeft(vboxTable);
 
     }
 
     private void registerHandlers() {
-        manager.addPropertyChangeListener(evt -> {
-            
+        manager.addPropertyChangeListener(evt -> {            
             update();
         });
 
@@ -65,7 +71,7 @@ public class B_ModoAlunosFX extends BorderPane {
         });
 
         btnExportar.setOnAction(event -> {
-            String str = InputWindow.display("Ixportar Lista de Alunos",
+            String str = InputWindow.display("Exportar Lista de Alunos",
                     "Insira o nome do ficheiro para exportação:  ");
             System.out.println("nome ficheiro exportar " + str);
             manager.exportaCVS(str, manager.listaAlunos());

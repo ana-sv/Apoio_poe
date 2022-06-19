@@ -4,6 +4,9 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -17,130 +20,125 @@ import javafx.stage.Stage;
 import javafx.util.converter.BooleanStringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.LongStringConverter;
+import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 
-public class TableViewAlunos extends VBox  {   
+public class TableViewAlunos extends VBox {
+    ModelManager manager;
 
     private TableView<Aluno> table;
     private TableColumn<Aluno, Long> numEstudante;
-    private TableColumn<Aluno, String> nome; 
-    private TableColumn<Aluno, String> mail; 
+    private TableColumn<Aluno, String> nome;
+    private TableColumn<Aluno, String> mail;
     private TableColumn<Aluno, String> curso;
     private TableColumn<Aluno, String> ramo;
     private TableColumn<Aluno, Double> classificacao;
-    private TableColumn<Aluno,Boolean> estagio; 
+    private TableColumn<Aluno, Boolean> estagio;
 
     private Scene scene;
     private Stage stage;
 
-    PropertyChangeListener listener;
-
-
-
-
-    public TableViewAlunos( ) {
+    public TableViewAlunos(ModelManager manager, Boolean edit) {
+        this.manager = manager;
 
         table = new TableView<Aluno>();
-       
-        table.setEditable(true);
 
-
-
+        table.setEditable(edit);
 
         numEstudante = new TableColumn<Aluno, Long>("Numero Estudante");
         numEstudante.setCellValueFactory(new PropertyValueFactory<Aluno, Long>("numEstudante"));
         numEstudante.setCellFactory(TextFieldTableCell.forTableColumn(new LongStringConverter()));
         numEstudante.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, Long>>() {
-			@Override
-			public void handle(CellEditEvent<Aluno, Long> event) {
-				Aluno aluno = event.getRowValue();
-				aluno.setNumEstudante(event.getNewValue());
-			}
-		});
+            @Override
+            public void handle(CellEditEvent<Aluno, Long> event) {
+                Aluno aluno = event.getRowValue();
+                aluno.setNumEstudante(event.getNewValue());
+            }
+        });
         table.getColumns().add(numEstudante);
 
-
         nome = new TableColumn<Aluno, String>("Nome");
-		nome.setCellValueFactory(new PropertyValueFactory<Aluno, String>("nome"));
-		nome.setCellFactory(TextFieldTableCell.forTableColumn());
-		nome.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, String>>() {
-			@Override
-			public void handle(CellEditEvent<Aluno, String> event) {
-				Aluno aluno = event.getRowValue();
-				aluno.setNome(event.getNewValue());
-			}
-		});
+        nome.setCellValueFactory(new PropertyValueFactory<Aluno, String>("nome"));
+        nome.setCellFactory(TextFieldTableCell.forTableColumn());
+        nome.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, String>>() {
+            @Override
+            public void handle(CellEditEvent<Aluno, String> event) {
+                Aluno aluno = event.getRowValue();
+                aluno.setNome(event.getNewValue());
+            }
+        });
         table.getColumns().add(nome);
 
-
-    mail = new TableColumn<Aluno, String>("Mail");
-	mail.setCellValueFactory(new PropertyValueFactory<Aluno, String>("mail"));
-		mail.setCellFactory(TextFieldTableCell.forTableColumn());
-		mail.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, String>>() {
-			@Override
-			public void handle(CellEditEvent<Aluno, String> event) {
-				Aluno aluno = event.getRowValue();
-				aluno.setMail(event.getNewValue());
-			}
-		});
+        mail = new TableColumn<Aluno, String>("Mail");
+        mail.setCellValueFactory(new PropertyValueFactory<Aluno, String>("mail"));
+        mail.setCellFactory(TextFieldTableCell.forTableColumn());
+        mail.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, String>>() {
+            @Override
+            public void handle(CellEditEvent<Aluno, String> event) {
+                Aluno aluno = event.getRowValue();
+                aluno.setMail(event.getNewValue());
+            }
+        });
         table.getColumns().add(mail);
 
-
-
         curso = new TableColumn<Aluno, String>("Curso");
-		curso.setCellValueFactory(new PropertyValueFactory<Aluno, String>("siglaCurso"));
-		curso.setCellFactory(TextFieldTableCell.forTableColumn());
-		curso.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, String>>() {
-			@Override
-			public void handle(CellEditEvent<Aluno, String> event) {
-				Aluno aluno = event.getRowValue();
-				aluno.setSiglaCurso(event.getNewValue());
-			}
-		});
+        curso.setCellValueFactory(new PropertyValueFactory<Aluno, String>("siglaCurso"));
+        curso.setCellFactory(TextFieldTableCell.forTableColumn());
+        curso.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, String>>() {
+            @Override
+            public void handle(CellEditEvent<Aluno, String> event) {
+                Aluno aluno = event.getRowValue();
+                aluno.setSiglaCurso(event.getNewValue());
+            }
+        });
         table.getColumns().add(curso);
 
-
         ramo = new TableColumn<Aluno, String>("Ramo");
-		ramo.setCellValueFactory(new PropertyValueFactory<Aluno, String>("siglaRamo"));
-		ramo.setCellFactory(TextFieldTableCell.forTableColumn());
-		ramo.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, String>>() {
-			@Override
-			public void handle(CellEditEvent<Aluno, String> event) {
-				Aluno aluno = event.getRowValue();
-				aluno.setSiglaRamo(event.getNewValue());
-			}
-		});
+        ramo.setCellValueFactory(new PropertyValueFactory<Aluno, String>("siglaRamo"));
+        ramo.setCellFactory(TextFieldTableCell.forTableColumn());
+        ramo.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, String>>() {
+            @Override
+            public void handle(CellEditEvent<Aluno, String> event) {
+                Aluno aluno = event.getRowValue();
+                aluno.setSiglaRamo(event.getNewValue());
+            }
+        });
         table.getColumns().add(ramo);
-
 
         classificacao = new TableColumn<Aluno, Double>("Classificação");
         classificacao.setCellValueFactory(new PropertyValueFactory<Aluno, Double>("classificacao"));
         classificacao.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         classificacao.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, Double>>() {
-			@Override
-			public void handle(CellEditEvent<Aluno, Double> event) {
-				Aluno aluno = event.getRowValue();
-				aluno.setClassifica(event.getNewValue());
-			}
-		});
+            @Override
+            public void handle(CellEditEvent<Aluno, Double> event) {
+                Aluno aluno = event.getRowValue();
+                aluno.setClassifica(event.getNewValue());
+            }
+        });
         table.getColumns().add(classificacao);
 
         estagio = new TableColumn<Aluno, Boolean>("Acesso Estagio");
         estagio.setCellValueFactory(new PropertyValueFactory<Aluno, Boolean>("acessoEstagio"));
         estagio.setCellFactory(TextFieldTableCell.forTableColumn(new BooleanStringConverter()));
         estagio.setOnEditCommit(new EventHandler<CellEditEvent<Aluno, Boolean>>() {
-			@Override
-			public void handle(CellEditEvent<Aluno, Boolean> event) {
-				Aluno aluno = event.getRowValue();
-				aluno.setAcessoEstagio(event.getNewValue());
-			}
-		});
+            @Override
+            public void handle(CellEditEvent<Aluno, Boolean> event) {
+                Aluno aluno = event.getRowValue();
+                aluno.setAcessoEstagio(event.getNewValue());
+            }
+        });
         table.getColumns().add(estagio);
-        
+
+        ObservableList<Aluno> observableList = FXCollections.observableList(manager.getArrayAlunos());
+      table.getItems().addAll(observableList);
+
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
         getChildren().add(table);
 
-        // TODO tamanho das colunas conforme o tamanho da informaçao 
+    }
+
+    public void displayTableAlunos() {
 
         scene = new Scene(new BorderPane(table), 500, 300);
         stage = new Stage();
@@ -150,15 +148,9 @@ public class TableViewAlunos extends VBox  {
 
     }
 
-    public void add( Aluno aluno){
-        table.getItems().add(aluno);
+
+    public void TableViewAlunosRefresh(){
+        this.table.refresh();
     }
 
-
- 
-
-   
 }
-
-
-
