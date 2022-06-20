@@ -148,6 +148,10 @@ public class Data {
         return listaDocentes.values().stream().collect(Collectors.toCollection(ArrayList::new));
     }
 
+    public ArrayList<Proposta> getArrayPropostas(){
+        return listaPropostas.values().stream().collect(Collectors.toCollection(ArrayList::new));
+    }
+
     public HashMap<String, Docente> getListaDocentes() {
         return listaDocentes;
     }

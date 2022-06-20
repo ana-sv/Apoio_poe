@@ -66,17 +66,7 @@ public class TableViewDocentes extends VBox {
        observableList = FXCollections.observableList(manager.getArrayDocentes());
         table.getItems().addAll(observableList);
 
-        observableList.addListener(
-            new ListChangeListener<Docente>() {
-              @Override
-              public void onChanged(
-                Change<? extends Docente> change) {
-                  System.out.println(
-                    "Selection changed: " + change.getList());
-                }
-          });
-
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        table.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
 
         getChildren().add(table);
 
@@ -84,11 +74,11 @@ public class TableViewDocentes extends VBox {
 
 
 
-    public void displayTableAlunos() {
+    public void displayTableDocentes() {
 
         scene = new Scene(new BorderPane(table), 500, 300);
         stage = new Stage();
-        stage.setTitle("Listagem de Alunos");
+        stage.setTitle("Listagem de Docentes");
         stage.setScene(scene);
         stage.show();
 

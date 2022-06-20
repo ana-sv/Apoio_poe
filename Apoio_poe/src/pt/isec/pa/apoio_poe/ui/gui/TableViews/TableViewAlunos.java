@@ -129,15 +129,6 @@ public class TableViewAlunos extends VBox {
        observableList = FXCollections.observableList(manager.getArrayAlunos());
         table.getItems().addAll(observableList);
 
-        observableList.addListener(
-            new ListChangeListener<Aluno>() {
-              @Override
-              public void onChanged(
-                Change<? extends Aluno> change) {
-                  System.out.println(
-                    "Selection changed: " + change.getList());
-                }
-          });
 
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         getChildren().add(table);

@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Docente;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
@@ -25,10 +26,7 @@ public class ModelManager {
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(listener);
-    }
-
-
-    
+    }    
 
 
     public ApoioPoeState getState() {
@@ -107,6 +105,10 @@ public class ModelManager {
 
     public ArrayList<Docente> getArrayDocentes(){
         return fsm.getArrayDocentes(); 
+    }
+
+    public ArrayList<Proposta> getArrayPropostas(){
+        return fsm.getArrayPropostas(); 
     }
 
 

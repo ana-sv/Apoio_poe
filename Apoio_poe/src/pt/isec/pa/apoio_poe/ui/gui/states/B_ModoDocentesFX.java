@@ -46,7 +46,7 @@ public class B_ModoDocentesFX extends BorderPane {
         btnVoltar = new Button("Voltar");
         btnVoltar.setMinSize(200,60);
 
-        btnUpdate= new Button("Update lista");
+        btnUpdate= new Button("Update");
         btnUpdate.setMinSize(200, 60);
 
 

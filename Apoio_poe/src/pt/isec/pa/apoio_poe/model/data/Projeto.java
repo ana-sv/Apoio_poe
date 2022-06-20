@@ -40,6 +40,27 @@ public class Projeto extends Proposta{
         return tipo; 
     }
 
+    public void setTipo(String t){
+        this.tipo = t; 
+    }
+
+    
+    public void getTitulo(String t){
+        this.titulo = t; 
+    }
+
+    public String getTitulo(){
+        return this.titulo; 
+    }
+
+
+    public void setArea( String a){
+        this.area = a; 
+    }
+
+    public String getArea(){
+        return this.area;
+    }
     
     
 }

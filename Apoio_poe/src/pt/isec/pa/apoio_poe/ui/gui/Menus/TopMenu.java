@@ -7,10 +7,13 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.TableView;
 import javafx.stage.FileChooser;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewAlunos;
+import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewDocentes;
+import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewPropostas;
 
 public class TopMenu extends MenuBar {
     ModelManager manager;
@@ -26,6 +29,8 @@ public class TopMenu extends MenuBar {
 
            
     TableViewAlunos table;
+    TableViewDocentes tableDocentes;
+    TableViewPropostas tablePropostas;
 
     public TopMenu(ModelManager manager) {
         this.manager = manager;
@@ -95,6 +100,21 @@ public class TopMenu extends MenuBar {
 
     
         });
+
+        listaDocentes.setOnAction(evt -> {
+
+            tableDocentes = new TableViewDocentes(manager, false);
+             this.tableDocentes.displayTableDocentes();
+ 
+     
+         });
+         listaPropostas.setOnAction(evt -> {
+
+            tablePropostas = new TableViewPropostas(manager, false);
+             this.tablePropostas.displayTablePropostas();
+ 
+     
+         });
      
 
     }

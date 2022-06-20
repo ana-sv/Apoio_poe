@@ -39,5 +39,16 @@ public class Estagio extends Proposta {
         return tipo; 
     }
 
+    public void setTipo(String t){
+        this.tipo = t; 
+    }
+
+    public void getTitulo(String t){
+        this.titulo = t; 
+    }
+
+    public String getTitulo (){
+        return this.titulo; 
+    }
     
 }
