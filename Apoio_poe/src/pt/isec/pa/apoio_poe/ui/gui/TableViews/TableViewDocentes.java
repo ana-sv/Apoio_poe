@@ -56,7 +56,7 @@ public class TableViewDocentes extends VBox {
             @Override
             public void handle(CellEditEvent<Docente, String> event) {
                Docente docente = event.getRowValue();
-                docente.setNome(event.getNewValue());
+                docente.setMail(event.getNewValue());
             }
         });
         table.getColumns().add(mail);

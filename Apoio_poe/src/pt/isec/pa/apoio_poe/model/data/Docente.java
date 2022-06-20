@@ -22,7 +22,7 @@ public class Docente {
     }
 
 
-    public String getEmail() {
+    public String getMail() {
         return mail;
     }
 
