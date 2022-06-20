@@ -70,7 +70,7 @@ public class ModelManager {
     }
 
     public boolean fechaFase(){
-       return fsm.avancaFechandoFase();
+       return fsm.fechaFase();
     }
 
     public String importaCVS(String nomeFicheiro ){

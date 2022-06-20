@@ -1,7 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.TableViews;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -14,7 +13,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.ModelManager;
-import pt.isec.pa.apoio_poe.model.data.Projeto;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 
 public class TableViewPropostas extends VBox {

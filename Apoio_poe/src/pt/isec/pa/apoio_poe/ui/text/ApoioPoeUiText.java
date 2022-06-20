@@ -36,7 +36,7 @@ public class ApoioPoeUiText {
                 // case 3 -> TO DO atribuicao automatica de orientadores
                 case 4 -> poe.volta(); 
                 case 5 -> poe.avancaEstado();
-                case 6 -> System.out.println("\nFASE FECHADA: " + poe.avancaFechandoFase() );
+                case 6 -> System.out.println("\nFASE FECHADA: " + poe.fechaFase() );
                  case 7-> System.out.println( poe.gravaEstadoAplicacao(PAInput.readString("> Insira um nome para ficheiro: ", true )) ); 
                 case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
@@ -68,7 +68,7 @@ public class ApoioPoeUiText {
                 // case 3 -> TO DO atribuicao automatica de ppropostas
                 case 4 -> poe.volta(); 
                 case 5 -> poe.avancaEstado();
-                case 6 -> System.out.println("\nFASE FECHADA: " + poe.avancaFechandoFase() );
+                case 6 -> System.out.println("\nFASE FECHADA: " + poe.fechaFase() );
                 case 7-> System.out.println( poe.gravaEstadoAplicacao(PAInput.readString("> Insira um nome para ficheiro: ", true )) ); 
                 case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
@@ -114,7 +114,7 @@ public class ApoioPoeUiText {
        //          case 3 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
                 case 4 -> poe.volta(); 
                 case 5 -> poe.avancaEstado();
-                case 6 -> System.out.println("\nFASE FECHADA: " + poe.avancaFechandoFase() );
+                case 6 -> System.out.println("\nFASE FECHADA: " + poe.fechaFase() );
                 case 7 -> System.out.println( poe.gravaEstadoAplicacao(PAInput.readString("> Insira um nome para ficheiro: ", true )) ); 
                 case 8 -> finish = true;
                 default -> System.out.println("Escolha uma opcao!");
@@ -190,7 +190,7 @@ public class ApoioPoeUiText {
                 case 3 -> poe.alteraModoConfiguracao(3);
             //    case 4 -> System.out.println(poe.exportaCVS(   PAInput.readString("> Insira um nome para ficheiro: ", true )));
                 case 5 -> poe.avancaEstado();
-                case 6 -> System.out.println("\nFASE FECHADA: " + poe.avancaFechandoFase() );
+                case 6 -> System.out.println("\nFASE FECHADA: " + poe.fechaFase() );
                 case 7 -> System.out.println( poe.gravaEstadoAplicacao(PAInput.readString("> Insira um nome para ficheiro: ", true )) ); 
                 case 8 -> System.out.println("\nNAO IMPLEMENTADO "); 
                 case 9 -> finish = true;

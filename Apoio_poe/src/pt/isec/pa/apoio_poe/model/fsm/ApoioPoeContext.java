@@ -71,7 +71,7 @@ public class ApoioPoeContext implements Serializable {
         state.avancaEstado();
     }
 
-    public boolean avancaFechandoFase() {
+    public boolean fechaFase() {
         return state.fechaEstado();
     }
 

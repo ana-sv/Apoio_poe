@@ -1,8 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.TableViews;
 
 
-import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -17,7 +15,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.LongStringConverter;
 import pt.isec.pa.apoio_poe.model.ModelManager;
-import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
 
 public class TableViewCandidaturas extends VBox {
@@ -51,8 +48,8 @@ public class TableViewCandidaturas extends VBox {
         });
         table.getColumns().add(numEstudante);
 
-        String a = manager.listaCandidaturas().toString();
-
+      
+      //  String a = manager.listaCandidaturas().toString();
 
         codigoProp = new TableColumn<Candidatura, String >("Codigos Propostas");
         codigoProp.setCellValueFactory(new PropertyValueFactory<Candidatura,String  >("numEstudante"));
