@@ -10,7 +10,7 @@ import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 public class B_AguardaConfiguracaoFX extends BorderPane  {
     ModelManager manager;
     Button btnAlunos, btnDocentes, btnPropostas;
-    Button btnFecharFase;
+    Button btnFecharFase,  btnAvancar;
     HBox hbox;
 
     public B_AguardaConfiguracaoFX(ModelManager manager) {
@@ -26,21 +26,25 @@ public class B_AguardaConfiguracaoFX extends BorderPane  {
 
         // TO DO falta por uma imagem ou assim para ficar + bonitinho 
         btnAlunos = new Button("Alunos");
-        btnAlunos.setMinSize(200, 200);
+        btnAlunos.setMinSize(100, 150);
 
         btnDocentes = new Button("Docentes");
-        btnDocentes.setMinSize(200, 200);
+        btnDocentes.setMinSize(100, 150);
 
         btnPropostas = new Button("Propoostas");
-        btnPropostas.setMinSize(200, 200);
+        btnPropostas.setMinSize(100, 150);
 
         btnFecharFase = new Button("Fechar Fase");  // TO DO modificar este botão para ficar difernte dos outros
-        btnFecharFase.setMinSize(200, 200);
+        btnFecharFase.setMinSize(100, 150);
+
+        btnAvancar = new Button("Avançar");
+        btnAvancar.setMinSize(100, 150);
+
 
 
         hbox = new HBox();
-        hbox.getChildren().addAll( btnAlunos, btnDocentes , btnPropostas, btnFecharFase);
-        hbox.setSpacing(100);
+        hbox.getChildren().addAll( btnAlunos, btnDocentes , btnPropostas, btnFecharFase, btnAvancar);
+        hbox.setSpacing(50);
         hbox.setAlignment(Pos.CENTER);
         this.setCenter(hbox);
 
@@ -61,6 +65,10 @@ public class B_AguardaConfiguracaoFX extends BorderPane  {
         });
         btnFecharFase.setOnAction(event -> {
             manager.fechaFase();
+        });
+
+        btnAvancar.setOnAction(event -> {
+            manager.avancaEstado();
         });
         
 

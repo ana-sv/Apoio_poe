@@ -6,6 +6,8 @@ import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.ui.gui.Menus.BottomMenu;
 import pt.isec.pa.apoio_poe.ui.gui.Menus.TopMenu;
 import pt.isec.pa.apoio_poe.ui.gui.states.A_InicioFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.AtribuicaoOrientadores;
+import pt.isec.pa.apoio_poe.ui.gui.states.AtribuicaoPropostas;
 import pt.isec.pa.apoio_poe.ui.gui.states.B_AguardaConfiguracaoFX;
 import pt.isec.pa.apoio_poe.ui.gui.states.B_ModoAlunosFX;
 import pt.isec.pa.apoio_poe.ui.gui.states.B_ModoDocentesFX;
@@ -32,7 +34,9 @@ public class RootPane extends BorderPane {
             new B_ModoAlunosFX( manager),
             new B_ModoDocentesFX( manager),
              new B_ModoPropostasFX( manager ),
-         new C_OpcoesCandidaturasFX( manager )
+         new C_OpcoesCandidaturasFX( manager ),
+         new AtribuicaoPropostas(manager),
+         new AtribuicaoOrientadores(manager)
 
 
 
