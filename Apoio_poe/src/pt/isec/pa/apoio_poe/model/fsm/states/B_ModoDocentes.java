@@ -13,21 +13,6 @@ class B_ModoDocentes extends StateAdapter {
     }
 
 
-
-
-    public String mostraListas() {
-        StringBuilder str= new StringBuilder();
-        for ( Docente a : data.getListaDocentes().values()) {
-            str.append(a.DocentesToString());
-        }
-        if(str.isEmpty())
-            str.append("\n> SEM IMFORMACAO !");
-
-        return str.toString();
-    }
-
-
-
     @Override
     public String importaCVS(String nomeFicheiro) {
         return Ficheiro.importaCVSdocentes(nomeFicheiro, this.data);

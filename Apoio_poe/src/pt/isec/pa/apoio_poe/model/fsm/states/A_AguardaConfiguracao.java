@@ -5,7 +5,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
 class A_AguardaConfiguracao extends StateAdapter {
-    private Integer index = 0;
+    private Integer id = 0;
 
     A_AguardaConfiguracao(ApoioPoeContext context, Data data) {
         super(context, data);
@@ -21,14 +21,14 @@ class A_AguardaConfiguracao extends StateAdapter {
     }
 
     @Override
-    public boolean fechaEstado() { // avança e fecha/bloquea estado
+    public boolean fechaEstado() { 
 
         data.sortByClassification();
 
         if (data.contaPropostasDA() >= data.getListaAlunos().size()
                 && data.contaPropostasSI() >= data.getListaAlunos().size()
                 && data.contaPropostasRAS() >= data.getListaAlunos().size() && data.contaPropostasDA() != 0 ) {
-            data.setSituacaoEstados(index, false);
+            data.setSituacaoEstados(this.id, false);
             return true;
         }
 
@@ -51,7 +51,7 @@ class A_AguardaConfiguracao extends StateAdapter {
 
     @Override
     public boolean getSituacaoEstado() {
-        return data.getSituacaoEstados(this.index);
+        return data.getSituacaoEstados(this.id);
     }
 
 }

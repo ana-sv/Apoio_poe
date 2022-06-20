@@ -12,23 +12,6 @@ class B_ModoPropostas extends StateAdapter{
         super(context, data);
     }
 
-    
-    
-
-
-    public String mostraListas() {
-        StringBuilder str= new StringBuilder();
-        for ( Proposta a : data.getListaProposta().values()) {
-            str.append(a.propostasToString());
-        }
-
-        
-        if(str.isEmpty())
-            str.append("\n> SEM IMFORMACAO !");
-
-        return str.toString();
-    }
-
 
     @Override
     public String importaCVS(String nomeFicheiro) {

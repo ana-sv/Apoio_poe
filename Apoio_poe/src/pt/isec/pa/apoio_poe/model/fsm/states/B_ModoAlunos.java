@@ -11,22 +11,6 @@ class B_ModoAlunos extends StateAdapter{
     B_ModoAlunos(ApoioPoeContext context, Data data) {
         super(context, data);
     }
-
-
-  
-    public String mostraListas() {
-        StringBuilder str= new StringBuilder();
-        for ( Aluno a : data.getListaAlunos().values()) {
-            str.append(a.alunoToString());
-        }
-
-        if(str.isEmpty())
-            str.append("\n> SEM IMFORMACAO !");
-
-        return str.toString();
-    }
-
-
     
     
     @Override

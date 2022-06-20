@@ -44,10 +44,6 @@ public class B_AguardaConfiguracaoFX extends BorderPane  {
         hbox.setAlignment(Pos.CENTER);
         this.setCenter(hbox);
 
-
-
-      
-
     }
 
     void registerHandlers() {

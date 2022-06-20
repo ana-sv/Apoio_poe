@@ -56,8 +56,14 @@ public class B_ModoPropostasFX extends BorderPane  {
         this.setRight(vboxOpcoesProp);
         vboxOpcoesProp.setPadding(new Insets(40));
 
-
+        if (manager.getSituacaoEstado() == false ) {
+            table = new TableViewPropostas(manager, false);
+            btnImportar.setDisable(true);
+            btnVoltar.setDisable(true);
+        }else {
         table = new TableViewPropostas(manager, true);
+        }
+
         vboxTable = new VBox();
         vboxTable.getChildren().addAll(table);
         vboxTable.setAlignment(Pos.CENTER);

@@ -24,16 +24,6 @@ import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
 
 
-    public String mostraListas() {
-        StringBuilder s = new StringBuilder();
-
-        s.append(data.infoCandidaturasToString(true));
-
-    return s.toString();
-    }
-
-
-
     @Override
     public boolean getSituacaoEstado(){
         return data.getSituacaoEstados(this.index);

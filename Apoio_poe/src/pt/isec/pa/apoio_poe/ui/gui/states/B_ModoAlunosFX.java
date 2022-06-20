@@ -55,7 +55,7 @@ public class B_ModoAlunosFX extends BorderPane {
         vboxOpcoes.setAlignment(Pos.CENTER);
 
 
-        if (manager.getSituacaoEstado() == true ) {
+        if (manager.getSituacaoEstado() == false ) {   // se o estado está fechado
             table = new TableViewAlunos(manager, false);
             btnImportar.setDisable(true);
             btnVoltar.setDisable(true);

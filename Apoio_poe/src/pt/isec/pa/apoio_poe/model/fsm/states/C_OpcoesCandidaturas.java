@@ -1,29 +1,15 @@
 package pt.isec.pa.apoio_poe.model.fsm.states;
 import pt.isec.pa.apoio_poe.model.data.Data;
-import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
  class C_OpcoesCandidaturas extends StateAdapter {
-    private Integer index = 1;
+    private Integer id = 1;
 
 
      C_OpcoesCandidaturas(ApoioPoeContext context, Data data) {
         super(context, data);
-    }
-
-
-
-    public String mostraListas() {
-        StringBuilder s = new StringBuilder();
-
-        s.append("\nCANDIDATURAS");
-
-        for( Candidatura c : data.getListaCandidaturas().values() )
-            s.append( c.candidaturaToString() );
-
-        return s.toString();
     }
 
 
@@ -44,7 +30,7 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
     @Override
     public boolean voltar(){ 
-        if (data.getSituacaoEstados(this.index) == true) {
+        if (data.getSituacaoEstados(this.id) == true) {
             changeState( ApoioPoeState.AGUARDA_CONFIGURACAO );
             return true;
         }
@@ -62,9 +48,7 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
     public boolean fechaEstado() {
         // TODO : impedir fechar se houverem candidaturas sem proposta 
 
-
-
-        data.setSituacaoEstados( this.index, false); // estado fechado 
+        data.setSituacaoEstados( this.id, false); // estado fechado 
         return true;    
     }
 
@@ -72,7 +56,7 @@ import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
     @Override
     public boolean getSituacaoEstado(){
-        return data.getSituacaoEstados(this.index);
+        return data.getSituacaoEstados(this.id);
     }
 
 

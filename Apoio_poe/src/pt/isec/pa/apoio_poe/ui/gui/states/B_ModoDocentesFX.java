@@ -58,7 +58,14 @@ public class B_ModoDocentesFX extends BorderPane {
         vboxOpcoesDocentes.setPadding(new Insets(40));
 
 
+        if (manager.getSituacaoEstado() == false) {
+            table = new TableViewDocentes(manager, false);
+            btnImportar.setDisable(true);
+            btnVoltar.setDisable(true);
+        }else {
         table = new TableViewDocentes(manager, true);
+        }
+
         vboxTable = new VBox();
         vboxTable.getChildren().addAll(table);
         vboxTable.setAlignment(Pos.CENTER);

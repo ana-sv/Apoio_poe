@@ -6,7 +6,7 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
 class D_AtribuicaoPropostas extends StateAdapter {
-    private Integer index = 2;
+    private Integer id = 2;
 
     D_AtribuicaoPropostas(ApoioPoeContext context, Data data) {
         super(context, data);
@@ -14,7 +14,7 @@ class D_AtribuicaoPropostas extends StateAdapter {
 
     public boolean atribuicaoAuto() {
 
-        if (data.getSituacaoEstados(index) == true) { // se esta fase está aberta , entao começa a atribuir
+        if (data.getSituacaoEstados(id) == true) { // se esta fase está aberta , entao começa a atribuir
 
             for (Candidatura a : data.getListaCandidaturas().values()) {
 
@@ -54,23 +54,8 @@ class D_AtribuicaoPropostas extends StateAdapter {
 
     }
 
-    public String filtraListasAlunos(Integer q, String filtros) {
-        // TO DO
-        return " nao implementado ainda";
-    }
 
-    public String filtraListasPropostas(Integer q, String filtros) {
-        // TO DO
-        return " nao implementado ainda";
-    }
-
-    public String mostraListas() { // MUDAR PARA DADOS??
-        StringBuilder s = new StringBuilder();
-
-        s.append(data.infoCandidaturasToString(false));
-
-        return s.toString();
-    }
+    
 
     @Override
     public ApoioPoeState getState() {
@@ -90,6 +75,7 @@ class D_AtribuicaoPropostas extends StateAdapter {
         // Apenas será possível fechar esta fase se todos os alunos com candidaturas
         // submetidas possuírem projeto atribuído
         if (data.getListaCandidaturas().containsValue(null)) {
+            data.setSituacaoEstados( this.id, false); 
             return false;
         } else {
             changeState(ApoioPoeState.ATRIBUICAO_ORIENTADORES);
@@ -99,7 +85,7 @@ class D_AtribuicaoPropostas extends StateAdapter {
 
     @Override
     public boolean voltar() {
-        if (data.getSituacaoEstados(this.index) == true) {
+        if (data.getSituacaoEstados(this.id) == true) {
             changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
             return true;
         }
@@ -109,7 +95,7 @@ class D_AtribuicaoPropostas extends StateAdapter {
 
     @Override
     public boolean getSituacaoEstado() {
-        return data.getSituacaoEstados(this.index);
+        return data.getSituacaoEstados(this.id);
     }
 
 }

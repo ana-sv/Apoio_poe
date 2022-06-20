@@ -5,16 +5,11 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
 class F_AtribuicaoOrientadores extends StateAdapter {
-    private Integer index = 3;
+    private Integer id = 3;
 
     F_AtribuicaoOrientadores(ApoioPoeContext context, Data data) {
         super(context, data);
 
-    }
-
-    public String filtraListasOrientadores(Integer q, String filtros) { // MUDAR PARA DADOS?
-        // TO DO
-        return " nao implementado ainda";
     }
 
     public String mostraListas() { // MUDAR PARA DADOS?
@@ -39,7 +34,7 @@ class F_AtribuicaoOrientadores extends StateAdapter {
     @Override
     public boolean voltar() {
 
-        if (data.getSituacaoEstados(this.index) == true) {
+        if (data.getSituacaoEstados(this.id) == true) {
             changeState(ApoioPoeState.ATRIBUICAO_PROPOSTAS);
             return true;
         }
@@ -51,7 +46,7 @@ class F_AtribuicaoOrientadores extends StateAdapter {
     public boolean fechaEstado() {
         if (data.getListaAlunos().size() == data.getListaFinal().size()) { // todos os alunos tem uma proposta atribuida
 
-            data.setSituacaoEstados(index, false);
+            data.setSituacaoEstados(id, false);
             return true;
         }
         return false;
@@ -60,7 +55,7 @@ class F_AtribuicaoOrientadores extends StateAdapter {
 
     @Override
     public boolean getSituacaoEstado() {
-        return data.getSituacaoEstados(this.index);
+        return data.getSituacaoEstados(this.id);
     }
 
 }
