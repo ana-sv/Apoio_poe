@@ -2,7 +2,6 @@ package pt.isec.pa.apoio_poe.ui.gui;
 
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.ui.gui.Menus.BottomMenu;
 import pt.isec.pa.apoio_poe.ui.gui.Menus.TopMenu;
 import pt.isec.pa.apoio_poe.ui.gui.states.InicioFX;

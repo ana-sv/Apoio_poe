@@ -1,4 +1,4 @@
-package pt.isec.pa.apoio_poe.model;
+package pt.isec.pa.apoio_poe.ui.gui;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

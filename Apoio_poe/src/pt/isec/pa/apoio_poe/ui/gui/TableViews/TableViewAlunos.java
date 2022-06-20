@@ -15,8 +15,8 @@ import javafx.stage.Stage;
 import javafx.util.converter.BooleanStringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.LongStringConverter;
-import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.ui.gui.ModelManager;
 
 public class TableViewAlunos extends VBox {
     ModelManager manager;

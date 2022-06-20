@@ -14,8 +14,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.LongStringConverter;
-import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
+import pt.isec.pa.apoio_poe.ui.gui.ModelManager;
 
 public class TableViewCandidaturas extends VBox {
     ModelManager manager;

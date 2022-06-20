@@ -4,8 +4,8 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+import pt.isec.pa.apoio_poe.ui.gui.ModelManager;
 
 public class AguardaConfiguracaoFX extends BorderPane  {
     ModelManager manager;

@@ -13,8 +13,8 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.data.Docente;
+import pt.isec.pa.apoio_poe.ui.gui.ModelManager;
 
 public class TableViewDocentes extends VBox {
     ModelManager manager;

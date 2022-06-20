@@ -13,8 +13,8 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
-import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+import pt.isec.pa.apoio_poe.ui.gui.ModelManager;
 import pt.isec.pa.apoio_poe.ui.gui.resources.ImageManager;
 
 public class InicioFX extends BorderPane {
