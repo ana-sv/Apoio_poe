@@ -7,7 +7,7 @@ public class Projeto extends Proposta{
 
 
     public Projeto( String codigoProp, String area, String titulo, String mail, Long numEstudante) {
-        this.tipo = TipoProposta.T2;
+        this.tipo =  "T2";
         this.codigoProp = codigoProp;
         this.area = area;
         this.titulo = titulo;
@@ -36,10 +36,9 @@ public class Projeto extends Proposta{
         return area;
     }
 
-    public TipoProposta getTipo(){
+    public String getTipo(){
         return tipo; 
     }
-
 
     
     

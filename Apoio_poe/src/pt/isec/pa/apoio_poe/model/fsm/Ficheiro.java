@@ -5,7 +5,6 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import pt.isec.pa.apoio_poe.model.data.Data;
-import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 
 public final class Ficheiro {
 
@@ -463,7 +462,7 @@ public final class Ficheiro {
 
     public static String importaCVSpropostas(String nomeFicheiro, Data data) {
         StringBuilder sb = new StringBuilder();
-        TipoProposta tipoProp = null;
+        String tipoProp = null;
         String linha;
         FileReader fr = null;
         BufferedReader br = null;
@@ -480,15 +479,15 @@ public final class Ficheiro {
                 // Tipo Proposta
                 if (sc.hasNext()) {
                     String snString = sc.next();
-                    tipoProp = TipoProposta.valueOf(snString);
+                    tipoProp = snString;
 
-                    if (tipoProp.name().equals("T1")) {
+                    if (tipoProp.equals("T1")) {
                         importEstagio(sc, data);
                     }
-                    if (tipoProp.name().equals("T2")) {
+                    if (tipoProp.equals("T2")) {
                         importProjecto(sc, data);
                     }
-                    if (tipoProp.name().equals("T3")) {
+                    if (tipoProp.equals("T3")) {
                         importAutoProposta(sc, data);
                     }
 

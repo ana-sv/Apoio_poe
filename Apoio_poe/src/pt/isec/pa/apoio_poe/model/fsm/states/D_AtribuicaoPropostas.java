@@ -2,7 +2,6 @@ package pt.isec.pa.apoio_poe.model.fsm.states;
 
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.Data;
-import pt.isec.pa.apoio_poe.model.data.Proposta.TipoProposta;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
@@ -22,7 +21,7 @@ class D_AtribuicaoPropostas extends StateAdapter {
                 if (!data.alunoExisteListaFinal(a.getNumEstudante())) { // se o aluno ainda nao está na lista final
                                                                         // definitiva
 
-                    if ( a.getListaPropostas().contains(TipoProposta.T3)) {
+                    if ( a.getListaPropostas().contains("T3")) {
                         data.getListaFinal().put(a.getNumEstudante(), a.getCodigoProposta(0));
                          // a lista de propostas já é um array com codigos das propostas
                          data.getListaCandidaturas().remove(a.getNumEstudante());  

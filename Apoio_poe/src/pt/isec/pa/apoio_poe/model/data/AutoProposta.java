@@ -7,7 +7,7 @@ public class AutoProposta extends Proposta{
 
 
     public AutoProposta( String codigoProp, String titulo, Long numEstudante) {
-        this.tipo = TipoProposta.T3;
+        this.tipo = "T3";
         this.codigoProp = codigoProp;
         this.titulo = titulo;
         this.numEstudante = numEstudante;
@@ -30,7 +30,7 @@ public class AutoProposta extends Proposta{
     }
     
 
-    public TipoProposta getTipo(){
+    public String getTipo(){
         return tipo; 
     }
 

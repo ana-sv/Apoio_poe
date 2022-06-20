@@ -6,7 +6,7 @@ public class Estagio extends Proposta {
     protected String entAcolhimento;
     
     public Estagio( String codigoProp, String area, String titulo,String entAcolhimento) {
-        this.tipo = TipoProposta.T1;
+        this.tipo = "T1";
         this.codigoProp = codigoProp;
         this.area = area;
         this.titulo = titulo;
@@ -35,7 +35,7 @@ public class Estagio extends Proposta {
     }
 
 
-    public TipoProposta getTipo(){
+    public String getTipo(){
         return tipo; 
     }
 
