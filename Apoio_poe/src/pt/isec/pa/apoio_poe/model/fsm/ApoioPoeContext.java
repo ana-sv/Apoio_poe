@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
@@ -148,6 +149,10 @@ public class ApoioPoeContext implements Serializable {
 
     public ArrayList<Proposta> getArrayPropostas(){
         return data.getArrayPropostas(); 
+    }
+
+    public ArrayList<Candidatura> getArrayCandidaturas(){
+        return data.getArrayCandidaturas();
     }
     
     public String filtraListas(String filtros) {

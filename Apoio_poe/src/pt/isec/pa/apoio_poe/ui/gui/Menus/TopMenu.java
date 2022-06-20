@@ -12,6 +12,7 @@ import javafx.stage.FileChooser;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewAlunos;
+import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewCandidaturas;
 import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewDocentes;
 import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewPropostas;
 
@@ -31,6 +32,7 @@ public class TopMenu extends MenuBar {
     TableViewAlunos table;
     TableViewDocentes tableDocentes;
     TableViewPropostas tablePropostas;
+    TableViewCandidaturas tableCandidaturas;
 
     public TopMenu(ModelManager manager) {
         this.manager = manager;
@@ -112,6 +114,15 @@ public class TopMenu extends MenuBar {
 
             tablePropostas = new TableViewPropostas(manager, false);
              this.tablePropostas.displayTablePropostas();
+ 
+     
+         });
+
+         listaCandidaturas.setOnAction(evt -> {
+
+            tableCandidaturas = new TableViewCandidaturas(manager, false);
+            this.tableCandidaturas.displayTableCandidatura();
+      
  
      
          });

@@ -27,9 +27,17 @@ public class Candidatura {
         return numEstudante;
     }
 
+    public void setNumEstudante( Long n){
+         this.numEstudante = n; 
+    }
+
     public ArrayList<String> getListaPropostas(){
         return listaProp;
     }
+
+    public void setListaPropostas( ArrayList<String> a){
+        this.listaProp = a;
+        }
 
     public String getCodigoProposta(int index){
         return listaProp.get(index);

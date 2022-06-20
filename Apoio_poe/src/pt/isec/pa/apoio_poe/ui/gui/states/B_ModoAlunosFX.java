@@ -47,7 +47,6 @@ public class B_ModoAlunosFX extends BorderPane {
         btnUpdate= new Button("Update lista");
         btnUpdate.setMinSize(200, 60);
 
-        // TO DO : Desencostar os botoes da borda direita um bocadinho
         vboxOpcoes = new VBox();
         vboxOpcoes.getChildren().addAll(btnImportar, btnExportar, btnAvancar, btnVoltar, btnUpdate);
         this.setRight(vboxOpcoes);
@@ -55,14 +54,23 @@ public class B_ModoAlunosFX extends BorderPane {
         vboxOpcoes.setSpacing(20);
         vboxOpcoes.setAlignment(Pos.CENTER);
 
-        // TO DO : Lista Editável do lado esquerdo  
+
+        if (manager.getSituacaoEstado() == true ) {
+            table = new TableViewAlunos(manager, false);
+            btnImportar.setDisable(true);
+            btnVoltar.setDisable(true);
+        }else {
         table = new TableViewAlunos(manager, true);
+        }
        
         vboxTable = new VBox( );
         vboxTable.getChildren().addAll(table);
         vboxTable.setAlignment(Pos.CENTER);
         this.setCenter(vboxTable);
         vboxTable.setPadding(new Insets(40));
+
+
+        
 
     }
 

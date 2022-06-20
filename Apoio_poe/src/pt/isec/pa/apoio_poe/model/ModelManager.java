@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
@@ -33,6 +34,9 @@ public class ModelManager {
         return fsm.getState();
     }
 
+    public Boolean getSituacaoEstado(){
+        return fsm.getSituacaoEstado();
+    }
     
     public void avancaEstado() {
         fsm.avancaEstado();
@@ -63,7 +67,6 @@ public class ModelManager {
         ObjectInputStream oin = new ObjectInputStream(new FileInputStream(caminhoFicheiro));
         fsm = (ApoioPoeContext) oin.readObject();
         oin.close();
-
     }
 
     public boolean fechaFase(){
@@ -109,6 +112,10 @@ public class ModelManager {
 
     public ArrayList<Proposta> getArrayPropostas(){
         return fsm.getArrayPropostas(); 
+    }
+
+    public ArrayList<Candidatura> getArrayCandidaturas(){
+        return fsm.getArrayCandidaturas();
     }
 
 
