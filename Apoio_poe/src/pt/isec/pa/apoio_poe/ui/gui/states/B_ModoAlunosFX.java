@@ -61,7 +61,7 @@ public class B_ModoAlunosFX extends BorderPane {
         vboxTable = new VBox( );
         vboxTable.getChildren().addAll(table);
         vboxTable.setAlignment(Pos.CENTER);
-        this.setLeft(vboxTable);
+        this.setCenter(vboxTable);
         vboxTable.setPadding(new Insets(40));
 
     }

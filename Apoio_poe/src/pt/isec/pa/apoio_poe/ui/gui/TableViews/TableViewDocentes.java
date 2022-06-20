@@ -1,8 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.TableViews;
 
 
-import javax.print.Doc;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -16,11 +14,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.converter.BooleanStringConverter;
-import javafx.util.converter.DoubleStringConverter;
-import javafx.util.converter.LongStringConverter;
 import pt.isec.pa.apoio_poe.model.ModelManager;
-import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Docente;
 
 public class TableViewDocentes extends VBox {

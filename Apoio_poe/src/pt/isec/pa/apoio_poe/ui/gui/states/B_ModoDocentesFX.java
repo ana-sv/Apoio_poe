@@ -54,7 +54,7 @@ public class B_ModoDocentesFX extends BorderPane {
         vboxOpcoesDocentes.getChildren().addAll( btnImportar, btnExportar, btnAvancar, btnVoltar, btnUpdate);
         vboxOpcoesDocentes.setSpacing(10);
         vboxOpcoesDocentes.setAlignment(Pos.CENTER_RIGHT);
-        this.setCenter(vboxOpcoesDocentes);
+        this.setRight(vboxOpcoesDocentes);
         vboxOpcoesDocentes.setPadding(new Insets(40));
 
 
@@ -62,7 +62,7 @@ public class B_ModoDocentesFX extends BorderPane {
         vboxTable = new VBox();
         vboxTable.getChildren().addAll(table);
         vboxTable.setAlignment(Pos.CENTER);
-        this.setLeft(vboxTable);
+        this.setCenter(vboxTable);
         vboxTable.setPadding(new Insets(40));
 
 
