@@ -71,6 +71,7 @@ public class TableViewCandidaturas extends VBox {
 
 
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
         getChildren().add(table);
 
     }

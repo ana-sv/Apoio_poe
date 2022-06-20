@@ -65,7 +65,7 @@ public class TableViewDocentes extends VBox {
        observableList = FXCollections.observableList(manager.getArrayDocentes());
         table.getItems().addAll(observableList);
 
-        table.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         getChildren().add(table);
 

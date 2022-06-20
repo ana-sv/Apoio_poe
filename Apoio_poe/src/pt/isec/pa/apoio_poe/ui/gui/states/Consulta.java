@@ -7,11 +7,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
+import pt.isec.pa.apoio_poe.ui.gui.InputWindow;
 
 public class Consulta extends BorderPane {
     ModelManager manager;
 
-    Button btnVoltar, btnAvancar;
+    Button  btnExportar ,  btnExportarFiltrado;
 
     VBox vboxOpcoes;
 
@@ -26,24 +27,17 @@ public class Consulta extends BorderPane {
 
     private void createViews() {
 
-        btnAvancar = new Button("---");
-        btnAvancar.setMinSize(200, 60);
 
-        btnVoltar = new Button("---");
-        btnVoltar.setMinSize(200, 60);
+        btnExportar = new Button("Exportar Lista Alunos");
+        btnExportar.setMinSize(200, 60);
 
         vboxOpcoes = new VBox();
-        vboxOpcoes.getChildren().addAll(btnAvancar, btnVoltar);
+        vboxOpcoes.getChildren().addAll(btnExportar);
         this.setRight(vboxOpcoes);
         vboxOpcoes.setPadding(new Insets(40));
         vboxOpcoes.setSpacing(20);
         vboxOpcoes.setAlignment(Pos.CENTER);
 
-        if (manager.getSituacaoEstado() == false) { // se o estado está fechado
-            btnVoltar.setDisable(true);
-        }
-
-        ;
 
     }
 
@@ -52,12 +46,15 @@ public class Consulta extends BorderPane {
             update();
         });
 
-        btnAvancar.setOnAction(event -> {
-            manager.avancaEstado();
+        btnExportar.setOnAction(event -> {
+            String str = InputWindow.display("Exportar Lista de Alunos",
+                    "Insira o nome do ficheiro para exportação:  ");
+            System.out.println("nome ficheiro exportar " + str);
+            manager.exportaCVS(str, manager.listaAlunos());
+            // TODO exportar listas finais em vez desta
         });
-        btnVoltar.setOnAction(event -> {
-            manager.volta();
-        });
+   
+        
 
     }
 
