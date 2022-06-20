@@ -4,11 +4,11 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
- class C_OpcoesCandidaturas extends StateAdapter {
+ class OpcoesCandidaturas extends StateAdapter {
     private Integer id = 1;
 
 
-     C_OpcoesCandidaturas(ApoioPoeContext context, Data data) {
+     OpcoesCandidaturas(ApoioPoeContext context, Data data) {
         super(context, data);
     }
 

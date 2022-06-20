@@ -5,9 +5,9 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 
-class B_ModoDocentes extends StateAdapter {
+class ModoDocentes extends StateAdapter {
 
-     B_ModoDocentes(ApoioPoeContext context, Data data) {
+     ModoDocentes(ApoioPoeContext context, Data data) {
         super(context, data);
     }
 

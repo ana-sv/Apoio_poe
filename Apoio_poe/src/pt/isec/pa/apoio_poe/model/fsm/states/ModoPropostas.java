@@ -5,29 +5,26 @@ import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.Ficheiro;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
-class B_ModoAlunos extends StateAdapter{
+class ModoPropostas extends StateAdapter{
 
-    B_ModoAlunos(ApoioPoeContext context, Data data) {
+     ModoPropostas(ApoioPoeContext context, Data data) {
         super(context, data);
     }
-    
-    
-    @Override
-    public String importaCVS(String nomeFicheiro) { 
-        return Ficheiro.importaCVSalunos(nomeFicheiro,this.data);
-    }
 
-    
+
+    @Override
+    public String importaCVS(String nomeFicheiro) {
+        return Ficheiro.importaCVSpropostas(nomeFicheiro, this.data);
+    }
 
     @Override
     public ApoioPoeState getState() {
-        return ApoioPoeState.MODO_ALUNOS;
+        return ApoioPoeState.MODO_PROPOSTAS;
     }
-
 
     @Override
     public void avancaEstado() {
-        changeState(ApoioPoeState.OPCOES_CANDIDATURAS);
+        changeState(ApoioPoeState.CONSULTA);
     }
 
 
@@ -39,5 +36,5 @@ class B_ModoAlunos extends StateAdapter{
     }
 
 
-    
+
 }

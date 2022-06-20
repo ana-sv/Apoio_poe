@@ -4,9 +4,9 @@ import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
- class E_ResolveEmpates extends StateAdapter{
+ class ResolveEmpates extends StateAdapter{
 
-    E_ResolveEmpates(ApoioPoeContext context, Data data) {
+    ResolveEmpates(ApoioPoeContext context, Data data) {
         super(context, data);
     }
 

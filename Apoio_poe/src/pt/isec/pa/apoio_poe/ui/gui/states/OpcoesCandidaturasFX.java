@@ -9,7 +9,7 @@ import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.ui.gui.InputWindow;
 
-public class C_OpcoesCandidaturasFX extends BorderPane {
+public class OpcoesCandidaturasFX extends BorderPane {
     ModelManager manager;
 
     Button btnImportar, btnExportar;
@@ -19,7 +19,7 @@ public class C_OpcoesCandidaturasFX extends BorderPane {
     VBox vboxOpcoesCandidaturas;
    
 
-    public C_OpcoesCandidaturasFX(ModelManager manager) {
+    public OpcoesCandidaturasFX(ModelManager manager) {
         this.manager = manager;
 
         createViews();

@@ -5,14 +5,15 @@ import javafx.scene.layout.StackPane;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.ui.gui.Menus.BottomMenu;
 import pt.isec.pa.apoio_poe.ui.gui.Menus.TopMenu;
-import pt.isec.pa.apoio_poe.ui.gui.states.A_InicioFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.InicioFX;
 import pt.isec.pa.apoio_poe.ui.gui.states.AtribuicaoOrientadores;
 import pt.isec.pa.apoio_poe.ui.gui.states.AtribuicaoPropostas;
-import pt.isec.pa.apoio_poe.ui.gui.states.B_AguardaConfiguracaoFX;
-import pt.isec.pa.apoio_poe.ui.gui.states.B_ModoAlunosFX;
-import pt.isec.pa.apoio_poe.ui.gui.states.B_ModoDocentesFX;
-import pt.isec.pa.apoio_poe.ui.gui.states.B_ModoPropostasFX;
-import pt.isec.pa.apoio_poe.ui.gui.states.C_OpcoesCandidaturasFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.Consulta;
+import pt.isec.pa.apoio_poe.ui.gui.states.AguardaConfiguracaoFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.ModoAlunosFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.ModoDocentesFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.ModoPropostasFX;
+import pt.isec.pa.apoio_poe.ui.gui.states.OpcoesCandidaturasFX;
 
 public class RootPane extends BorderPane {
     ModelManager manager;
@@ -29,14 +30,15 @@ public class RootPane extends BorderPane {
 
         // TO DO aplicar CSS aqui 
         StackPane stackPane = new StackPane(
-            new A_InicioFX( manager ),
-            new B_AguardaConfiguracaoFX( manager ),
-            new B_ModoAlunosFX( manager),
-            new B_ModoDocentesFX( manager),
-             new B_ModoPropostasFX( manager ),
-         new C_OpcoesCandidaturasFX( manager ),
+            new InicioFX( manager ),
+            new AguardaConfiguracaoFX( manager ),
+            new ModoAlunosFX( manager),
+            new ModoDocentesFX( manager),
+             new ModoPropostasFX( manager ),
+         new OpcoesCandidaturasFX( manager ),
          new AtribuicaoPropostas(manager),
-         new AtribuicaoOrientadores(manager)
+         new AtribuicaoOrientadores(manager),
+         new Consulta(manager)
 
 
 

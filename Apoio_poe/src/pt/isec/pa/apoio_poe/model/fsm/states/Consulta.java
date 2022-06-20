@@ -4,12 +4,12 @@ import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
- class G_Consulta extends StateAdapter {
+ class Consulta extends StateAdapter {
     private Integer index = 4;
 
 
 
-     G_Consulta(ApoioPoeContext context, Data data) {
+     Consulta(ApoioPoeContext context, Data data) {
         super(context, data);
 
     }

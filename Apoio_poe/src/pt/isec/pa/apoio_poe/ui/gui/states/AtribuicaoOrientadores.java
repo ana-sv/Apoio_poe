@@ -40,10 +40,10 @@ public class AtribuicaoOrientadores extends BorderPane {
         vboxOpcoes.setAlignment(Pos.CENTER);
 
         if (manager.getSituacaoEstado() == false) { // se o estado está fechado
-            btnVoltar.setDisable(true);
+               btnVoltar.setDisable(true);
         }
 
-        ;
+        
 
     }
 

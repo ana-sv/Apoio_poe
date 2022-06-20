@@ -10,7 +10,7 @@ import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.ui.gui.InputWindow;
 import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewPropostas;
 
-public class B_ModoPropostasFX extends BorderPane  {
+public class ModoPropostasFX extends BorderPane  {
     ModelManager manager;
 
     Button btnImportar, btnExportar;
@@ -23,7 +23,7 @@ public class B_ModoPropostasFX extends BorderPane  {
     Button btnUpdate;
     
 
-    public B_ModoPropostasFX(ModelManager manager) {
+    public ModoPropostasFX(ModelManager manager) {
         this.manager = manager;
 
         createViews();

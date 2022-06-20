@@ -17,12 +17,12 @@ import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 import pt.isec.pa.apoio_poe.ui.gui.resources.ImageManager;
 
-public class A_InicioFX extends BorderPane {
+public class InicioFX extends BorderPane {
     ModelManager manager;
 
     Button btnIniciar, btnCarregar;
 
-    public A_InicioFX(ModelManager manager) {
+    public InicioFX(ModelManager manager) {
         this.manager = manager;
 
         createViews();

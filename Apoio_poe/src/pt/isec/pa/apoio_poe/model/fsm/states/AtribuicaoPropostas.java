@@ -5,10 +5,10 @@ import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
-class D_AtribuicaoPropostas extends StateAdapter {
+class AtribuicaoPropostas extends StateAdapter {
     private Integer id = 2;
 
-    D_AtribuicaoPropostas(ApoioPoeContext context, Data data) {
+    AtribuicaoPropostas(ApoioPoeContext context, Data data) {
         super(context, data);
     }
 

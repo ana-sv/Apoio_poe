@@ -23,18 +23,18 @@ public enum ApoioPoeState {
     public ApoioPoeIState createState( ApoioPoeContext context, Data data ){
 
          return switch (this){
-             case INICIO -> new A_Inicio(context, data);
-             case AGUARDA_CONFIGURACAO -> new A_AguardaConfiguracao(context, data);
-             case MODO_ALUNOS -> new B_ModoAlunos(context,data);
-             case MODO_DOCENTES -> new B_ModoDocentes(context,data);
-             case MODO_PROPOSTAS -> new B_ModoPropostas(context,data);
+             case INICIO -> new Inicio(context, data);
+             case AGUARDA_CONFIGURACAO -> new AguardaConfiguracao(context, data);
+             case MODO_ALUNOS -> new ModoAlunos(context,data);
+             case MODO_DOCENTES -> new ModoDocentes(context,data);
+             case MODO_PROPOSTAS -> new ModoPropostas(context,data);
 
-             case OPCOES_CANDIDATURAS -> new C_OpcoesCandidaturas(context,data);
-             case ATRIBUICAO_PROPOSTAS -> new D_AtribuicaoPropostas(context,data);
-             case RESOLVE_EMPATES -> new E_ResolveEmpates(context,data);
+             case OPCOES_CANDIDATURAS -> new OpcoesCandidaturas(context,data);
+             case ATRIBUICAO_PROPOSTAS -> new AtribuicaoPropostas(context,data);
+             case RESOLVE_EMPATES -> new ResolveEmpates(context,data);
 
-             case ATRIBUICAO_ORIENTADORES -> new F_AtribuicaoOrientadores(context,data);
-             case CONSULTA -> new G_Consulta(context,data);
+             case ATRIBUICAO_ORIENTADORES -> new AtribuicaoOrientadores(context,data);
+             case CONSULTA -> new Consulta(context,data);
 
              default -> null; 
          };

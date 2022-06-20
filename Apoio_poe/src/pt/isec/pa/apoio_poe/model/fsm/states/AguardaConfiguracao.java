@@ -4,10 +4,10 @@ import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
-class A_AguardaConfiguracao extends StateAdapter {
+class AguardaConfiguracao extends StateAdapter {
     private Integer id = 0;
 
-    A_AguardaConfiguracao(ApoioPoeContext context, Data data) {
+    AguardaConfiguracao(ApoioPoeContext context, Data data) {
         super(context, data);
     }
 

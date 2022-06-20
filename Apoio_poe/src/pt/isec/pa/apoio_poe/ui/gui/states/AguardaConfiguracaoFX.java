@@ -7,13 +7,13 @@ import javafx.scene.layout.HBox;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
 
-public class B_AguardaConfiguracaoFX extends BorderPane  {
+public class AguardaConfiguracaoFX extends BorderPane  {
     ModelManager manager;
     Button btnAlunos, btnDocentes, btnPropostas;
     Button btnFecharFase,  btnAvancar;
     HBox hbox;
 
-    public B_AguardaConfiguracaoFX(ModelManager manager) {
+    public AguardaConfiguracaoFX(ModelManager manager) {
         this.manager = manager;
 
         createViews();

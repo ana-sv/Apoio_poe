@@ -4,10 +4,10 @@ import pt.isec.pa.apoio_poe.model.data.Data;
 import pt.isec.pa.apoio_poe.model.fsm.ApoioPoeContext;
 import pt.isec.pa.apoio_poe.model.fsm.StateAdapter;
 
-class F_AtribuicaoOrientadores extends StateAdapter {
+class AtribuicaoOrientadores extends StateAdapter {
     private Integer id = 3;
 
-    F_AtribuicaoOrientadores(ApoioPoeContext context, Data data) {
+    AtribuicaoOrientadores(ApoioPoeContext context, Data data) {
         super(context, data);
 
     }
@@ -26,9 +26,9 @@ class F_AtribuicaoOrientadores extends StateAdapter {
 
     @Override
     public void avancaEstado() {
-        if (fechaEstado()) { // porque avançando para o estado Consulta ano é possivel voltar atrás
+      //  if (fechaEstado()) { // porque avançando para o estado Consulta ano é possivel voltar atrás
             changeState(ApoioPoeState.CONSULTA);
-        }
+       // }
     }
 
     @Override
