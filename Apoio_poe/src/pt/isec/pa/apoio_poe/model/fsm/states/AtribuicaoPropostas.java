@@ -77,10 +77,10 @@ class AtribuicaoPropostas extends StateAdapter {
         if (data.getListaCandidaturas().containsValue(null)) {
             data.setSituacaoEstados( this.id, false); 
             return false;
-        } else {
-            changeState(ApoioPoeState.ATRIBUICAO_ORIENTADORES);
+        } 
+         
             return true;
-        }
+        
     }
 
     @Override

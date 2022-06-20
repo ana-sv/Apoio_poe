@@ -78,7 +78,7 @@ public class TableViewPropostas extends VBox {
         titulo.setOnEditCommit(new EventHandler<CellEditEvent<Proposta, String>>() {
             @Override
             public void handle(CellEditEvent<Proposta, String> event) {
-               Proposta prop = event.getRowValue();
+             //  Proposta prop = event.getRowValue();
               // prop.setTitulo(event.getNewValue());  //TODO
             }
         });

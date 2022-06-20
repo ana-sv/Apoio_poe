@@ -10,7 +10,7 @@ AguardaConfiguracao --> ModoAlunos : alteraModoConfiguracao() c/ Fase1=ABERTA
 ' Se a FASE1==FECHADA , já nao há acesso aos estados ModoAluno ModoDocente ModoPropostas que são os que permitem a edicao de informacoes 
 AguardaConfiguracao --> ModoDocentes : alteraModoConfiguracao() c/ Fase1=ABERTA 
 AguardaConfiguracao --> ModoPropostas : alteraModoConfiguracao() c/ Fase1=ABERTA 
-AguardaConfiguracao --> OpcoesCandidaturas : avancaFechandoFase() c/ Fase1=FECHADA 
+AguardaConfiguracao --> OpcoesCandidaturas : fechaFase() c/ Fase1=FECHADA 
 ' neste estado, o metod fechaFase: Fase1=FECHADA, classificacao dos alunos e avança para o proximo estado 
 AguardaConfiguracao --> OpcoesCandidaturas : avanca() c/Fase1=ABERTA 
 ' avanca : classifica alunos e avanca
@@ -57,7 +57,7 @@ OpcoesCandidaturas --> OpcoesCandidaturas : adicionaCandidatura() & Fase2=ABERTA
 OpcoesCandidaturas --> OpcoesCandidaturas : removeCandidatura() & Fase2=ABERTA
 OpcoesCandidaturas --> OpcoesCandidaturas : atualizaCandidatura() & Fase2=ABERTA
 OpcoesCandidaturas --> AtribuicaoPropostas : avanca() & Fase2=ABERTA 
-OpcoesCandidaturas --> AtribuicaoPropostas : avancaFechandoFase() 
+OpcoesCandidaturas --> AtribuicaoPropostas : fechaFase() 
 
 ' AtribuicaoPropostas -FASE3
 AtribuicaoPropostas --> OpcoesCandidaturas : volta() & Fase3=ABERTA
@@ -67,7 +67,7 @@ AtribuicaoPropostas --> AtribuicaoPropostas :  gravaEstadoAplicacao()
 AtribuicaoPropostas --> AtribuicaoPropostas : atualizaPropostas() && Fase3=ABERTA
 AtribuicaoPropostas --> ResolveEmpates : atribuicaoAutoPropostas() & Fase3=ABERTA
 AtribuicaoPropostas --> AtribuicaoOrientadores : avanca() & Fase3=ABERTA 
-AtribuicaoPropostas --> AtribuicaoOrientadores : avancaFechandoFase()
+AtribuicaoPropostas --> AtribuicaoOrientadores : fechaFase()
 
 ' ConsultaEmpates - FASE4
 ResolveEmpates --> ResolveEmpates : desempate() & nEmpates>0
@@ -77,10 +77,10 @@ ResolveEmpates --> AtribuicaoPropostas : desempate() & nEmpates=0
 AtribuicaoOrientadores --> AtribuicaoPropostas : volta() & Fase4=ABERTA
 AtribuicaoOrientadores -> AtribuicaoOrientadores : filtraListas() 
 AtribuicaoOrientadores --> AtribuicaoOrientadores : exportaDados()
-AtribuicaoOrientadores --> AtribuicaoOrientadores : atribuicaoAutoOrientadore() & Fase4=ABERTA
+AtribuicaoOrientadores --> AtribuicaoOrientadores : atribuicaoAutoOrientadores() & Fase4=ABERTA
 AtribuicaoOrientadores --> AtribuicaoOrientadores : atualizaOrientadores()  & Fase4=ABERTA
 AtribuicaoOrientadores --> AtribuicaoOrientadores : gravaEstadoAplicacao()
-AtribuicaoOrientadores --> Consulta :  avancaFechandoFase()
+AtribuicaoOrientadores --> Consulta :  fechaFase()
 
 ' Consulta - FASE5
 Consulta --> Consulta : exportaDados() 

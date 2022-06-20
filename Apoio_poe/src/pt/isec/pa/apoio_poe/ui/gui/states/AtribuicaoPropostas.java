@@ -7,8 +7,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import pt.isec.pa.apoio_poe.model.ModelManager;
 import pt.isec.pa.apoio_poe.model.fsm.states.ApoioPoeState;
-import pt.isec.pa.apoio_poe.ui.gui.InputWindow;
-import pt.isec.pa.apoio_poe.ui.gui.TableViews.TableViewAlunos;
 
 public class AtribuicaoPropostas extends BorderPane {
     ModelManager manager;
